@@ -1,0 +1,262 @@
+{
+  "plans": [
+    {
+      "id": "budget_plan",
+      "name": "Kerala Budget Explorer",
+      "type": "budget",
+      "duration": "5 Days / 4 Nights",
+      "price": 8500,
+      "price_label": "Per Person",
+      "icon": "🎒",
+      "color": "#27ae60",
+      "tagline": "Experience Kerala without breaking the bank",
+      "includes": ["Budget hotels / guesthouses", "Local transport (bus/auto)", "1 backwater day trip", "Guided temple tour", "Local cuisine meals"],
+      "excludes": ["Flights/train tickets", "Personal expenses", "Entry fees at monuments"],
+      "best_for": "Solo travelers, Students, Budget backpackers",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive in Kochi — Colonial Heritage",
+          "places": ["Fort Kochi", "Chinese Fishing Nets", "Mattancherry Palace", "Jewish Synagogue"],
+          "stay": "Zostel Kochi / Budget Guesthouse",
+          "meals": "Breakfast + Dinner included",
+          "transport": "Auto-rickshaw & Walking",
+          "tips": "Evening Kathakali show at Kerala Kathakali Centre (₹350) is highly recommended",
+          "estimated_cost": "₹1200 per person"
+        },
+        {
+          "day": 2,
+          "title": "Alleppey Backwaters — Day Cruise",
+          "places": ["Alleppey Beach", "Vembanad Lake", "Backwater Day Cruise", "Nehru Trophy Venue"],
+          "stay": "Alleppey Budget Hotel",
+          "meals": "Breakfast included",
+          "transport": "KSRTC Bus from Kochi (₹100)",
+          "tips": "Book a shared day-cruise boat (₹300-400) instead of a private houseboat to save money",
+          "estimated_cost": "₹900 per person"
+        },
+        {
+          "day": 3,
+          "title": "Thekkady — Wildlife & Spices",
+          "places": ["Periyar Wildlife Sanctuary", "Spice Plantation Tour", "Elephant Bathing", "Local Bazaar"],
+          "stay": "Thekkady Budget Lodge",
+          "meals": "Breakfast + Lunch included",
+          "transport": "KSRTC Bus from Alleppey",
+          "tips": "Bamboo rafting (₹1100) is cheaper than boat safari and more adventurous",
+          "estimated_cost": "₹1100 per person"
+        },
+        {
+          "day": 4,
+          "title": "Munnar — Tea Gardens & Hills",
+          "places": ["Mattupetty Dam", "Echo Point", "Tea Museum", "Eravikulam NP"],
+          "stay": "Munnar Budget Guesthouse",
+          "meals": "Breakfast included",
+          "transport": "KSRTC Bus from Thekkady",
+          "tips": "Rent a two-wheeler (₹400/day) in Munnar to explore viewpoints at your own pace",
+          "estimated_cost": "₹1300 per person"
+        },
+        {
+          "day": 5,
+          "title": "Thiruvananthapuram — Capital & Departure",
+          "places": ["Napier Museum", "Padmanabhaswamy Temple (outer)", "Kovalam Beach"],
+          "stay": "Departure day",
+          "meals": "Breakfast included",
+          "transport": "Bus from Munnar",
+          "tips": "Try the famous Kerala Banana Chips and Halwa from Thiruvananthapuram Central market as souvenirs",
+          "estimated_cost": "₹800 per person"
+        }
+      ]
+    },
+    {
+      "id": "family_plan",
+      "name": "Kerala Family Delight",
+      "type": "family",
+      "duration": "7 Days / 6 Nights",
+      "price": 18500,
+      "price_label": "Per Person",
+      "icon": "👨‍👩‍👧‍👦",
+      "color": "#2980b9",
+      "tagline": "Create unforgettable memories with your loved ones",
+      "includes": ["3-star hotels throughout", "AC private cab transfers", "Houseboat (1 night)", "Wildlife safari", "All meals", "Guided tours"],
+      "excludes": ["Flights/train to Kerala", "Personal shopping", "Optional activities"],
+      "best_for": "Families with children, Couples, Group of friends",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive Kochi — Welcome to God's Own Country",
+          "places": ["Arrival at Kochi Airport/Station", "Fort Kochi Walk", "Chinese Fishing Nets", "Sunset at Vasco da Gama Square"],
+          "stay": "3-Star Hotel, Fort Kochi",
+          "meals": "Welcome dinner included",
+          "transport": "Private AC cab",
+          "tips": "Kids will love the Chinese fishing net demonstration. Try fresh catch grilled at the nearby stalls",
+          "estimated_cost": "Included in package"
+        },
+        {
+          "day": 2,
+          "title": "Kochi Sightseeing & Departure to Alleppey",
+          "places": ["Wonderla Amusement Park (morning)", "Cherai Beach (afternoon)", "Drive to Alleppey"],
+          "stay": "3-Star Backwater Resort, Alleppey",
+          "meals": "Breakfast + Dinner",
+          "transport": "Private AC cab",
+          "tips": "Wonderla is great for children. Book in advance online for discounted tickets",
+          "estimated_cost": "Included in package"
+        },
+        {
+          "day": 3,
+          "title": "Alleppey Houseboat — Backwater Magic",
+          "places": ["Full day on private houseboat", "Village canal exploration", "Paddy field walks", "Sunset on Vembanad Lake"],
+          "stay": "Luxury Houseboat",
+          "meals": "All meals on houseboat (Kerala cuisine)",
+          "transport": "Houseboat",
+          "tips": "Children love feeding the ducks and watching fishing. Carry mosquito repellent for evenings",
+          "estimated_cost": "Included in package"
+        },
+        {
+          "day": 4,
+          "title": "Thekkady — Elephants & Wildlife",
+          "places": ["Morning check-out from houseboat", "Drive to Thekkady", "Periyar Lake Boat Safari", "Elephant junction visit"],
+          "stay": "3-Star Resort, Thekkady",
+          "meals": "Breakfast + Dinner",
+          "transport": "Private AC cab",
+          "tips": "Children under 5 need extra care on boat safaris. The elephant interaction program is child-friendly",
+          "estimated_cost": "Included in package"
+        },
+        {
+          "day": 5,
+          "title": "Munnar — Tea Hills & Cool Breeze",
+          "places": ["Drive to Munnar through spice gardens", "Mattupetty Dam & Boating", "Eravikulam National Park", "Tea Museum"],
+          "stay": "3-Star Tea Estate Resort, Munnar",
+          "meals": "Breakfast + Dinner",
+          "transport": "Private AC cab",
+          "tips": "Carry warm clothes for Munnar evenings. Kids will enjoy the Nilgiri Tahr (mountain goat) sightings at Eravikulam",
+          "estimated_cost": "Included in package"
+        },
+        {
+          "day": 6,
+          "title": "Thiruvananthapuram — Culture & Heritage",
+          "places": ["Drive to Thiruvananthapuram", "Kuthiramalika Palace Museum", "Padmanabhaswamy Temple", "Kovalam Beach sunset"],
+          "stay": "3-Star Hotel, Kovalam",
+          "meals": "Breakfast + Dinner",
+          "transport": "Private AC cab",
+          "tips": "Dress code strictly enforced at Padmanabhaswamy Temple. Beach dress available to rent near temple",
+          "estimated_cost": "Included in package"
+        },
+        {
+          "day": 7,
+          "title": "Kovalam Beach & Departure",
+          "places": ["Morning Kovalam Beach walk", "Ayurvedic massage (optional)", "Shopping for spices and handicrafts", "Departure"],
+          "stay": "Departure day",
+          "meals": "Breakfast included",
+          "transport": "Private cab to airport/station",
+          "tips": "Buy Kashmiri saffron, Kerala spices, and Kathakali masks as authentic souvenirs",
+          "estimated_cost": "Included in package"
+        }
+      ]
+    },
+    {
+      "id": "luxury_plan",
+      "name": "Royal Kerala Luxury Journey",
+      "type": "luxury",
+      "duration": "9 Days / 8 Nights",
+      "price": 45000,
+      "price_label": "Per Person",
+      "icon": "👑",
+      "color": "#8e44ad",
+      "tagline": "The ultimate Kerala luxury experience",
+      "includes": ["5-star & boutique heritage hotels", "Luxury AC vehicles", "Luxury houseboat (2 nights)", "Seaplane/helicopter option", "All meals at fine dining", "Private guided tours", "Ayurvedic treatments", "Cooking classes"],
+      "excludes": ["International flights", "Travel insurance", "Personal purchases"],
+      "best_for": "Honeymoon couples, High-end travelers, Special occasions",
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrive Kochi — Royal Welcome",
+          "places": ["Private airport transfer in luxury vehicle", "Check-in at Brunton Boatyard / CGH Fort House", "Private heritage walk of Fort Kochi", "Sunset dhow cruise on Kochi harbor"],
+          "stay": "Brunton Boatyard (5-Star Heritage), Fort Kochi",
+          "meals": "Welcome gala dinner at The Rice Boat restaurant",
+          "transport": "Luxury Mercedes/Innova Crysta",
+          "tips": "Request a harbor-facing room for spectacular sunrise views over the Chinese fishing nets",
+          "estimated_cost": "Included in package"
+        },
+        {
+          "day": 2,
+          "title": "Kochi — Private Museum & Cooking Class",
+          "places": ["Exclusive Biennale art walk with curator guide", "Jewish Synagogue (private visit)", "Cooking class with master chef", "Kathakali performance (front row reserved)"],
+          "stay": "Brunton Boatyard",
+          "meals": "All meals including cooking class feast",
+          "transport": "Private luxury cab",
+          "tips": "The private cooking class includes a market visit to Kochi's fresh produce market at dawn — absolutely fascinating",
+          "estimated_cost": "Included in package"
+        },
+        {
+          "day": 3,
+          "title": "Kumarakom — Luxury Backwaters",
+          "places": ["Seaplane transfer to Kumarakom (optional, ₹12000 extra)", "Kumarakom Bird Sanctuary canoe tour", "Village cycle tour", "Sunset champagne boat cruise"],
+          "stay": "CGH Coconut Lagoon Heritage Resort",
+          "meals": "All meals including houseboat dinner experience",
+          "transport": "Seaplane / Luxury cab",
+          "tips": "Coconut Lagoon is accessible only by boat — the arrival by canoe at dusk is incredibly romantic",
+          "estimated_cost": "Included in package"
+        },
+        {
+          "day": 4,
+          "title": "Luxury Houseboat — Day 1",
+          "places": ["Exclusive luxury houseboat departure", "Private chef on board", "Village backwater exploration by canoe", "Open-deck stargazing on Vembanad Lake"],
+          "stay": "Premium Luxury Houseboat",
+          "meals": "All meals — multi-course Kerala cuisine by private chef",
+          "transport": "Private luxury houseboat",
+          "tips": "Request the houseboat captain to navigate to Muhamma for the best bird watching in the early morning",
+          "estimated_cost": "Included in package"
+        },
+        {
+          "day": 5,
+          "title": "Luxury Houseboat — Day 2 & Thekkady",
+          "places": ["Morning backwater cruise to Alleppey", "Transfer to Periyar", "Evening jungle walk with naturalist guide"],
+          "stay": "Spice Village by CGH Earth, Thekkady",
+          "meals": "All meals",
+          "transport": "Luxury cab from houseboat landing",
+          "tips": "Request a private guided night trek at Periyar Tiger Reserve — extraordinary wildlife experience",
+          "estimated_cost": "Included in package"
+        },
+        {
+          "day": 6,
+          "title": "Thekkady — Bamboo Rafting & Spice Estates",
+          "places": ["Sunrise bamboo rafting on Periyar Lake", "Private spice estate tour with plantation owner", "Ayurvedic consultation & treatment", "Elephant interaction program"],
+          "stay": "Spice Village by CGH Earth",
+          "meals": "All meals",
+          "transport": "Resort vehicles",
+          "tips": "The private spice estate tour includes a traditional Kerala meal in a plantation bungalow — absolutely authentic",
+          "estimated_cost": "Included in package"
+        },
+        {
+          "day": 7,
+          "title": "Munnar — Tea Planters' Experience",
+          "places": ["Drive through Ghat road to Munnar", "Private tea estate bungalow check-in", "Tea factory exclusive tour", "Top Station sunset drive"],
+          "stay": "Windermere Estate / Tea County Resort",
+          "meals": "High Tea at tea estate, All meals",
+          "transport": "Luxury cab",
+          "tips": "Arrange a private tea-tasting session with the estate's tea sommelier — extraordinary learning experience",
+          "estimated_cost": "Included in package"
+        },
+        {
+          "day": 8,
+          "title": "Kovalam — Ayurveda & Arabian Sea",
+          "places": ["Drive to Kovalam", "Check-in at Niraamaya Surya Samudra", "Full-day Panchakarma Ayurvedic treatment", "Private beach dinner"],
+          "stay": "Niraamaya Retreats Surya Samudra (Cliff Heritage Cottage)",
+          "meals": "All meals including private beach candlelit dinner",
+          "transport": "Luxury cab",
+          "tips": "Book the cliff-edge cottage for the most dramatic sea views. The sunset from the private terrace is world-class",
+          "estimated_cost": "Included in package"
+        },
+        {
+          "day": 9,
+          "title": "Kovalam & Departure",
+          "places": ["Morning yoga session on cliff", "Padmanabhaswamy Temple VIP darshan", "Shopping at Connemara Market", "Airport transfer"],
+          "stay": "Departure",
+          "meals": "Breakfast included",
+          "transport": "Luxury cab to airport",
+          "tips": "Purchase authentic Kerala handicrafts from the government emporium at MG Road for guaranteed quality and fair prices",
+          "estimated_cost": "Included in package"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,309 @@
+{% extends "base.html" %}
+{% block title %}Book {{ hotel.name }} — Kerala Tourism{% endblock %}
+{% block content %}
+<div class="page-hero">
+    <div class="breadcrumb">
+        <a href="{{ url_for('hotels') }}">Hotels</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>{{ hotel.name }}</span>
+    </div>
+    <h1>🏨 Book Your Stay</h1>
+    <p>{{ hotel.name }} — {{ hotel.location }}</p>
+</div>
+<div class="container">
+    <div class="booking-layout">
+
+        <!-- Booking Form or Confirmation -->
+        <div>
+            {% if booking_confirmed %}
+            <!-- SUCCESS STATE -->
+            <div class="info-card booking-confirmation">
+                <span class="confirm-icon">🎉</span>
+                <h2>Booking Confirmed!</h2>
+                <p>Your stay at <strong>{{ hotel.name }}</strong> has been reserved (Demo)</p>
+                <div class="booking-ref">{{ booking_ref }}</div>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Save this reference number for your records</p>
+                <div class="demo-warning">
+                    <i class="fas fa-info-circle"></i>
+                    This is a DEMO booking — no real reservation has been made and no payment has been charged.
+                </div>
+                <div style="margin-top: 24px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="{{ url_for('hotels') }}" style="color: var(--primary-light); font-size: 0.9rem;">← Browse More Hotels</a>
+                    <a href="{{ url_for('chatbot') }}" class="ai-ask-btn">Ask AI for Travel Tips</a>
+                </div>
+            </div>
+
+            {% else %}
+            <!-- BOOKING FORM -->
+            <div class="info-card">
+                <h2>Guest Details</h2>
+                <div class="demo-warning" style="margin-bottom: 24px;">
+                    <i class="fas fa-info-circle"></i>
+                    Demo Only — No real booking or payment will be processed.
+                </div>
+
+                {% if booking_error %}
+                <div class="alert alert-error" style="display:flex; align-items:center; gap:10px; background:rgba(231,76,60,0.12); border:1px solid rgba(231,76,60,0.4); color:#e74c3c; padding:12px 16px; border-radius:10px; font-size:0.88rem; margin-bottom:20px;">
+                    <i class="fas fa-exclamation-circle fa-lg"></i>
+                    <span>{{ booking_error }}</span>
+                </div>
+                {% endif %}
+
+                <form method="POST" class="booking-form" onsubmit="return validateBooking()">
+
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" name="full_name" id="bk_full_name"
+                               placeholder="Enter your full name" required
+                               value="{{ request.form.get('full_name', '') }}"
+                               oninput="checkBkName(this)">
+                        <small id="bk_name_hint" style="font-size:0.68rem;"></small>
+                    </div>
+
+                    <!-- Gmail -->
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Gmail Address</label>
+                        <input type="text" name="email" id="bk_email"
+                               placeholder="yourname@gmail.com" required
+                               value="{{ request.form.get('email', '') }}"
+                               oninput="checkBkEmail(this)">
+                        <small id="bk_email_hint" style="font-size:0.68rem;"></small>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Phone Number</label>
+                        <input type="tel" name="phone" id="bk_phone"
+                               placeholder="+91 XXXXX XXXXX" required maxlength="13"
+                               value="{{ request.form.get('phone', '') }}"
+                               oninput="checkBkPhone(this)">
+                        <small id="bk_phone_hint" style="font-size:0.68rem;"></small>
+                    </div>
+
+                    <!-- Dates -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div class="form-group">
+                            <label><i class="fas fa-calendar"></i> Check-in Date</label>
+                            <input type="date" name="check_in" id="bk_check_in" required
+                                   min="{{ today_iso }}"
+                                   max="{{ max_checkin_iso }}"
+                                   value="{{ request.form.get('check_in', '') }}"
+                                   oninput="checkBkDates()">
+                            <small id="bk_checkin_hint" style="font-size:0.68rem;"></small>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-calendar-check"></i> Check-out Date</label>
+                            <input type="date" name="check_out" id="bk_check_out" required
+                                   min="{{ today_iso }}"
+                                   value="{{ request.form.get('check_out', '') }}"
+                                   oninput="checkBkDates()">
+                            <small id="bk_checkout_hint" style="font-size:0.68rem;"></small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-bed"></i> Room Type</label>
+                        <select name="room_type" class="filter-select" style="width:100%;">
+                            {% for room in hotel.rooms %}
+                            <option value="{{ room }}">{{ room }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-users"></i> Number of Guests</label>
+                        <select name="guests" class="filter-select" style="width:100%;">
+                            <option value="1">1 Guest</option>
+                            <option value="2" selected>2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-login" style="margin-top: 8px;">
+                        <i class="fas fa-check-circle"></i> Confirm Booking (Demo)
+                    </button>
+                </form>
+            </div>
+
+<script>
+// ---- helpers ----
+function hint(id, ok, msg) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = msg;
+    el.style.color = ok ? '#2ecc71' : '#e74c3c';
+}
+
+function checkBkName(input) {
+    const v = input.value.trim();
+    if (!v) { hint('bk_name_hint', true, ''); return; }
+    const ok = /^[A-Za-z][A-Za-z\s.\-']{1,}$/.test(v) && (v.match(/[A-Za-z]/g)||[]).length >= 2;
+    hint('bk_name_hint', ok, ok ? '✅ Valid name' : '❌ Name must contain only letters, spaces, dots or hyphens');
+}
+
+function checkBkEmail(input) {
+    const v = input.value.trim();
+    if (!v) { hint('bk_email_hint', true, ''); return; }
+    const ok = /^[a-zA-Z0-9._%+\-]+@gmail\.com$/.test(v);
+    hint('bk_email_hint', ok, ok ? '✅ Valid Gmail address' : '❌ Must be a Gmail address (e.g. yourname@gmail.com)');
+}
+
+function checkBkPhone(input) {
+    // Strip non-digits (allow leading +)
+    let raw = input.value.replace(/[^\d]/g, '');
+    if (raw.startsWith('91') && raw.length === 12) raw = raw.slice(2);
+    const ok = /^[6-9]\d{9}$/.test(raw);
+    if (!raw) { hint('bk_phone_hint', true, ''); return; }
+    if (raw.length < 10) {
+        hint('bk_phone_hint', false, `${10 - raw.length} more digit(s) needed`);
+    } else {
+        hint('bk_phone_hint', ok, ok ? '✅ Valid Indian mobile number' : '❌ Must start with 6, 7, 8 or 9 and be 10 digits');
+    }
+}
+
+function checkBkDates() {
+    const ciEl = document.getElementById('bk_check_in');
+    const coEl = document.getElementById('bk_check_out');
+    const ci = ciEl.value, co = coEl.value;
+    const today = new Date(); today.setHours(0,0,0,0);
+
+    if (ci) {
+        const ciDate = new Date(ci);
+        // Guard against absurd years (e.g. 20252)
+        if (ciDate.getFullYear() > new Date().getFullYear() + 2) {
+            hint('bk_checkin_hint', false, '❌ Please enter a valid year');
+            return;
+        }
+        if (ciDate < today) {
+            hint('bk_checkin_hint', false, '❌ Check-in cannot be in the past');
+        } else {
+            hint('bk_checkin_hint', true, `✅ ${ciDate.toLocaleDateString('en-IN', {day:'numeric',month:'short',year:'numeric'})}`);
+            // Set check-out min = check-in + 1 day, max = check-in + 7 days
+            const minOut = new Date(ciDate); minOut.setDate(minOut.getDate() + 1);
+            const maxOut = new Date(ciDate); maxOut.setDate(maxOut.getDate() + 7);
+            coEl.min = minOut.toISOString().split('T')[0];
+            coEl.max = maxOut.toISOString().split('T')[0];
+        }
+    }
+
+    if (ci && co) {
+        const ciDate = new Date(ci), coDate = new Date(co);
+        if (coDate.getFullYear() > new Date().getFullYear() + 2) {
+            hint('bk_checkout_hint', false, '❌ Please enter a valid year');
+            return;
+        }
+        const nights = Math.round((coDate - ciDate) / 86400000);
+        if (coDate <= ciDate) {
+            hint('bk_checkout_hint', false, '❌ Check-out must be after check-in');
+        } else if (nights > 7) {
+            hint('bk_checkout_hint', false, '❌ Maximum stay is 7 nights (1 week)');
+        } else {
+            hint('bk_checkout_hint', true, `✅ ${nights} night${nights > 1 ? 's' : ''} — within 1-week limit`);
+        }
+    }
+}
+
+function validateBooking() {
+    const name  = document.getElementById('bk_full_name').value.trim();
+    const email = document.getElementById('bk_email').value.trim();
+    let   phone = document.getElementById('bk_phone').value.replace(/\D/g, '');
+    const ci    = document.getElementById('bk_check_in').value;
+    const co    = document.getElementById('bk_check_out').value;
+    const today = new Date(); today.setHours(0,0,0,0);
+
+    if (!/^[A-Za-z][A-Za-z\s.\-']{1,}$/.test(name) || (name.match(/[A-Za-z]/g)||[]).length < 2) {
+        alert('❌ Please enter a valid full name (letters only, no numbers or symbols).');
+        return false;
+    }
+    if (!/^[a-zA-Z0-9._%+\-]+@gmail\.com$/.test(email)) {
+        alert('❌ Please enter a valid Gmail address (e.g. yourname@gmail.com).');
+        return false;
+    }
+    if (phone.startsWith('91') && phone.length === 12) phone = phone.slice(2);
+    if (!/^[6-9]\d{9}$/.test(phone)) {
+        alert('❌ Please enter a valid 10-digit Indian mobile number starting with 6, 7, 8 or 9.');
+        return false;
+    }
+    if (!ci || !co) {
+        alert('❌ Please select both check-in and check-out dates.');
+        return false;
+    }
+    const ciDate = new Date(ci), coDate = new Date(co);
+    if (ciDate < today) {
+        alert('❌ Check-in date cannot be in the past.');
+        return false;
+    }
+    if (coDate <= ciDate) {
+        alert('❌ Check-out date must be at least one day after check-in.');
+        return false;
+    }
+    if (Math.round((coDate - ciDate) / 86400000) > 7) {
+        alert('❌ Maximum booking duration is 7 nights (1 week).');
+        return false;
+    }
+    return true;
+}
+
+// Set today as min for check-in on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const ci = document.getElementById('bk_check_in');
+    const co = document.getElementById('bk_check_out');
+    if (ci && !ci.value) {
+        // min is already set via Jinja; auto-run date hints if values pre-filled
+        checkBkDates();
+    }
+});
+</script>
+            {% endif %}
+        </div>
+
+        <!-- Hotel Summary Sidebar -->
+        <div>
+            <div class="info-card">
+                <h3>Booking Summary</h3>
+                <div style="margin-bottom: 16px;">
+                    <img src="{{ hotel.image }}" alt="{{ hotel.name }}" 
+                         style="width:100%; height:160px; object-fit:cover; border-radius: var(--radius-sm);"
+                         onerror="this.style.background='linear-gradient(135deg,#1a3a5c,#2d5a8e)'; this.src='';">
+                </div>
+                <h4 style="margin-bottom: 6px;">{{ hotel.name }}</h4>
+                <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom: 14px;">
+                    <i class="fas fa-map-pin" style="color:var(--primary-light);"></i> {{ hotel.location }}
+                </p>
+                <div class="quick-info-list">
+                    <div class="qi-item" style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 12px;">
+                        <i class="fas fa-star" style="color: var(--accent);"></i>
+                        <div>
+                            <span class="qi-label">Rating</span>
+                            <span class="qi-value">⭐ {{ hotel.rating }} / 5.0</span>
+                        </div>
+                    </div>
+                    <div class="qi-item" style="border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 12px;">
+                        <i class="fas fa-tag" style="color: var(--primary-light);"></i>
+                        <div>
+                            <span class="qi-label">Category</span>
+                            <span class="qi-value" style="text-transform: capitalize;">{{ hotel.category }}</span>
+                        </div>
+                    </div>
+                    <div class="qi-item">
+                        <i class="fas fa-rupee-sign" style="color: var(--accent);"></i>
+                        <div>
+                            <span class="qi-label">Price Per Night</span>
+                            <span class="qi-value" style="color: var(--accent); font-size: 1.2rem;">₹{{ "{:,}".format(hotel.price_per_night) }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-card" style="margin-top: 16px;">
+                <h3>Amenities</h3>
+                <div class="hotel-amenities" style="margin-top: 10px;">
+                    {% for amenity in hotel.amenities %}
+                    <span class="amenity-tag">✓ {{ amenity }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

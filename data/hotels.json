@@ -1,0 +1,2765 @@
+{
+  "hotels": [
+    {
+      "id": "h001",
+      "name": "The Leela Kovalam",
+      "district": "thiruvananthapuram",
+      "location": "Kovalam Beach",
+      "category": "luxury",
+      "price_per_night": 18000,
+      "rating": 4.8,
+      "amenities": [
+        "Infinity Pool",
+        "Ayurveda Spa",
+        "Private Beach",
+        "Fine Dining",
+        "WiFi",
+        "Bar"
+      ],
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600",
+      "description": "Perched on a cliff overlooking the Arabian Sea, The Leela offers an unparalleled blend of luxury and natural beauty. Tiered gardens cascade down to the beach.",
+      "rooms": [
+        "Deluxe Room",
+        "Sea View Suite",
+        "Cliff Villa"
+      ],
+      "lat": 8.4,
+      "lng": 76.98
+    },
+    {
+      "id": "h002",
+      "name": "Niraamaya Retreats Surya Samudra",
+      "district": "thiruvananthapuram",
+      "location": "Pulinkudi, Near Kovalam",
+      "category": "luxury",
+      "price_per_night": 22000,
+      "rating": 4.9,
+      "amenities": [
+        "Heritage Cottages",
+        "Ayurveda Centre",
+        "Cliff Pool",
+        "Restaurant",
+        "WiFi"
+      ],
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600",
+      "description": "A collection of authentic Kerala heritage homes relocated and restored on a cliff edge overlooking the sea. An intimate retreat with world-class Ayurveda.",
+      "rooms": [
+        "Heritage Cottage",
+        "Sea View Cottage",
+        "Premium Suite"
+      ],
+      "lat": 8.38,
+      "lng": 76.97
+    },
+    {
+      "id": "h003",
+      "name": "Beach & Lake Resort Alleppey",
+      "district": "alappuzha",
+      "location": "Alleppey Beach Road",
+      "category": "mid-range",
+      "price_per_night": 5500,
+      "rating": 4.3,
+      "amenities": [
+        "Swimming Pool",
+        "Restaurant",
+        "WiFi",
+        "Backwater Views",
+        "Canoe Rides"
+      ],
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "Situated between the beach and the backwaters, this resort offers the best of both Kerala's coastal worlds. Perfect for family holidays.",
+      "rooms": [
+        "Deluxe Room",
+        "Pool View Room",
+        "Backwater Cottage"
+      ],
+      "lat": 9.5,
+      "lng": 76.33
+    },
+    {
+      "id": "h004",
+      "name": "Fragrant Nature Backwater Resort",
+      "district": "alappuzha",
+      "location": "Nedumudi, Alleppey",
+      "category": "mid-range",
+      "price_per_night": 7200,
+      "rating": 4.5,
+      "amenities": [
+        "Backwater Frontage",
+        "Canoe Rides",
+        "Restaurant",
+        "Pool",
+        "WiFi",
+        "Yoga"
+      ],
+      "image": "https://images.unsplash.com/photo-1529290130-4ca3753253ae?w=600",
+      "description": "Set amidst paddy fields and coconut palms on the backwater shore, this eco-friendly resort offers an authentic Kerala village experience with modern comforts.",
+      "rooms": [
+        "Waterfront Cottage",
+        "Garden Room",
+        "Premium Villa"
+      ],
+      "lat": 9.48,
+      "lng": 76.35
+    },
+    {
+      "id": "h005",
+      "name": "Spice Village by CGH Earth",
+      "district": "kottayam",
+      "location": "Thekkady, Periyar",
+      "category": "luxury",
+      "price_per_night": 14000,
+      "rating": 4.7,
+      "amenities": [
+        "Spice Garden",
+        "Wildlife Experience",
+        "Ayurveda",
+        "Restaurant",
+        "Pool",
+        "WiFi"
+      ],
+      "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600",
+      "description": "A unique eco-resort designed as a tribal hamlet with thatched cottages set in a working spice plantation adjacent to Periyar Tiger Reserve.",
+      "rooms": [
+        "Pepper Cottage",
+        "Cardamom Cottage",
+        "Cinnamon Bungalow"
+      ],
+      "lat": 9.57,
+      "lng": 77.15
+    },
+    {
+      "id": "h006",
+      "name": "Munnar Tea County Resort",
+      "district": "munnar",
+      "location": "Munnar Hill Station",
+      "category": "mid-range",
+      "price_per_night": 6800,
+      "rating": 4.4,
+      "amenities": [
+        "Tea Estate Views",
+        "Pool",
+        "Restaurant",
+        "Campfire",
+        "WiFi",
+        "Tea Tasting"
+      ],
+      "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600",
+      "description": "Nestled in 2500 acres of tea estates at 5000 feet, this hill resort offers spectacular valley views and the unique experience of staying in a working tea plantation.",
+      "rooms": [
+        "Plantation Room",
+        "Valley View Suite",
+        "Tea Bungalow"
+      ],
+      "lat": 10.09,
+      "lng": 77.06
+    },
+    {
+      "id": "h007",
+      "name": "Windermere Estate",
+      "district": "munnar",
+      "location": "Pothamedu, Munnar",
+      "category": "mid-range",
+      "price_per_night": 8500,
+      "rating": 4.6,
+      "amenities": [
+        "Sunrise Views",
+        "Trek Trails",
+        "Coffee Estate",
+        "Restaurant",
+        "Campfire",
+        "WiFi"
+      ],
+      "image": "https://images.unsplash.com/photo-1506974210756-8e1b8985d348?w=600",
+      "description": "A heritage plantation estate with bungalows offering sweeping views of misty valleys. The property grows coffee, tea, and cardamom and has walking trails through the estate.",
+      "rooms": [
+        "Estate Room",
+        "Bungalow Suite",
+        "Valley Cottage"
+      ],
+      "lat": 10.1,
+      "lng": 77.07
+    },
+    {
+      "id": "h008",
+      "name": "CGH Earth - Fort House",
+      "district": "ernakulam",
+      "location": "Fort Kochi",
+      "category": "luxury",
+      "price_per_night": 12000,
+      "rating": 4.7,
+      "amenities": [
+        "Heritage Building",
+        "Sea View",
+        "Restaurant",
+        "Cultural Programs",
+        "WiFi",
+        "Spa"
+      ],
+      "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600",
+      "description": "A boutique heritage hotel in a 19th-century building in Fort Kochi's historic district, steps from the Chinese fishing nets and colonial-era churches.",
+      "rooms": [
+        "Heritage Room",
+        "Sea View Room",
+        "Fort Suite"
+      ],
+      "lat": 9.97,
+      "lng": 76.24
+    },
+    {
+      "id": "h009",
+      "name": "Brunton Boatyard",
+      "district": "ernakulam",
+      "location": "Fort Kochi Waterfront",
+      "category": "luxury",
+      "price_per_night": 16000,
+      "rating": 4.8,
+      "amenities": [
+        "Waterfront Location",
+        "Heritage Pool",
+        "Dutch Restaurant",
+        "Spa",
+        "WiFi",
+        "Sunset Cruise"
+      ],
+      "image": "https://images.unsplash.com/photo-1544124499-58912cbddaad?w=600",
+      "description": "Built to evoke the Dutch and Portuguese trading era, this waterfront hotel occupies a historic boatyard with views of the busy harbor and Chinese fishing nets.",
+      "rooms": [
+        "Harbour View",
+        "Courtyard Room",
+        "Colonial Suite"
+      ],
+      "lat": 9.96,
+      "lng": 76.24
+    },
+    {
+      "id": "h010",
+      "name": "Vythiri Resort",
+      "district": "wayanad",
+      "location": "Vythiri, Wayanad",
+      "category": "mid-range",
+      "price_per_night": 9500,
+      "rating": 4.6,
+      "amenities": [
+        "Treehouse Stay",
+        "Zipline",
+        "Ayurveda",
+        "Restaurant",
+        "Pool",
+        "WiFi",
+        "Trek"
+      ],
+      "image": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=600",
+      "description": "A forest resort with iconic treehouses perched above the rainforest canopy. Zipline, rock climbing, and guided treks make it an adventure lover's paradise.",
+      "rooms": [
+        "Forest Room",
+        "Treehouse",
+        "Premium Treehouse"
+      ],
+      "lat": 11.6,
+      "lng": 76.0
+    },
+    {
+      "id": "h011",
+      "name": "Zostel Kozhikode",
+      "district": "kozhikode",
+      "location": "Kozhikode City",
+      "category": "budget",
+      "price_per_night": 800,
+      "rating": 4.1,
+      "amenities": [
+        "Common Kitchen",
+        "Lounge",
+        "WiFi",
+        "Dorm & Private Rooms",
+        "Travel Desk"
+      ],
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "A vibrant backpacker hostel in the heart of Kozhikode, perfect for solo travelers and budget-conscious tourists wanting to explore Malabar culture.",
+      "rooms": [
+        "Dormitory Bed",
+        "Private Room",
+        "Deluxe Private"
+      ],
+      "lat": 11.25,
+      "lng": 75.78
+    },
+    {
+      "id": "h012",
+      "name": "Harivihar Heritage Home",
+      "district": "kozhikode",
+      "location": "Kozhikode City",
+      "category": "mid-range",
+      "price_per_night": 4500,
+      "rating": 4.5,
+      "amenities": [
+        "Heritage Home",
+        "Ayurveda",
+        "Traditional Meals",
+        "Garden",
+        "WiFi",
+        "Cultural Programs"
+      ],
+      "image": "https://images.unsplash.com/photo-1495365200479-c4ed1d35e1aa?w=600",
+      "description": "A 200-year-old Brahmin home converted to a boutique heritage hotel. Authentic Kerala meals, Ayurvedic treatments, and cultural immersion in a serene setting.",
+      "rooms": [
+        "Heritage Room",
+        "Garden Room",
+        "Deluxe Suite"
+      ],
+      "lat": 11.26,
+      "lng": 75.79
+    },
+    {
+      "id": "h013",
+      "name": "Bekal Resorts & Spa",
+      "district": "kasaragod",
+      "location": "Bekal, Kasaragod",
+      "category": "luxury",
+      "price_per_night": 13500,
+      "rating": 4.6,
+      "amenities": [
+        "Beach Access",
+        "Infinity Pool",
+        "Spa",
+        "Restaurant",
+        "WiFi",
+        "Water Sports"
+      ],
+      "image": "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=600",
+      "description": "A premium beach resort steps from the historic Bekal Fort with stunning sea views, an infinity pool, and world-class Ayurvedic spa.",
+      "rooms": [
+        "Deluxe Room",
+        "Sea View Room",
+        "Beach Villa"
+      ],
+      "lat": 12.39,
+      "lng": 75.03
+    },
+    {
+      "id": "h014",
+      "name": "Kannur Beach House",
+      "district": "kannur",
+      "location": "Kannur Beachfront",
+      "category": "budget",
+      "price_per_night": 2500,
+      "rating": 4.2,
+      "amenities": [
+        "Beach Access",
+        "Restaurant",
+        "WiFi",
+        "Cultural Shows",
+        "Terrace"
+      ],
+      "image": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=600",
+      "description": "A charming budget beach house with direct sea access. Simple but well-maintained rooms, excellent local cuisine, and arranged Theyyam performances for guests.",
+      "rooms": [
+        "Standard Room",
+        "Sea View Room",
+        "Family Room"
+      ],
+      "lat": 11.87,
+      "lng": 75.36
+    },
+    {
+      "id": "h015",
+      "name": "Thrissur Pride Hotel",
+      "district": "thrissur",
+      "location": "Thrissur City Center",
+      "category": "mid-range",
+      "price_per_night": 3800,
+      "rating": 4.1,
+      "amenities": [
+        "City Center",
+        "Restaurant",
+        "Pool",
+        "WiFi",
+        "Business Center",
+        "Parking"
+      ],
+      "image": "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=600",
+      "description": "A comfortable city hotel in the heart of Kerala's cultural capital, ideal for visiting Thrissur Pooram, temples, and Athirappilly Falls.",
+      "rooms": [
+        "Standard Room",
+        "Deluxe Room",
+        "Executive Suite"
+      ],
+      "lat": 10.53,
+      "lng": 76.21
+    },
+    {
+      "id": "green_woods_munnar",
+      "name": "Green Woods Bethlehem Munnar",
+      "district": "munnar",
+      "location": "Munnar, Idukki",
+      "category": "budget",
+      "price_per_night": 1800,
+      "rating": 4.1,
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600",
+      "description": "A peaceful budget resort amidst lush green tea gardens with valley-facing rooms, home-cooked Kerala food and breathtaking misty mornings.",
+      "amenities": [
+        "Tea garden view",
+        "Home cooking",
+        "Parking",
+        "Hot water",
+        "Room service"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Deluxe Room"
+      ]
+    },
+    {
+      "id": "spice_garden_thekkady",
+      "name": "Spice Garden Thekkady",
+      "district": "kottayam",
+      "location": "Thekkady, Idukki",
+      "category": "mid-range",
+      "price_per_night": 4200,
+      "rating": 4.3,
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600",
+      "description": "Set inside a spice plantation, guests can tour the garden, spot wildlife and enjoy organic meals prepared with freshly harvested spices from the farm.",
+      "amenities": [
+        "Spice plantation tour",
+        "Organic meals",
+        "Pool",
+        "WiFi",
+        "Nature walks"
+      ],
+      "rooms": [
+        "Spice Cottage",
+        "Garden Suite",
+        "Plantation Room"
+      ]
+    },
+    {
+      "id": "varkala_cliff_resort",
+      "name": "Varkala Cliff Heritage Resort",
+      "district": "thiruvananthapuram",
+      "location": "Varkala, Thiruvananthapuram",
+      "category": "mid-range",
+      "price_per_night": 3500,
+      "rating": 4.2,
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "Perched on the famous Varkala cliff with direct sea-view rooms, private sundecks and steps down to the mineral spring beach. Yoga sessions every morning.",
+      "amenities": [
+        "Cliff sea view",
+        "Yoga classes",
+        "Rooftop restaurant",
+        "Direct beach access",
+        "Ayurveda spa"
+      ],
+      "rooms": [
+        "Cliff View Room",
+        "Sea Facing Suite",
+        "Garden Cottage"
+      ]
+    },
+    {
+      "id": "fort_heritage_kochi",
+      "name": "Fort Heritage Boutique Hotel",
+      "district": "ernakulam",
+      "location": "Fort Kochi, Ernakulam",
+      "category": "mid-range",
+      "price_per_night": 3800,
+      "rating": 4.4,
+      "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=600",
+      "description": "A lovingly restored 150-year-old colonial bungalow in Fort Kochi's heritage zone with antique furniture, courtyard garden and walking distance to all major attractions.",
+      "amenities": [
+        "Colonial heritage",
+        "Courtyard garden",
+        "Cultural tours",
+        "Breakfast included",
+        "Airport transfer"
+      ],
+      "rooms": [
+        "Heritage Room",
+        "Colonial Suite",
+        "Garden Room"
+      ]
+    },
+    {
+      "id": "zostel_wayanad",
+      "name": "Zostel Wayanad",
+      "district": "wayanad",
+      "location": "Vythiri, Wayanad",
+      "category": "budget",
+      "price_per_night": 700,
+      "rating": 4.2,
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "India's best-known hostel chain's Wayanad property set in a converted plantation bungalow with dorms, private rooms and an amazing social backpacker community.",
+      "amenities": [
+        "Dorm beds",
+        "Common kitchen",
+        "Campfire",
+        "Trekking info",
+        "WiFi",
+        "Social events"
+      ],
+      "rooms": [
+        "Dorm Bed",
+        "Private Room",
+        "Twin Room"
+      ]
+    },
+    {
+      "id": "paradise_resort_alleppey",
+      "name": "Paradise Resort Alleppey",
+      "district": "alappuzha",
+      "location": "Alleppey Town, Alappuzha",
+      "category": "luxury",
+      "price_per_night": 12000,
+      "rating": 4.6,
+      "image": "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=600",
+      "description": "A backwater luxury resort with private pool villas built over the water, sunset boat cruises included, personal butler and award-winning Kerala cuisine restaurant.",
+      "amenities": [
+        "Overwater pool villas",
+        "Personal butler",
+        "Boat cruise included",
+        "Fine dining",
+        "Spa",
+        "Canoe rental"
+      ],
+      "rooms": [
+        "Backwater Villa",
+        "Pool Villa",
+        "Honeymoon Suite"
+      ]
+    },
+    {
+      "id": "blue_sea_kovalam",
+      "name": "Blue Sea Hotel Kovalam",
+      "district": "thiruvananthapuram",
+      "location": "Kovalam Beach, Thiruvananthapuram",
+      "category": "budget",
+      "price_per_night": 1500,
+      "rating": 3.9,
+      "image": "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?w=600",
+      "description": "A friendly budget hotel steps from Lighthouse Beach with sea-facing rooms at incredibly affordable prices. Great base for backpackers exploring south Kerala.",
+      "amenities": [
+        "Beach access",
+        "Sea view rooms",
+        "Travel desk",
+        "Hot water",
+        "Restaurant nearby"
+      ],
+      "rooms": [
+        "Standard Sea View",
+        "Economy Room",
+        "Triple Room"
+      ]
+    },
+    {
+      "id": "kannur_beach_palace",
+      "name": "Kannur Beach Palace",
+      "district": "kannur",
+      "location": "Payyambalam, Kannur",
+      "category": "mid-range",
+      "price_per_night": 3200,
+      "rating": 4.1,
+      "image": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=600",
+      "description": "A comfortable sea-facing hotel near Payyambalam Beach with spacious rooms, rooftop sea views and easy access to Kannur's top attractions including Fort St. Angelo.",
+      "amenities": [
+        "Sea view rooms",
+        "Rooftop restaurant",
+        "WiFi",
+        "Travel desk",
+        "Parking",
+        "Bar"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Sea Facing Room",
+        "Suite"
+      ]
+    },
+    {
+      "id": "thrissur_athirappilly",
+      "name": "Rainforest Resort Athirappilly",
+      "district": "thrissur",
+      "location": "Athirappilly, Thrissur",
+      "category": "mid-range",
+      "price_per_night": 4800,
+      "rating": 4.4,
+      "image": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600",
+      "description": "Nestled inside the forest just 2 km from Athirappilly Falls with tented cottages, jungle walks and a natural swimming pool fed by a mountain stream. Fireflies at night!",
+      "amenities": [
+        "Forest cottages",
+        "Natural pool",
+        "Jungle walks",
+        "Firefly walks",
+        "Organic food",
+        "Bonfire"
+      ],
+      "rooms": [
+        "Forest Tent",
+        "Jungle Cottage",
+        "Tree House Room"
+      ]
+    },
+    {
+      "id": "palakkad_fort_view",
+      "name": "Fort Palace Hotel Palakkad",
+      "district": "palakkad",
+      "location": "Fort Road, Palakkad",
+      "category": "budget",
+      "price_per_night": 1400,
+      "rating": 3.8,
+      "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600",
+      "description": "A clean, well-located budget hotel with a view of the historic Palakkad Fort from upper floors. Central location makes it perfect for exploring both the fort and the city market.",
+      "amenities": [
+        "Fort view",
+        "Central location",
+        "Restaurant",
+        "WiFi",
+        "Laundry",
+        "24hr reception"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Fort View Room",
+        "Family Room"
+      ]
+    },
+    {
+      "id": "kasaragod_bekal_court",
+      "name": "Bekal Court Kasaragod",
+      "district": "kasaragod",
+      "location": "Bekal, Kasaragod",
+      "category": "luxury",
+      "price_per_night": 9500,
+      "rating": 4.5,
+      "image": "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600",
+      "description": "A premium resort overlooking the historic Bekal Fort and the Arabian Sea with Kerala-style thatched cottages, infinity pool, Ayurveda centre and private beach access.",
+      "amenities": [
+        "Bekal Fort view",
+        "Private beach",
+        "Infinity pool",
+        "Ayurveda centre",
+        "Kerala dining",
+        "Cultural shows"
+      ],
+      "rooms": [
+        "Sea View Cottage",
+        "Fort View Suite",
+        "Infinity Pool Villa"
+      ]
+    },
+    {
+      "id": "kollam_ashtamudi",
+      "name": "Ashtamudi Lake Resort",
+      "district": "kollam",
+      "location": "Ashtamudi, Kollam",
+      "category": "mid-range",
+      "price_per_night": 4000,
+      "rating": 4.2,
+      "image": "https://images.unsplash.com/photo-1563911302283-d2bc129e7570?w=600",
+      "description": "A charming lakeside resort on the banks of Ashtamudi Lake with wooden cottages on stilts, morning canoe rides and spectacular lake sunsets. Kerala home food included.",
+      "amenities": [
+        "Lakeside cottages",
+        "Canoe rides",
+        "Kerala home food",
+        "Bird watching",
+        "Sunset cruise",
+        "WiFi"
+      ],
+      "rooms": [
+        "Lake View Cottage",
+        "Stilt Room",
+        "Deluxe Lakeside"
+      ]
+    },
+    {
+      "id": "malappuram_hillside",
+      "name": "Hillside Retreat Malappuram",
+      "district": "malappuram",
+      "location": "Tirur, Malappuram",
+      "category": "budget",
+      "price_per_night": 1600,
+      "rating": 3.9,
+      "image": "https://images.unsplash.com/photo-1568495248636-6432b97bd949?w=600",
+      "description": "A quiet hillside guesthouse near Nilambur surrounded by rubber and teak plantations. Perfect base for exploring Nilambur's teak museum and Kadalundi bird sanctuary.",
+      "amenities": [
+        "Plantation views",
+        "Home cooking",
+        "Nature walks",
+        "WiFi",
+        "Parking"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Plantation View Room",
+        "Family Suite"
+      ]
+    },
+    {
+      "id": "kasaragod_budget_1",
+      "name": "Bekal Backpackers Inn",
+      "district": "kasaragod",
+      "location": "Bekal Town, Kasaragod",
+      "category": "budget",
+      "price_per_night": 950,
+      "rating": 3.8,
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "A clean and affordable guesthouse near Bekal Fort, ideal for budget travellers wanting to explore the historic fort and pristine beaches of northern Kerala.",
+      "amenities": [
+        "WiFi",
+        "Common area",
+        "Hot water",
+        "Travel desk",
+        "Breakfast available"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Double Room",
+        "Triple Room"
+      ],
+      "lat": 12.39,
+      "lng": 75.02
+    },
+    {
+      "id": "kasaragod_midrange_1",
+      "name": "Nideshwaram Heritage Hotel",
+      "district": "kasaragod",
+      "location": "Nileshwaram, Kasaragod",
+      "category": "mid-range",
+      "price_per_night": 3600,
+      "rating": 4.2,
+      "image": "https://images.unsplash.com/photo-1529290130-4ca3753253ae?w=600",
+      "description": "A beautifully restored heritage property near Nileshwaram Palace with traditional Kerala architecture, lush gardens, and home-cooked Malabar cuisine. Close to pristine beaches.",
+      "amenities": [
+        "Heritage building",
+        "Garden",
+        "Restaurant",
+        "WiFi",
+        "Cultural tours",
+        "Parking"
+      ],
+      "rooms": [
+        "Heritage Room",
+        "Garden Room",
+        "Family Suite"
+      ],
+      "lat": 12.24,
+      "lng": 75.12
+    },
+    {
+      "id": "kasaragod_midrange_2",
+      "name": "Ananda Beach Resort Kasaragod",
+      "district": "kasaragod",
+      "location": "Kappil Beach, Kasaragod",
+      "category": "mid-range",
+      "price_per_night": 4200,
+      "rating": 4.3,
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "A relaxed mid-range beach resort on the secluded Kappil Beach. Enjoy the unspoilt shoreline, fresh seafood, and stunning sunset views over the Arabian Sea.",
+      "amenities": [
+        "Beach access",
+        "Seafood restaurant",
+        "Pool",
+        "WiFi",
+        "Water sports",
+        "Bonfire nights"
+      ],
+      "rooms": [
+        "Deluxe Room",
+        "Beach View Room",
+        "Cottage"
+      ],
+      "lat": 12.35,
+      "lng": 74.99
+    },
+    {
+      "id": "palakkad_midrange_1",
+      "name": "Silent Valley Wilderness Camp",
+      "district": "palakkad",
+      "location": "Mukkali, Palakkad",
+      "category": "mid-range",
+      "price_per_night": 4500,
+      "rating": 4.4,
+      "image": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=600",
+      "description": "An eco-camp on the fringe of Silent Valley National Park with tent cottages, jungle safaris and bird watching. An unbeatable experience for nature lovers.",
+      "amenities": [
+        "Jungle safaris",
+        "Bird watching",
+        "Eco meals",
+        "Campfire",
+        "Forest walks"
+      ],
+      "rooms": [
+        "Luxury Tent",
+        "Forest Cottage",
+        "Family Tent"
+      ],
+      "lat": 11.07,
+      "lng": 76.43
+    },
+    {
+      "id": "kollam_budget_1",
+      "name": "Kollam Beach Guest House",
+      "district": "kollam",
+      "location": "Kollam Beach Road",
+      "category": "budget",
+      "price_per_night": 1100,
+      "rating": 3.9,
+      "image": "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?w=600",
+      "description": "A simple, friendly guesthouse steps from Kollam Beach offering clean rooms, warm hospitality and easy access to the Ashtamudi backwaters and boat jetties.",
+      "amenities": [
+        "Beach access",
+        "Home cooking",
+        "Travel desk",
+        "WiFi",
+        "Parking"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Beach View Room",
+        "Double Room"
+      ],
+      "lat": 8.88,
+      "lng": 76.57
+    },
+    {
+      "id": "thrissur_budget_1",
+      "name": "Thrissur Heritage Lodge",
+      "district": "thrissur",
+      "location": "Round South, Thrissur",
+      "category": "budget",
+      "price_per_night": 1200,
+      "rating": 3.9,
+      "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600",
+      "description": "A well-kept budget lodge near Thrissur's famous Round (the Vadakkumnathan temple complex). Walking distance to all central attractions including museums and cultural venues.",
+      "amenities": [
+        "Central location",
+        "Restaurant",
+        "WiFi",
+        "24hr reception",
+        "Laundry"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Deluxe Room",
+        "Triple Room"
+      ],
+      "lat": 10.52,
+      "lng": 76.21
+    },
+    {
+      "id": "malappuram_midrange_1",
+      "name": "Nilambur Forest Retreat",
+      "district": "malappuram",
+      "location": "Nilambur, Malappuram",
+      "category": "mid-range",
+      "price_per_night": 3400,
+      "rating": 4.2,
+      "image": "https://images.unsplash.com/photo-1471879832106-c7ab9e0cee23?w=600",
+      "description": "A serene forest retreat near the world-famous Nilambur Teak Museum and Conolly's Plot, the oldest teak plantation on earth. Guided teak forest walks and tribal village visits.",
+      "amenities": [
+        "Forest walks",
+        "Teak museum tours",
+        "Pool",
+        "Organic restaurant",
+        "WiFi",
+        "Parking"
+      ],
+      "rooms": [
+        "Forest Room",
+        "Garden Cottage",
+        "Family Suite"
+      ],
+      "lat": 11.28,
+      "lng": 76.22
+    },
+    {
+      "id": "alappuzha_budget_1",
+      "name": "Johnson's The Residency Alleppey",
+      "district": "alappuzha",
+      "location": "Alleppey Town, Alappuzha",
+      "category": "budget",
+      "price_per_night": 1300,
+      "rating": 3.9,
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "A no-frills clean guesthouse in the heart of Alleppey town, just minutes from the boat jetty and beach. Perfect for budget backpackers exploring the backwaters.",
+      "amenities": [
+        "WiFi",
+        "Hot water",
+        "Travel desk",
+        "Breakfast available",
+        "Bicycle rental"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Double Room",
+        "Dormitory Bed"
+      ],
+      "lat": 9.49,
+      "lng": 76.33
+    },
+    {
+      "id": "alappuzha_midrange_2",
+      "name": "Emerald Isle Heritage Villa",
+      "district": "alappuzha",
+      "location": "Kainakary, Alleppey",
+      "category": "mid-range",
+      "price_per_night": 5800,
+      "rating": 4.5,
+      "image": "https://images.unsplash.com/photo-1563911302283-d2bc129e7570?w=600",
+      "description": "A 100-year-old traditional tharavad house on a backwater island accessible only by boat. Experience authentic Kerala village life with home-cooked sadya meals.",
+      "amenities": [
+        "Backwater island",
+        "Home meals",
+        "Canoe rides",
+        "Cultural programs",
+        "WiFi"
+      ],
+      "rooms": [
+        "Heritage Room",
+        "Waterfront Room",
+        "Family Suite"
+      ],
+      "lat": 9.46,
+      "lng": 76.36
+    },
+    {
+      "id": "ernakulam_budget_1",
+      "name": "Old Harbour Hostel Fort Kochi",
+      "district": "ernakulam",
+      "location": "Fort Kochi, Ernakulam",
+      "category": "budget",
+      "price_per_night": 900,
+      "rating": 4.1,
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "A vibrant social hostel in a colonial-era building in Fort Kochi, steps from the Chinese fishing nets and local art galleries. Great for solo and backpacker travellers.",
+      "amenities": [
+        "Common kitchen",
+        "Lounge",
+        "WiFi",
+        "Dorm & private rooms",
+        "Art gallery nearby"
+      ],
+      "rooms": [
+        "Dormitory Bed",
+        "Private Room",
+        "Double Room"
+      ],
+      "lat": 9.97,
+      "lng": 76.24
+    },
+    {
+      "id": "ernakulam_midrange_2",
+      "name": "Cochin Seawind Hotel",
+      "district": "ernakulam",
+      "location": "Marine Drive, Ernakulam",
+      "category": "mid-range",
+      "price_per_night": 4400,
+      "rating": 4.2,
+      "image": "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=600",
+      "description": "A comfortable mid-range hotel on the scenic Marine Drive promenade with harbour views, close to shopping malls, restaurants and the ferry to Fort Kochi.",
+      "amenities": [
+        "Harbour view",
+        "Restaurant",
+        "Pool",
+        "WiFi",
+        "Business center",
+        "Parking"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Harbour View Room",
+        "Deluxe Suite"
+      ],
+      "lat": 9.98,
+      "lng": 76.28
+    },
+    {
+      "id": "kannur_budget_2",
+      "name": "Sunset Homestay Muzhappilangad",
+      "district": "kannur",
+      "location": "Muzhappilangad Beach, Kannur",
+      "category": "budget",
+      "price_per_night": 1100,
+      "rating": 4.0,
+      "image": "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?w=600",
+      "description": "A cosy family homestay beside India's longest drive-in beach. Simple rooms, warm Kerala hospitality, fresh fish curry meals, and stunning golden sunsets.",
+      "amenities": [
+        "Drive-in beach access",
+        "Home cooking",
+        "WiFi",
+        "Parking",
+        "Cycling"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Sea View Room",
+        "Family Room"
+      ],
+      "lat": 11.97,
+      "lng": 75.34
+    },
+    {
+      "id": "kannur_midrange_2",
+      "name": "Malabar Ocean Front Resort",
+      "district": "kannur",
+      "location": "Thottada Beach, Kannur",
+      "category": "mid-range",
+      "price_per_night": 4800,
+      "rating": 4.4,
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "A beautifully landscaped beachfront resort near Thottada with spacious cottages, swimming pool and arranged Theyyam folk dance performances for guests.",
+      "amenities": [
+        "Beachfront",
+        "Pool",
+        "Restaurant",
+        "Theyyam shows",
+        "WiFi",
+        "Ayurveda"
+      ],
+      "rooms": [
+        "Beach Cottage",
+        "Deluxe Room",
+        "Pool-facing Suite"
+      ],
+      "lat": 11.9,
+      "lng": 75.37
+    },
+    {
+      "id": "kasaragod_budget_2",
+      "name": "Chandragiri Fort View Lodge",
+      "district": "kasaragod",
+      "location": "Kasaragod Town",
+      "category": "budget",
+      "price_per_night": 850,
+      "rating": 3.7,
+      "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600",
+      "description": "A clean budget lodge in Kasaragod town near the Chandragiri Fort and river. Ideal base for day trips to Bekal Fort, Valiyaparamba backwaters, and nearby beaches.",
+      "amenities": [
+        "Central location",
+        "Restaurant",
+        "WiFi",
+        "24hr reception",
+        "Parking"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Double Room",
+        "Family Room"
+      ],
+      "lat": 12.5,
+      "lng": 74.99
+    },
+    {
+      "id": "kasaragod_midrange_3",
+      "name": "Valiyaparamba Backwater Resort",
+      "district": "kasaragod",
+      "location": "Valiyaparamba, Kasaragod",
+      "category": "mid-range",
+      "price_per_night": 5200,
+      "rating": 4.3,
+      "image": "https://images.unsplash.com/photo-1529290130-4ca3753253ae?w=600",
+      "description": "Nestled on a scenic island accessible by country boat, this resort sits on the Valiyaparamba backwaters — one of Kerala's best-kept secrets with four rivers meeting the sea.",
+      "amenities": [
+        "Island location",
+        "Boat transfers",
+        "Backwater cruises",
+        "Restaurant",
+        "WiFi",
+        "Fishing"
+      ],
+      "rooms": [
+        "Backwater Cottage",
+        "Island Room",
+        "Family Cottage"
+      ],
+      "lat": 12.15,
+      "lng": 75.08
+    },
+    {
+      "id": "kollam_budget_2",
+      "name": "Thangassery Lighthouse Guesthouse",
+      "district": "kollam",
+      "location": "Thangassery, Kollam",
+      "category": "budget",
+      "price_per_night": 1000,
+      "rating": 3.8,
+      "image": "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=600",
+      "description": "A charming budget stay near the historic Thangassery Lighthouse with sea views, run by a local fishing family. Fresh catch cooked daily and sunset views from the terrace.",
+      "amenities": [
+        "Sea views",
+        "Fresh seafood",
+        "Terrace",
+        "WiFi",
+        "Fishing trips"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Sea View Room",
+        "Double Room"
+      ],
+      "lat": 8.9,
+      "lng": 76.59
+    },
+    {
+      "id": "kollam_midrange_2",
+      "name": "Munroe Island Eco Resort",
+      "district": "kollam",
+      "location": "Munroe Island, Kollam",
+      "category": "mid-range",
+      "price_per_night": 4600,
+      "rating": 4.4,
+      "image": "https://images.unsplash.com/photo-1471879832106-c7ab9e0cee23?w=600",
+      "description": "Canoe through narrow canals of Munroe Island, an archipelago of 8 small islands. Wooden cottages on stilts, coir-making demonstrations and village walks included.",
+      "amenities": [
+        "Canoe tours",
+        "Village walks",
+        "Stilt cottages",
+        "Kerala meals",
+        "Bird watching"
+      ],
+      "rooms": [
+        "Stilt Cottage",
+        "Waterfront Room",
+        "Deluxe Cottage"
+      ],
+      "lat": 9.0,
+      "lng": 76.62
+    },
+    {
+      "id": "kottayam_budget_1",
+      "name": "Plantation Stay Kottayam",
+      "district": "kottayam",
+      "location": "Pala, Kottayam",
+      "category": "budget",
+      "price_per_night": 1200,
+      "rating": 4.0,
+      "image": "https://images.unsplash.com/photo-1568495248636-6432b97bd949?w=600",
+      "description": "A homely guesthouse in a rubber and spice plantation outside Pala town. Peaceful surroundings, home-cooked meals and easy access to Kumarakom and the backwaters.",
+      "amenities": [
+        "Plantation walks",
+        "Home cooking",
+        "WiFi",
+        "Parking",
+        "Bicycle rental"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Plantation View Room",
+        "Family Room"
+      ],
+      "lat": 9.7,
+      "lng": 76.69
+    },
+    {
+      "id": "kottayam_midrange_2",
+      "name": "Kumarakom Lake Resort Classic",
+      "district": "kottayam",
+      "location": "Kumarakom, Kottayam",
+      "category": "mid-range",
+      "price_per_night": 6200,
+      "rating": 4.5,
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "A heritage Kerala-style resort on the shores of Vembanad Lake at Kumarakom with rice boat cruises, paddy field walks, bird sanctuary views and Ayurvedic wellness.",
+      "amenities": [
+        "Vembanad Lake views",
+        "Houseboat cruises",
+        "Ayurveda",
+        "Pool",
+        "Restaurant",
+        "WiFi"
+      ],
+      "rooms": [
+        "Lake View Room",
+        "Heritage Cottage",
+        "Deluxe Villa"
+      ],
+      "lat": 9.61,
+      "lng": 76.43
+    },
+    {
+      "id": "kozhikode_budget_2",
+      "name": "Beach Hut Kozhikode",
+      "district": "kozhikode",
+      "location": "Kozhikode Beach",
+      "category": "budget",
+      "price_per_night": 950,
+      "rating": 3.9,
+      "image": "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?w=600",
+      "description": "Laid-back budget rooms right on Kozhikode beach, made famous by Vasco da Gama's landing. Enjoy sunset walks, local halwa, and the iconic Calicut pier views.",
+      "amenities": [
+        "Beachfront",
+        "Travel desk",
+        "WiFi",
+        "Hot water",
+        "Nearby restaurants"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Beach View Room",
+        "Double Room"
+      ],
+      "lat": 11.25,
+      "lng": 75.77
+    },
+    {
+      "id": "kozhikode_midrange_2",
+      "name": "Westway Hotel Kozhikode",
+      "district": "kozhikode",
+      "location": "SM Street, Kozhikode",
+      "category": "mid-range",
+      "price_per_night": 3700,
+      "rating": 4.2,
+      "image": "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=600",
+      "description": "A well-appointed city hotel near the legendary Sweet Meat Street, the heart of Kozhikode's food and shopping scene. Try halwa, banana chips, and authentic Malabar biryani.",
+      "amenities": [
+        "City center",
+        "Rooftop restaurant",
+        "Pool",
+        "WiFi",
+        "Bar",
+        "Parking"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Deluxe Room",
+        "Executive Suite"
+      ],
+      "lat": 11.25,
+      "lng": 75.78
+    },
+    {
+      "id": "malappuram_budget_2",
+      "name": "Green Valley Inn Malappuram",
+      "district": "malappuram",
+      "location": "Malappuram Town",
+      "category": "budget",
+      "price_per_night": 1100,
+      "rating": 3.8,
+      "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600",
+      "description": "A clean and affordable lodge in Malappuram town, great base to explore Kadalundi bird sanctuary, Tipu Sultan's fort at Palakkad and the scenic Nilambur forests.",
+      "amenities": [
+        "Central location",
+        "Restaurant",
+        "WiFi",
+        "24hr front desk",
+        "Parking"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Double Room",
+        "Triple Room"
+      ],
+      "lat": 11.06,
+      "lng": 76.07
+    },
+    {
+      "id": "malappuram_midrange_2",
+      "name": "Kadalundi River View Resort",
+      "district": "malappuram",
+      "location": "Kadalundi, Malappuram",
+      "category": "mid-range",
+      "price_per_night": 3800,
+      "rating": 4.3,
+      "image": "https://images.unsplash.com/photo-1471879832106-c7ab9e0cee23?w=600",
+      "description": "A peaceful riverside resort at the Kadalundi bird sanctuary, one of Kerala's premier migratory bird spots. Best visited from October to March for rare species sightings.",
+      "amenities": [
+        "Bird watching",
+        "River views",
+        "Canoe rides",
+        "Restaurant",
+        "WiFi",
+        "Nature walks"
+      ],
+      "rooms": [
+        "River View Room",
+        "Eco Cottage",
+        "Family Room"
+      ],
+      "lat": 11.1,
+      "lng": 75.85
+    },
+    {
+      "id": "munnar_budget_2",
+      "name": "Tea Valley Budget Stay Munnar",
+      "district": "munnar",
+      "location": "Munnar Town, Idukki",
+      "category": "budget",
+      "price_per_night": 1500,
+      "rating": 4.0,
+      "image": "https://images.unsplash.com/photo-1506974210756-8e1b8985d348?w=600",
+      "description": "Affordable rooms with tea estate views right in Munnar town. Clean, comfortable and conveniently placed for Eravikulam National Park, Mattupetty Dam and local markets.",
+      "amenities": [
+        "Tea estate view",
+        "Hot water",
+        "WiFi",
+        "Travel desk",
+        "Parking"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Valley View Room",
+        "Triple Room"
+      ],
+      "lat": 10.09,
+      "lng": 77.06
+    },
+    {
+      "id": "munnar_midrange_3",
+      "name": "Misty Mountain Resort Munnar",
+      "district": "munnar",
+      "location": "Top Station Road, Munnar",
+      "category": "mid-range",
+      "price_per_night": 5500,
+      "rating": 4.5,
+      "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=600",
+      "description": "Perched at 5500 ft on the road to Top Station with panoramic views of the Western Ghats. Cloud-level cottages, forest walks and bonfires under a star-filled sky.",
+      "amenities": [
+        "Panoramic mountain views",
+        "Cottages",
+        "Campfire",
+        "Forest walks",
+        "Restaurant",
+        "WiFi"
+      ],
+      "rooms": [
+        "Mountain Cottage",
+        "Cloud View Room",
+        "Deluxe Bungalow"
+      ],
+      "lat": 10.13,
+      "lng": 77.18
+    },
+    {
+      "id": "palakkad_budget_2",
+      "name": "Nemmara Homestay Palakkad",
+      "district": "palakkad",
+      "location": "Nemmara, Palakkad",
+      "category": "budget",
+      "price_per_night": 1300,
+      "rating": 4.0,
+      "image": "https://images.unsplash.com/photo-1568495248636-6432b97bd949?w=600",
+      "description": "A welcoming family homestay on the outskirts of Palakkad near Nemmara. Paddy fields all around, wholesome home cooking and a great base for the Palakkad Gap treks.",
+      "amenities": [
+        "Paddy field views",
+        "Home cooking",
+        "WiFi",
+        "Cycling",
+        "Nature walks"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Deluxe Room",
+        "Family Room"
+      ],
+      "lat": 10.6,
+      "lng": 76.52
+    },
+    {
+      "id": "palakkad_midrange_2",
+      "name": "Pothundi Dam Resort",
+      "district": "palakkad",
+      "location": "Pothundi, Palakkad",
+      "category": "mid-range",
+      "price_per_night": 4000,
+      "rating": 4.3,
+      "image": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=600",
+      "description": "A forest-fringed resort beside the scenic Pothundi reservoir surrounded by the Parambikulam Tiger Reserve. Boating, fishing and wildlife spotting from the property.",
+      "amenities": [
+        "Reservoir views",
+        "Boating",
+        "Fishing",
+        "Wildlife walks",
+        "Restaurant",
+        "WiFi"
+      ],
+      "rooms": [
+        "Forest Cottage",
+        "Lake View Room",
+        "Family Tent"
+      ],
+      "lat": 10.5,
+      "lng": 76.62
+    },
+    {
+      "id": "tvm_budget_2",
+      "name": "Lighthouse Beach Hostel Kovalam",
+      "district": "thiruvananthapuram",
+      "location": "Lighthouse Beach, Kovalam",
+      "category": "budget",
+      "price_per_night": 800,
+      "rating": 4.1,
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "A fun backpacker hostel a stone's throw from the iconic Kovalam Lighthouse. Rooftop chill area, social events, yoga classes and unbeatable beach access.",
+      "amenities": [
+        "Beach access",
+        "Rooftop terrace",
+        "Yoga classes",
+        "Common kitchen",
+        "WiFi",
+        "Social events"
+      ],
+      "rooms": [
+        "Mixed Dorm",
+        "Female Dorm",
+        "Private Room"
+      ],
+      "lat": 8.39,
+      "lng": 76.98
+    },
+    {
+      "id": "tvm_midrange_2",
+      "name": "Poovar Island Resort Classic",
+      "district": "thiruvananthapuram",
+      "location": "Poovar, Thiruvananthapuram",
+      "category": "mid-range",
+      "price_per_night": 5000,
+      "rating": 4.4,
+      "image": "https://images.unsplash.com/photo-1529290130-4ca3753253ae?w=600",
+      "description": "An island resort at the confluence of the Neyyar river, backwaters, and the Arabian Sea — accessible only by boat. Floating cottages, golden beach and complete seclusion.",
+      "amenities": [
+        "Island resort",
+        "Boat transfers",
+        "Floating cottages",
+        "Pool",
+        "Restaurant",
+        "Ayurveda"
+      ],
+      "rooms": [
+        "Floating Cottage",
+        "Island Room",
+        "Honeymoon Suite"
+      ],
+      "lat": 8.31,
+      "lng": 77.09
+    },
+    {
+      "id": "thrissur_budget_2",
+      "name": "Athirappilly Jungle Camp",
+      "district": "thrissur",
+      "location": "Athirappilly, Thrissur",
+      "category": "budget",
+      "price_per_night": 1800,
+      "rating": 4.1,
+      "image": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=600",
+      "description": "Basic tented accommodation inside the forest near Athirappilly Falls. Wake up to birdsong and the distant roar of the falls, with guided forest walks included.",
+      "amenities": [
+        "Near Athirappilly Falls",
+        "Forest walks",
+        "Campfire",
+        "Meals included",
+        "Guided treks"
+      ],
+      "rooms": [
+        "Forest Tent",
+        "Basic Cottage",
+        "Family Tent"
+      ],
+      "lat": 10.28,
+      "lng": 76.56
+    },
+    {
+      "id": "thrissur_midrange_3",
+      "name": "Guruvayur Heritage Hotel",
+      "district": "thrissur",
+      "location": "Guruvayur, Thrissur",
+      "category": "mid-range",
+      "price_per_night": 3500,
+      "rating": 4.2,
+      "image": "https://images.unsplash.com/photo-1568084680786-a84f91d1153c?w=600",
+      "description": "A comfortable heritage-style hotel steps from the famous Guruvayur Krishna Temple, one of Kerala's most sacred sites. Vegetarian restaurant serving traditional Kerala temple food.",
+      "amenities": [
+        "Temple proximity",
+        "Vegetarian restaurant",
+        "WiFi",
+        "Travel desk",
+        "Parking",
+        "Puja arrangements"
+      ],
+      "rooms": [
+        "Standard Room",
+        "Deluxe Room",
+        "Pilgrim Suite"
+      ],
+      "lat": 10.59,
+      "lng": 76.04
+    },
+    {
+      "id": "wayanad_budget_2",
+      "name": "Sulthan Bathery Backpackers",
+      "district": "wayanad",
+      "location": "Sulthan Bathery, Wayanad",
+      "category": "budget",
+      "price_per_night": 900,
+      "rating": 4.0,
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "A friendly hostel in the market town of Sulthan Bathery, gateway to Wayanad Wildlife Sanctuary. Budget dorms, travel advice, and the best local Wayanad coffee on tap.",
+      "amenities": [
+        "Dorm & private rooms",
+        "Common kitchen",
+        "WiFi",
+        "Travel desk",
+        "Bicycle rental"
+      ],
+      "rooms": [
+        "Dormitory Bed",
+        "Private Room",
+        "Twin Room"
+      ],
+      "lat": 11.69,
+      "lng": 76.26
+    },
+    {
+      "id": "wayanad_midrange_2",
+      "name": "Banasura Hill Resort",
+      "district": "wayanad",
+      "location": "Padinharathara, Wayanad",
+      "category": "mid-range",
+      "price_per_night": 6500,
+      "rating": 4.5,
+      "image": "https://images.unsplash.com/photo-1506974210756-8e1b8985d348?w=600",
+      "description": "An award-winning earth resort built into the Banasura Hills using local materials. Overlooks Asia's largest earthen dam, surrounded by cardamom estates and misty valleys.",
+      "amenities": [
+        "Hill views",
+        "Earthen cottages",
+        "Trek trails",
+        "Dam views",
+        "Restaurant",
+        "Campfire",
+        "WiFi"
+      ],
+      "rooms": [
+        "Earth Cottage",
+        "Hill View Room",
+        "Premium Bungalow"
+      ],
+      "lat": 11.71,
+      "lng": 75.99
+    },
+    {
+      "id": "h_tvpm_01",
+      "name": "Vivanta Thiruvananthapuram",
+      "district": "thiruvananthapuram",
+      "location": "Museum Road, Thiruvananthapuram",
+      "category": "luxury",
+      "price_per_night": 12000,
+      "rating": 4.7,
+      "amenities": [
+        "Rooftop Pool",
+        "Spa",
+        "Fine Dining",
+        "Business Centre",
+        "WiFi",
+        "Bar"
+      ],
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600",
+      "description": "A modern luxury hotel in the heart of the capital with stunning rooftop views of the city and Arabian Sea. Known for impeccable service and authentic Kerala cuisine.",
+      "rooms": [
+        "Deluxe Room",
+        "Premium Suite",
+        "Presidential Suite"
+      ],
+      "lat": 8.5074,
+      "lng": 76.9574
+    },
+    {
+      "id": "h_tvpm_02",
+      "name": "Poovar Island Resort (Secret Escape)",
+      "district": "thiruvananthapuram",
+      "location": "Poovar Island, 30km from City",
+      "category": "luxury",
+      "price_per_night": 19000,
+      "rating": 4.9,
+      "amenities": [
+        "Floating Cottages",
+        "Private Beach",
+        "Backwater View",
+        "Ayurveda",
+        "Canoe",
+        "Restaurant"
+      ],
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600",
+      "description": "Accessible only by boat, this secret island resort offers floating cottages on the backwaters of Poovar. One of Kerala's most exclusive and hidden luxury retreats.",
+      "rooms": [
+        "Floating Cottage",
+        "Island Villa",
+        "Beach Cottage"
+      ],
+      "lat": 8.3167,
+      "lng": 77.05
+    },
+    {
+      "id": "h_tvpm_03",
+      "name": "Bonacaud Bungalow Heritage Stay",
+      "district": "thiruvananthapuram",
+      "location": "Bonacaud Hills, 55km from City",
+      "category": "mid-range",
+      "price_per_night": 5500,
+      "rating": 4.5,
+      "amenities": [
+        "Colonial Bungalow",
+        "Tea Walks",
+        "Waterfall Hike",
+        "Forest Views",
+        "Organic Meals",
+        "Fireplace"
+      ],
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "A hidden colonial bungalow on a tea estate in the hills. One of the most secret heritage stays in Kerala — virtually unknown to outside tourists. The surrounding jungle and waterfalls are magical.",
+      "rooms": [
+        "Heritage Room",
+        "Bungalow Suite",
+        "Garden Room"
+      ],
+      "lat": 8.6833,
+      "lng": 77.1167
+    },
+    {
+      "id": "h_tvpm_04",
+      "name": "Green Palms Guesthouse Varkala",
+      "district": "thiruvananthapuram",
+      "location": "Varkala Cliff",
+      "category": "budget",
+      "price_per_night": 1800,
+      "rating": 4.2,
+      "amenities": [
+        "Cliff Views",
+        "Restaurant",
+        "WiFi",
+        "Yoga Deck",
+        "Common Kitchen"
+      ],
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "A charming budget guesthouse perched on the Varkala cliff with mesmerizing sea views. Popular with backpackers and yogis seeking an authentic cliff-top experience.",
+      "rooms": [
+        "Standard Room",
+        "Sea View Room",
+        "Dormitory"
+      ],
+      "lat": 8.7379,
+      "lng": 76.7163
+    },
+    {
+      "id": "h_kochi_01",
+      "name": "CGH Earth Brunton Boatyard",
+      "district": "ernakulam",
+      "location": "Fort Kochi Waterfront",
+      "category": "luxury",
+      "price_per_night": 21000,
+      "rating": 4.9,
+      "amenities": [
+        "Heritage Property",
+        "Harbour Views",
+        "Pool",
+        "Fine Dining",
+        "Ayurveda",
+        "WiFi",
+        "Bar"
+      ],
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600",
+      "description": "Built on the old British boatyard in Fort Kochi, this heritage luxury hotel blends colonial architecture with modern comforts and commands sweeping views of the historic harbour.",
+      "rooms": [
+        "Harbour Room",
+        "Heritage Suite",
+        "Governor's Suite"
+      ],
+      "lat": 9.9656,
+      "lng": 76.2429
+    },
+    {
+      "id": "h_kochi_02",
+      "name": "Old Harbour Hotel Fort Kochi",
+      "district": "ernakulam",
+      "location": "Tower Road, Fort Kochi",
+      "category": "luxury",
+      "price_per_night": 14000,
+      "rating": 4.7,
+      "amenities": [
+        "Heritage Architecture",
+        "Pool",
+        "Garden Restaurant",
+        "WiFi",
+        "Heritage Tour",
+        "Bicycle"
+      ],
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "A 300-year-old heritage mansion in Fort Kochi lovingly restored into a boutique luxury hotel. The colonial pillars, antique furniture and tropical garden transport guests to another era.",
+      "rooms": [
+        "Heritage Room",
+        "Garden Suite",
+        "Colonial Suite"
+      ],
+      "lat": 9.9656,
+      "lng": 76.2389
+    },
+    {
+      "id": "h_kochi_03",
+      "name": "Cherai Beach Residency",
+      "district": "ernakulam",
+      "location": "Cherai Beach, Vypeen Island",
+      "category": "mid-range",
+      "price_per_night": 4500,
+      "rating": 4.4,
+      "amenities": [
+        "Beach Access",
+        "Pool",
+        "Restaurant",
+        "Watersports",
+        "Dolphin Watching",
+        "WiFi"
+      ],
+      "image": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=600",
+      "description": "A serene resort on the hidden Cherai Beach where the backwaters meet the sea. Perfect for dolphin watching at sunrise and unwinding away from Kochi's crowds.",
+      "rooms": [
+        "Beach Room",
+        "Backwater View Room",
+        "Family Suite"
+      ],
+      "lat": 10.15,
+      "lng": 76.1833
+    },
+    {
+      "id": "h_kochi_04",
+      "name": "Bolghatty Palace Hotel (KTDC)",
+      "district": "ernakulam",
+      "location": "Bolghatty Island, Kochi",
+      "category": "mid-range",
+      "price_per_night": 6000,
+      "rating": 4.1,
+      "amenities": [
+        "Dutch Heritage",
+        "Island Location",
+        "Pool",
+        "Golf",
+        "Backwater Views",
+        "Ferry Access"
+      ],
+      "image": "https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=600",
+      "description": "A 250-year-old Dutch palace converted into a hotel on the isolated Bolghatty Island. Accessible only by ferry, this is one of Kochi's most unique and secret heritage hotel experiences.",
+      "rooms": [
+        "Palace Room",
+        "Lake View Room",
+        "Cottage"
+      ],
+      "lat": 9.9667,
+      "lng": 76.2833
+    },
+    {
+      "id": "h_kochi_05",
+      "name": "Zostel Kochi",
+      "district": "ernakulam",
+      "location": "Fort Kochi Heritage Zone",
+      "category": "budget",
+      "price_per_night": 800,
+      "rating": 4.3,
+      "amenities": [
+        "Common Room",
+        "Free Breakfast",
+        "WiFi",
+        "Bicycle Rental",
+        "Heritage Walk",
+        "Backpacker Community"
+      ],
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "A vibrant budget hostel in the heart of Fort Kochi's heritage zone, ideal for backpackers and solo travellers looking to explore colonial streets on a budget.",
+      "rooms": [
+        "Mixed Dormitory",
+        "Female Dorm",
+        "Private Room"
+      ],
+      "lat": 9.965,
+      "lng": 76.238
+    },
+    {
+      "id": "h_mun_01",
+      "name": "Kolukkumalai Summit Camp",
+      "district": "munnar",
+      "location": "Kolukkumalai, 7900ft",
+      "category": "mid-range",
+      "price_per_night": 7500,
+      "rating": 4.8,
+      "amenities": [
+        "World's Highest Tea Estate",
+        "Sunrise View",
+        "Jeep Access",
+        "Tea Factory Tour",
+        "Campfire",
+        "Telescope"
+      ],
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600",
+      "description": "A secret high-altitude camp at the world's highest tea estate (7900ft). Guests witness the most dramatic sunrise in Kerala above the clouds. Accessible only by jeep through mountain roads.",
+      "rooms": [
+        "Tent Suite",
+        "Wooden Cabin",
+        "Star Gazing Room"
+      ],
+      "lat": 10.2167,
+      "lng": 77.2167
+    },
+    {
+      "id": "h_mun_02",
+      "name": "Tranquil Plantation Hideaway",
+      "district": "munnar",
+      "location": "Shola Forest, Munnar",
+      "category": "luxury",
+      "price_per_night": 16000,
+      "rating": 4.8,
+      "amenities": [
+        "Private Plunge Pool",
+        "Estate Walks",
+        "Bird Watching",
+        "Gourmet Meals",
+        "Butler Service",
+        "Fireplace"
+      ],
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600",
+      "description": "An ultra-secret plantation hideaway with only 6 cottages nestled in a private coffee estate bordering the shola forest. Perfect for honeymooners and those seeking total seclusion.",
+      "rooms": [
+        "Estate Cottage",
+        "Forest Villa",
+        "Plantation Suite"
+      ],
+      "lat": 10.09,
+      "lng": 77.06
+    },
+    {
+      "id": "h_mun_03",
+      "name": "Blackberry Hills Retreat",
+      "district": "munnar",
+      "location": "Bison Valley Road, Munnar",
+      "category": "mid-range",
+      "price_per_night": 5800,
+      "rating": 4.5,
+      "amenities": [
+        "Valley Views",
+        "Tea Estate",
+        "Trekking",
+        "Bird Watching",
+        "Restaurant",
+        "Bonfire"
+      ],
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "A hidden hillside retreat off the beaten path in Bison Valley with dramatic views of misty tea estates. Known among serious trekkers for access to remote trails rarely shown in guides.",
+      "rooms": [
+        "Hill View Room",
+        "Valley Suite",
+        "Family Cottage"
+      ],
+      "lat": 10.07,
+      "lng": 77.1
+    },
+    {
+      "id": "h_mun_04",
+      "name": "Tea Valley Resort Budget",
+      "district": "munnar",
+      "location": "Munnar Town",
+      "category": "budget",
+      "price_per_night": 1500,
+      "rating": 4.0,
+      "amenities": [
+        "Tea Estate View",
+        "Restaurant",
+        "WiFi",
+        "Guided Walks",
+        "Local Tours"
+      ],
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "An affordable base in Munnar town offering clean rooms with tea estate views. Ideal for budget travellers wanting to explore Munnar's scenic trails and waterfalls.",
+      "rooms": [
+        "Standard Room",
+        "Double Room",
+        "Triple Room"
+      ],
+      "lat": 10.089,
+      "lng": 77.0595
+    },
+    {
+      "id": "h_way_01",
+      "name": "Vythiri Resort",
+      "district": "wayanad",
+      "location": "Vythiri, 700m altitude",
+      "category": "luxury",
+      "price_per_night": 17000,
+      "rating": 4.8,
+      "amenities": [
+        "Tree House",
+        "Infinity Pool",
+        "Rainforest",
+        "Spa",
+        "Zip-line",
+        "Gourmet Dining",
+        "Waterfalls"
+      ],
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600",
+      "description": "An award-winning jungle resort in the mist-covered forests of Wayanad with stunning treehouse suites, a natural stream, and a zip-line canopy tour. One of Kerala's finest luxury experiences.",
+      "rooms": [
+        "Treehouse",
+        "Forest Cottage",
+        "Pool Villa",
+        "Stream Suite"
+      ],
+      "lat": 11.5833,
+      "lng": 76.05
+    },
+    {
+      "id": "h_way_02",
+      "name": "Tranquil Resort Wayanad",
+      "district": "wayanad",
+      "location": "Kolagappara Coffee Estate",
+      "category": "luxury",
+      "price_per_night": 14000,
+      "rating": 4.7,
+      "amenities": [
+        "Coffee Estate",
+        "Private Pool",
+        "Bird Watching",
+        "Elephant Trek",
+        "Organic Farm",
+        "Stargazing"
+      ],
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600",
+      "description": "A secret luxury hideout on a working coffee estate with resident elephants visiting at dawn. Only 6 villas, each with a private pool overlooking the Kabani River valley.",
+      "rooms": [
+        "Coffee Villa",
+        "River View Villa",
+        "Estate Cottage"
+      ],
+      "lat": 11.65,
+      "lng": 76.1333
+    },
+    {
+      "id": "h_way_03",
+      "name": "Jungle Hut Wayanad",
+      "district": "wayanad",
+      "location": "Near Muthanga Wildlife Sanctuary",
+      "category": "mid-range",
+      "price_per_night": 5000,
+      "rating": 4.4,
+      "amenities": [
+        "Wildlife Proximity",
+        "Jungle Walk",
+        "Tribal Village",
+        "Elephant Sightings",
+        "Organic Meals",
+        "Campfire"
+      ],
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "A rustic eco-resort at the edge of Muthanga Wildlife Sanctuary where elephant herds pass through at night. Tribal village tours and forest walks are authentic highlights.",
+      "rooms": [
+        "Mud Cottage",
+        "Jungle Room",
+        "Treehouse"
+      ],
+      "lat": 11.6167,
+      "lng": 76.3833
+    },
+    {
+      "id": "h_way_04",
+      "name": "Windy Woods Wayanad",
+      "district": "wayanad",
+      "location": "Kalpetta Hills",
+      "category": "budget",
+      "price_per_night": 2200,
+      "rating": 4.1,
+      "amenities": [
+        "Hill Views",
+        "Restaurant",
+        "WiFi",
+        "Trekking Guide",
+        "Local Transport"
+      ],
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "An affordable hillside property in Kalpetta with good connectivity to all Wayanad attractions. Great value for budget travellers exploring the district.",
+      "rooms": [
+        "Standard Room",
+        "Hill View Room",
+        "Family Room"
+      ],
+      "lat": 11.6,
+      "lng": 76.0833
+    },
+    {
+      "id": "h_alp_01",
+      "name": "Punnamada Houseboat Elite",
+      "district": "alappuzha",
+      "location": "Punnamada Lake, Alleppey",
+      "category": "luxury",
+      "price_per_night": 22000,
+      "rating": 4.9,
+      "amenities": [
+        "Private Houseboat",
+        "Sundeck",
+        "Chef",
+        "Fishing",
+        "Backwater Cruise",
+        "AC Bedrooms",
+        "Butler"
+      ],
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600",
+      "description": "Kerala's most luxurious houseboat experience on Punnamada Lake — the venue of the famous Nehru Trophy Boat Race. Private premium kettuvallam with personal chef, sunken jacuzzi and 360° water views.",
+      "rooms": [
+        "Master Bedroom",
+        "Deluxe Bedroom",
+        "Sundeck Suite"
+      ],
+      "lat": 9.485,
+      "lng": 76.327
+    },
+    {
+      "id": "h_alp_02",
+      "name": "Pathiramanal Island Eco Lodge",
+      "district": "alappuzha",
+      "location": "Pathiramanal Island, Vembanad Lake",
+      "category": "mid-range",
+      "price_per_night": 7000,
+      "rating": 4.7,
+      "amenities": [
+        "Island Location",
+        "Bird Watching",
+        "Boat Access Only",
+        "Organic Farm",
+        "Canoe",
+        "Bonfire"
+      ],
+      "image": "https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=600",
+      "description": "A completely secret eco lodge on the mysterious Pathiramanal Island, accessible only by boat. Home to 50+ rare bird species. Guests often see Siberian cranes at breakfast.",
+      "rooms": [
+        "Lake Cottage",
+        "Bird Watching Suite",
+        "Floating Deck Room"
+      ],
+      "lat": 9.6833,
+      "lng": 76.4167
+    },
+    {
+      "id": "h_alp_03",
+      "name": "Marari Beach Resort",
+      "district": "alappuzha",
+      "location": "Mararikulam Beach",
+      "category": "luxury",
+      "price_per_night": 18000,
+      "rating": 4.8,
+      "amenities": [
+        "Private Beach",
+        "Ayurveda Village",
+        "Fishing Village",
+        "Pool",
+        "Yoga",
+        "Organic Farm",
+        "Restaurant"
+      ],
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600",
+      "description": "An award-winning beach resort on the hidden Mararikulam Beach. Built within a coconut grove with traditional Kerala cottages, an Ayurveda village, and direct access to pristine sands.",
+      "rooms": [
+        "Garden Cottage",
+        "Beach Cottage",
+        "Villa"
+      ],
+      "lat": 9.5833,
+      "lng": 76.2833
+    },
+    {
+      "id": "h_alp_04",
+      "name": "Budget Backwater Homestay",
+      "district": "alappuzha",
+      "location": "Kuttanad Backwaters",
+      "category": "budget",
+      "price_per_night": 1200,
+      "rating": 4.2,
+      "amenities": [
+        "Canoe Included",
+        "Homemade Meals",
+        "Fishing",
+        "Rice Paddy Views",
+        "WiFi"
+      ],
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "An authentic below-sea-level homestay in Kuttanad, the rice bowl of Kerala. Wake up to paddy fields, ride a canoe to the market, and enjoy traditional Sadya meals.",
+      "rooms": [
+        "Traditional Room",
+        "Balcony Room",
+        "Family Room"
+      ],
+      "lat": 9.5,
+      "lng": 76.55
+    },
+    {
+      "id": "h_tsr_01",
+      "name": "Ayurveda Mana Heritage Thrissur",
+      "district": "thrissur",
+      "location": "Irinjalakuda, 25km from Thrissur",
+      "category": "luxury",
+      "price_per_night": 13000,
+      "rating": 4.7,
+      "amenities": [
+        "Traditional Nalukettu",
+        "Ayurveda Treatments",
+        "Organic Garden",
+        "Heritage Meals",
+        "Yoga",
+        "Doctor Consultation"
+      ],
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600",
+      "description": "A traditional Tharavadu (ancestral home) converted into a luxury Ayurveda retreat. Treatments use 200-year-old family recipes. One of the most authentic wellness experiences in Kerala.",
+      "rooms": [
+        "Tharavadu Room",
+        "Courtyard Suite",
+        "Heritage Villa"
+      ],
+      "lat": 10.35,
+      "lng": 76.2167
+    },
+    {
+      "id": "h_tsr_02",
+      "name": "Vazhachal Forest Retreat",
+      "district": "thrissur",
+      "location": "Near Athirappilly Falls",
+      "category": "mid-range",
+      "price_per_night": 6500,
+      "rating": 4.5,
+      "amenities": [
+        "Forest Location",
+        "Waterfall Access",
+        "Elephant Proximity",
+        "Hornbill Watching",
+        "River Dip",
+        "Organic Meals"
+      ],
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "A hidden forest retreat 2km from Athirappilly Falls with private forest access at dawn before tourists arrive. Hornbills, giant squirrels and sometimes elephants are morning visitors.",
+      "rooms": [
+        "Forest Cabin",
+        "River View Room",
+        "Treehouse"
+      ],
+      "lat": 10.2833,
+      "lng": 76.5667
+    },
+    {
+      "id": "h_tsr_03",
+      "name": "Hotel Luciya Palace Thrissur",
+      "district": "thrissur",
+      "location": "Thrissur City",
+      "category": "mid-range",
+      "price_per_night": 3500,
+      "rating": 4.0,
+      "amenities": [
+        "City Centre",
+        "Restaurant",
+        "WiFi",
+        "AC Rooms",
+        "Parking",
+        "Local Tours"
+      ],
+      "image": "https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=600",
+      "description": "A well-established city hotel in the heart of Thrissur, ideal for visiting Thrissur Pooram and the city's heritage temples. Reliable, comfortable and centrally located.",
+      "rooms": [
+        "Standard Room",
+        "Deluxe Room",
+        "Suite"
+      ],
+      "lat": 10.521,
+      "lng": 76.216
+    },
+    {
+      "id": "h_kzd_01",
+      "name": "Bekal Hideaway Resort",
+      "district": "kozhikode",
+      "location": "Kappad Beach, Kozhikode",
+      "category": "luxury",
+      "price_per_night": 11000,
+      "rating": 4.6,
+      "amenities": [
+        "Historic Beach",
+        "Heritage Pool",
+        "Restaurant",
+        "Surfing",
+        "Water Sports",
+        "Heritage Walk"
+      ],
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600",
+      "description": "A boutique resort on the historically significant Kappad Beach — where Vasco da Gama landed in 1498. Beautifully designed rooms with sea views and a rooftop that overlooks the landing site.",
+      "rooms": [
+        "Heritage Room",
+        "Sea View Suite",
+        "Da Gama Cottage"
+      ],
+      "lat": 11.3833,
+      "lng": 75.7333
+    },
+    {
+      "id": "h_kzd_02",
+      "name": "Thusharagiri Waterfall Camp",
+      "district": "kozhikode",
+      "location": "Thusharagiri Forest",
+      "category": "mid-range",
+      "price_per_night": 4500,
+      "rating": 4.4,
+      "amenities": [
+        "Forest Camp",
+        "Waterfall Access",
+        "Rappelling",
+        "River Trekking",
+        "Campfire",
+        "Organic Meals"
+      ],
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "A secret adventure camp deep inside the Thusharagiri forest, 500m from the main waterfall. Guests have exclusive early morning access to the falls before day visitors arrive.",
+      "rooms": [
+        "Forest Tent",
+        "Bamboo Cottage",
+        "Riverside Hut"
+      ],
+      "lat": 11.4333,
+      "lng": 75.9667
+    },
+    {
+      "id": "h_kzd_03",
+      "name": "Malabar Palace Hotel",
+      "district": "kozhikode",
+      "location": "GH Road, Kozhikode City",
+      "category": "mid-range",
+      "price_per_night": 3800,
+      "rating": 4.1,
+      "amenities": [
+        "City Location",
+        "Restaurant",
+        "WiFi",
+        "AC Rooms",
+        "Travel Desk",
+        "Parking"
+      ],
+      "image": "https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=600",
+      "description": "A reliable and comfortable hotel in the heart of Kozhikode, perfect for experiencing the city's famous Halwa, Biryani culture and exploring Beypore's ancient shipyards.",
+      "rooms": [
+        "Standard Room",
+        "Deluxe Room",
+        "Family Suite"
+      ],
+      "lat": 11.25,
+      "lng": 75.7833
+    },
+    {
+      "id": "h_kzd_04",
+      "name": "Zostel Kozhikode",
+      "district": "kozhikode",
+      "location": "SM Street, Kozhikode",
+      "category": "budget",
+      "price_per_night": 700,
+      "rating": 4.1,
+      "amenities": [
+        "SM Street Access",
+        "Common Area",
+        "WiFi",
+        "Local Food Tours",
+        "Bicycle Rental"
+      ],
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "A budget hostel steps away from the famous SM Street (Sweet Meat Street) in Kozhikode. Ideal for solo travellers craving authentic Malabar food and culture on a shoestring.",
+      "rooms": [
+        "Mixed Dormitory",
+        "Private Room",
+        "Female Dorm"
+      ],
+      "lat": 11.249,
+      "lng": 75.778
+    },
+    {
+      "id": "h_kan_01",
+      "name": "Malabar Ocean Front Resort",
+      "district": "kannur",
+      "location": "Muzhappilangad Drive-in Beach",
+      "category": "luxury",
+      "price_per_night": 10500,
+      "rating": 4.6,
+      "amenities": [
+        "Drive-in Beach Access",
+        "Pool",
+        "Theyyam Performances",
+        "Seafood Restaurant",
+        "Sunset Bar",
+        "Yoga"
+      ],
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600",
+      "description": "A seafront resort on Asia's longest drive-in beach, offering private beach sections, cultural Theyyam performances and fresh seafood. The ideal base for exploring Kannur's heritage coast.",
+      "rooms": [
+        "Ocean Room",
+        "Beach Suite",
+        "Family Cottage"
+      ],
+      "lat": 11.6833,
+      "lng": 75.4333
+    },
+    {
+      "id": "h_kan_02",
+      "name": "Anjarakandy Spice Bungalow",
+      "district": "kannur",
+      "location": "Anjarakandy Estate, 20km from Kannur",
+      "category": "mid-range",
+      "price_per_night": 5500,
+      "rating": 4.5,
+      "amenities": [
+        "200-yr Colonial Bungalow",
+        "Spice Walks",
+        "Pepper Harvest",
+        "Colonial Meals",
+        "Heritage Tour",
+        "Forest Trails"
+      ],
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "A secret colonial estate bungalow on a 200-year-old pepper and cardamom plantation. Guests participate in spice harvesting, colonial cooking and heritage walks. Almost completely unknown outside Kannur.",
+      "rooms": [
+        "Colonial Suite",
+        "Planter's Room",
+        "Garden Cottage"
+      ],
+      "lat": 11.8833,
+      "lng": 75.55
+    },
+    {
+      "id": "h_kan_03",
+      "name": "Costa Malabari Hotel Kannur",
+      "district": "kannur",
+      "location": "Beach Road, Kannur",
+      "category": "budget",
+      "price_per_night": 1800,
+      "rating": 4.0,
+      "amenities": [
+        "Beach Proximity",
+        "Restaurant",
+        "WiFi",
+        "AC Rooms",
+        "Local Tour"
+      ],
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "A budget beach-adjacent hotel in Kannur offering clean rooms and easy access to Fort St Angelo, Payyambalam Beach and the traditional Theyyam ritual venues.",
+      "rooms": [
+        "Standard Room",
+        "Sea View Room",
+        "Double Room"
+      ],
+      "lat": 11.87,
+      "lng": 75.35
+    },
+    {
+      "id": "h_ksd_01",
+      "name": "Bekal Fort Heritage Resort",
+      "district": "kasaragod",
+      "location": "Bekal Fort Road",
+      "category": "luxury",
+      "price_per_night": 16000,
+      "rating": 4.8,
+      "amenities": [
+        "Fort Views",
+        "Infinity Pool",
+        "Ayurveda",
+        "Private Beach",
+        "Heritage Tour",
+        "Fine Dining"
+      ],
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600",
+      "description": "An extraordinary luxury resort commanding views of Bekal Fort — the largest fort in Kerala. Famous for its iconic infinity pool overlooking the fort and the Arabian Sea. A bucket-list destination.",
+      "highlights": [
+        "Infinity Pool with Fort View",
+        "Kerala's Largest Fort",
+        "Heritage Walks",
+        "Spice Gardens"
+      ],
+      "rooms": [
+        "Fort View Suite",
+        "Sea View Villa",
+        "Heritage Suite"
+      ],
+      "lat": 12.3833,
+      "lng": 75.0333
+    },
+    {
+      "id": "h_ksd_02",
+      "name": "Ananthapura Lake Temple Guesthouse",
+      "district": "kasaragod",
+      "location": "Ananthapura, 6km from Kasaragod",
+      "category": "budget",
+      "price_per_night": 1400,
+      "rating": 4.2,
+      "amenities": [
+        "Temple Proximity",
+        "Sacred Lake Views",
+        "Simple Meals",
+        "Pilgrimage Support",
+        "Quiet Surroundings"
+      ],
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "A simple guesthouse beside the sacred Ananthapura Lake Temple — Kerala's only lake temple with its famous guardian crocodile. Perfect for pilgrims and heritage travellers.",
+      "rooms": [
+        "Pilgrim Room",
+        "Double Room",
+        "Family Room"
+      ],
+      "lat": 12.5167,
+      "lng": 75.15
+    },
+    {
+      "id": "h_ksd_03",
+      "name": "Ranipuram Hills Camp",
+      "district": "kasaragod",
+      "location": "Ranipuram, 60km from Kasaragod",
+      "category": "mid-range",
+      "price_per_night": 4000,
+      "rating": 4.5,
+      "amenities": [
+        "High-altitude Camp",
+        "Shola Forest",
+        "Meadow Walks",
+        "Star Gazing",
+        "No Light Pollution",
+        "Campfire"
+      ],
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "A completely secret high-altitude camp at Ranipuram — the 'Ooty of Kasaragod'. Guests are surrounded by shola forest meadows at 760m with zero light pollution. Extraordinary stargazing.",
+      "rooms": [
+        "Meadow Tent",
+        "Forest Cabin",
+        "Dome Tent"
+      ],
+      "lat": 12.4333,
+      "lng": 75.5667
+    },
+    {
+      "id": "h_kol_01",
+      "name": "Thenmala Jungle Lodge",
+      "district": "kollam",
+      "location": "Thenmala Eco-Tourism Zone",
+      "category": "mid-range",
+      "price_per_night": 5000,
+      "rating": 4.4,
+      "amenities": [
+        "Eco-tourism Zone",
+        "Jungle Trekking",
+        "Deer Park",
+        "Cycling",
+        "Hanging Bridge",
+        "Organic Meals"
+      ],
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "India's first planned eco-tourism lodge inside the Thenmala Eco-Tourism Zone. Guests have early morning exclusive access to jungle trails before tourists arrive. Deer graze outside rooms.",
+      "rooms": [
+        "Jungle Cabin",
+        "Treetop Room",
+        "Stream Cottage"
+      ],
+      "lat": 8.9667,
+      "lng": 77.0667
+    },
+    {
+      "id": "h_kol_02",
+      "name": "Munroe Island Floating Homestay",
+      "district": "kollam",
+      "location": "Munroe Island (Mundrothuruthu)",
+      "category": "budget",
+      "price_per_night": 2200,
+      "rating": 4.5,
+      "amenities": [
+        "Island Access",
+        "Canoe Included",
+        "Traditional Meals",
+        "Coir Making Tour",
+        "Fishing",
+        "Church Visit"
+      ],
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "A secret island homestay on Munroe Island, accessible only by boat. The most authentic backwater experience in Kerala — narrow canals, coir making, old churches and village life completely unchanged.",
+      "rooms": [
+        "Traditional Kerala Room",
+        "Riverside Room",
+        "Family Room"
+      ],
+      "lat": 9.0,
+      "lng": 76.6
+    },
+    {
+      "id": "h_kol_03",
+      "name": "Sterling Holidays Kollam",
+      "district": "kollam",
+      "location": "Ashtamudi Lake, Kollam",
+      "category": "mid-range",
+      "price_per_night": 6500,
+      "rating": 4.3,
+      "amenities": [
+        "Ashtamudi Lake Views",
+        "Pool",
+        "Houseboat Connection",
+        "Restaurant",
+        "Spa",
+        "WiFi"
+      ],
+      "image": "https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=600",
+      "description": "A lakeside resort on the pristine Ashtamudi Lake, offering houseboat connections, kayaking and the famous 8-hour boat ride to Alleppey. A less-touristy alternative to Alleppey.",
+      "rooms": [
+        "Lake View Room",
+        "Deluxe Room",
+        "Family Suite"
+      ],
+      "lat": 8.8833,
+      "lng": 76.5833
+    },
+    {
+      "id": "h_ptha_01",
+      "name": "Kakki Reservoir Jungle Camp",
+      "district": "pathanamthitta",
+      "location": "Kakki Reservoir, 60km from Pathanamthitta",
+      "category": "mid-range",
+      "price_per_night": 4500,
+      "rating": 4.6,
+      "amenities": [
+        "Reservoir Views",
+        "Forest Camp",
+        "Waterfalls",
+        "Boat Ride",
+        "Tiger Buffer Zone",
+        "Stargazing"
+      ],
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "A secret riverside camp on Kerala's largest reservoir. Guests enjoy boat rides to Aruvikkal Falls, forest walks in the Periyar Tiger Reserve buffer zone and extraordinary stargazing.",
+      "rooms": [
+        "Riverside Tent",
+        "Forest Cabin",
+        "Lakeside Cottage"
+      ],
+      "lat": 9.3833,
+      "lng": 76.9833
+    },
+    {
+      "id": "h_ptha_02",
+      "name": "Konni Eco Tourism Centre",
+      "district": "pathanamthitta",
+      "location": "Konni, 12km from Pathanamthitta",
+      "category": "budget",
+      "price_per_night": 1500,
+      "rating": 4.0,
+      "amenities": [
+        "Elephant Interaction",
+        "Mahout Experience",
+        "Forest Walk",
+        "River View",
+        "Simple Meals",
+        "Local Transport"
+      ],
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "Government-run eco lodge at the famous Konni Elephant Training Centre. Budget travellers get authentic elephant care interactions, mahout lessons and river walks in the forest.",
+      "rooms": [
+        "Eco Room",
+        "Forest Room",
+        "Family Cabin"
+      ],
+      "lat": 9.2167,
+      "lng": 76.8833
+    },
+    {
+      "id": "h_ktm_01",
+      "name": "Vagamon Mist Valley Resort",
+      "district": "kottayam",
+      "location": "Vagamon Meadows",
+      "category": "luxury",
+      "price_per_night": 12500,
+      "rating": 4.7,
+      "amenities": [
+        "Meadow Views",
+        "Paragliding",
+        "Pine Forest",
+        "Private Hot Tub",
+        "Fireplace",
+        "Mist Walk",
+        "Organic Breakfast"
+      ],
+      "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600",
+      "description": "A luxury clifftop resort in Vagamon's rolling meadows — one of Kerala's most secret hill stations. The morning mist, paragliding launch pads and pine forest make this an extraordinary escape.",
+      "rooms": [
+        "Meadow Villa",
+        "Mist Cottage",
+        "Cliff Suite"
+      ],
+      "lat": 9.6833,
+      "lng": 76.9
+    },
+    {
+      "id": "h_ktm_02",
+      "name": "Illikkal Rock Camp",
+      "district": "kottayam",
+      "location": "Near Illikkal Kallu Rock",
+      "category": "mid-range",
+      "price_per_night": 4000,
+      "rating": 4.3,
+      "amenities": [
+        "Rock Climbing",
+        "Jungle Trek",
+        "Panoramic Views",
+        "Campfire",
+        "Rubber Estate Walks",
+        "Night Sounds"
+      ],
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "A hidden adventure camp at the base of the legendary Illikkal rock monolith. Climbers and trekkers set out at 5am for sunrise from the 1072m summit. Almost completely unknown.",
+      "rooms": [
+        "Rock Face Tent",
+        "Forest Cabin",
+        "Base Camp Room"
+      ],
+      "lat": 9.8667,
+      "lng": 76.8167
+    },
+    {
+      "id": "h_ktm_03",
+      "name": "Philipkutty's Farm",
+      "district": "kottayam",
+      "location": "Vembanad Lake, Kottayam",
+      "category": "mid-range",
+      "price_per_night": 8500,
+      "rating": 4.7,
+      "amenities": [
+        "Island Farm",
+        "Organic Meals",
+        "Canoe",
+        "Vembanad Lake",
+        "Bird Watching",
+        "Kerala Cooking Class"
+      ],
+      "image": "https://images.unsplash.com/photo-1560347876-aeef00ee58a1?w=600",
+      "description": "A legendary farm island stay on Vembanad Lake, run by a pioneering Kerala farm family. Guests enjoy canoe rides through the property, bird watching and farm-to-table Kerala cuisine.",
+      "rooms": [
+        "Farm Cottage",
+        "Lake Cottage",
+        "Villa"
+      ],
+      "lat": 9.5,
+      "lng": 76.5167
+    },
+    {
+      "id": "h_pkd_01",
+      "name": "Silent Valley Wilderness Camp",
+      "district": "palakkad",
+      "location": "Silent Valley Buffer Zone",
+      "category": "mid-range",
+      "price_per_night": 6000,
+      "rating": 4.7,
+      "amenities": [
+        "Virgin Rainforest",
+        "Lion-tail Macaque",
+        "Restricted Access",
+        "Guided Trek",
+        "Bio-diverse Forest",
+        "Zero Network"
+      ],
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "One of India's most exclusive wilderness camps at the edge of Silent Valley National Park — India's last virgin tropical rainforest. Limited to 6 guests daily with special permits required.",
+      "rooms": [
+        "Forest Tent",
+        "Shola Cabin",
+        "Kunthi Suite"
+      ],
+      "lat": 11.0833,
+      "lng": 76.4167
+    },
+    {
+      "id": "h_pkd_02",
+      "name": "Parambikulam Eco Huts",
+      "district": "palakkad",
+      "location": "Parambikulam Tiger Reserve",
+      "category": "budget",
+      "price_per_night": 1800,
+      "rating": 4.5,
+      "amenities": [
+        "Tiger Reserve",
+        "Guided Safari",
+        "Tribal Stay Option",
+        "Canoe",
+        "Elephant Sightings",
+        "Birding"
+      ],
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "Government-run eco huts inside the award-winning Parambikulam Tiger Reserve. One of India's best-value wildlife stays with tiger, elephant and giant squirrel sightings almost guaranteed.",
+      "rooms": [
+        "Eco Hut",
+        "Tribal Cottage",
+        "Forest Room"
+      ],
+      "lat": 10.3333,
+      "lng": 76.7333
+    },
+    {
+      "id": "h_pkd_03",
+      "name": "Kairali Ayurvedic Village",
+      "district": "palakkad",
+      "location": "Palakkad Foothills",
+      "category": "luxury",
+      "price_per_night": 15000,
+      "rating": 4.6,
+      "amenities": [
+        "Ayurvedic Hospital",
+        "Doctor Consultation",
+        "Yoga",
+        "Organic Farm",
+        "Traditional Meals",
+        "Nature Walks",
+        "Panchakarma"
+      ],
+      "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600",
+      "description": "An internationally acclaimed Ayurvedic village offering authentic Panchakarma treatments in a serene rural setting. One of South Asia's most respected wellness destinations.",
+      "rooms": [
+        "Ayurveda Suite",
+        "Garden Cottage",
+        "Panchakarma Suite"
+      ],
+      "lat": 10.8,
+      "lng": 76.6
+    },
+    {
+      "id": "h_mlp_01",
+      "name": "Nilambur Teak Forest Bungalow",
+      "district": "malappuram",
+      "location": "Nilambur, 50km from Malappuram",
+      "category": "mid-range",
+      "price_per_night": 4500,
+      "rating": 4.4,
+      "amenities": [
+        "World's Oldest Teak Forest",
+        "Heritage Bungalow",
+        "Forest Walks",
+        "Tribal Village",
+        "Chaliyar River",
+        "Bird Watching"
+      ],
+      "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600",
+      "description": "A heritage forest bungalow at the edge of the world's oldest teak plantation, established 1844. Guests wake to mist rising over 200-year-old teak trees and Chaliyar River sounds.",
+      "rooms": [
+        "Colonial Room",
+        "Plantation Suite",
+        "Forest Cabin"
+      ],
+      "lat": 11.2833,
+      "lng": 76.2167
+    },
+    {
+      "id": "h_mlp_02",
+      "name": "Bharatapuzha Riverside Homestay",
+      "district": "malappuram",
+      "location": "Tirunavaya, Bharatapuzha Banks",
+      "category": "budget",
+      "price_per_night": 1600,
+      "rating": 4.1,
+      "amenities": [
+        "Riverside Location",
+        "Temple Proximity",
+        "Traditional Meals",
+        "River Swimming",
+        "Heritage Walks",
+        "Quiet Setting"
+      ],
+      "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600",
+      "description": "A peaceful homestay on the ancient banks of Bharatapuzha — Kerala's longest river. The sacred Tirunavaya site of the Mamankam festival is steps away. Deep history, zero crowds.",
+      "rooms": [
+        "River View Room",
+        "Traditional Room",
+        "Family Room"
+      ],
+      "lat": 10.8333,
+      "lng": 76.0167
+    }
+  ]
+}

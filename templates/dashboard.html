@@ -1,0 +1,390 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — Kerala Tourism AI{% endblock %}
+
+{% block content %}
+<!--
+  dashboard.html — Main Dashboard
+  ==================================
+  Shows overview stats, quick navigation cards,
+  and featured places from all over Kerala.
+-->
+
+<!-- ================================================================
+     DASHBOARD HEADER
+================================================================ -->
+<div class="page-hero dashboard-hero">
+    <div class="hero-text">
+        <div class="greeting-badge">
+            <span class="time-greeting" id="timeGreeting">Good Day</span>
+            <span>👋</span>
+        </div>
+        <h1>Welcome back, <em>{{ user_name }}</em></h1>
+        <p>Your journey through God's Own Country begins here. What would you like to explore today?</p>
+    </div>
+    <div class="hero-visual">
+        <div class="kerala-map-visual">
+            <span>🗺️</span>
+            <div class="map-ping ping-1"></div>
+            <div class="map-ping ping-2"></div>
+            <div class="map-ping ping-3"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ================================================================
+     STATS CARDS ROW
+================================================================ -->
+<div class="container">
+    <div class="stats-row">
+        <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #3498db, #1a6bb5);">
+                <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <div class="stat-info">
+                <h3>{{ total_districts }}</h3>
+                <p>Districts</p>
+            </div>
+            <a href="{{ url_for('districts') }}" class="stat-link">Explore <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #2ecc71, #1a8a4a);">
+                <i class="fas fa-landmark"></i>
+            </div>
+            <div class="stat-info">
+                <h3>{{ total_places }}+</h3>
+                <p>Tourist Places</p>
+            </div>
+            <a href="{{ url_for('categories') }}" class="stat-link">Browse <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #e74c3c, #a93226);">
+                <i class="fas fa-hotel"></i>
+            </div>
+            <div class="stat-info">
+                <h3>{{ total_hotels }}+</h3>
+                <p>Hotels</p>
+            </div>
+            <a href="{{ url_for('hotels') }}" class="stat-link">View <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon" style="background: linear-gradient(135deg, #f39c12, #d68910);">
+                <i class="fas fa-route"></i>
+            </div>
+            <div class="stat-info">
+                <h3>3</h3>
+                <p>Travel Plans</p>
+            </div>
+            <a href="{{ url_for('family_plans') }}" class="stat-link">Plan <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+
+    <!-- ================================================================
+         KERALA WEATHER WIDGET
+    ================================================================ -->
+    <div class="section-header">
+        <h2>🌤️ Live Kerala Weather</h2>
+        <p>Current conditions across major districts</p>
+    </div>
+
+    <div class="weather-widget-card">
+        <!-- District selector -->
+        <div class="weather-district-tabs" id="weatherTabs">
+            <button class="wtab active" data-lat="8.5241"  data-lon="76.9366" data-name="Thiruvananthapuram" onclick="fetchWeather(this)">Trivandrum</button>
+            <button class="wtab" data-lat="8.8932"  data-lon="76.6141" data-name="Kollam"              onclick="fetchWeather(this)">Kollam</button>
+            <button class="wtab" data-lat="9.2648"  data-lon="76.7870" data-name="Pathanamthitta"      onclick="fetchWeather(this)">Pathanamthitta</button>
+            <button class="wtab" data-lat="9.4981"  data-lon="76.3388" data-name="Alappuzha"           onclick="fetchWeather(this)">Alappuzha</button>
+            <button class="wtab" data-lat="9.5916"  data-lon="76.5222" data-name="Kottayam"            onclick="fetchWeather(this)">Kottayam</button>
+            <button class="wtab" data-lat="9.9189"  data-lon="77.1025" data-name="Idukki"              onclick="fetchWeather(this)">Idukki</button>
+            <button class="wtab" data-lat="9.9312"  data-lon="76.2673" data-name="Ernakulam (Kochi)"   onclick="fetchWeather(this)">Ernakulam</button>
+            <button class="wtab" data-lat="10.5276" data-lon="76.2144" data-name="Thrissur"            onclick="fetchWeather(this)">Thrissur</button>
+            <button class="wtab" data-lat="10.7867" data-lon="76.6548" data-name="Palakkad"            onclick="fetchWeather(this)">Palakkad</button>
+            <button class="wtab" data-lat="11.0510" data-lon="76.0711" data-name="Malappuram"          onclick="fetchWeather(this)">Malappuram</button>
+            <button class="wtab" data-lat="11.2588" data-lon="75.7804" data-name="Kozhikode"           onclick="fetchWeather(this)">Kozhikode</button>
+            <button class="wtab" data-lat="11.6854" data-lon="76.1320" data-name="Wayanad"             onclick="fetchWeather(this)">Wayanad</button>
+            <button class="wtab" data-lat="11.7401" data-lon="75.4920" data-name="Kannur"              onclick="fetchWeather(this)">Kannur</button>
+            <button class="wtab" data-lat="12.4996" data-lon="74.9869" data-name="Kasaragod"           onclick="fetchWeather(this)">Kasaragod</button>
+        </div>
+
+        <!-- Weather display -->
+        <div class="weather-main" id="weatherMain">
+            <div class="weather-loading">
+                <div class="weather-spinner"></div>
+                <p>Fetching live weather...</p>
+            </div>
+        </div>
+
+        <!-- 7-day forecast strip -->
+        <div class="weather-forecast" id="weatherForecast"></div>
+    </div>
+
+    <!-- ================================================================
+         QUICK NAVIGATION CARDS
+    ================================================================ -->
+    <div class="section-header">
+        <h2>Quick Navigation</h2>
+        <p>Jump to any section instantly</p>
+    </div>
+
+    <div class="quick-nav-grid">
+        
+        <a href="{{ url_for('categories') }}" class="qnav-card" style="--card-color: #3498db;">
+            <div class="qnav-icon">🏷️</div>
+            <div class="qnav-content">
+                <h3>Browse Categories</h3>
+                <p>Beaches, Hills, Backwaters & More</p>
+            </div>
+            <i class="fas fa-arrow-right qnav-arrow"></i>
+        </a>
+
+        <a href="{{ url_for('districts') }}" class="qnav-card" style="--card-color: #2ecc71;">
+            <div class="qnav-icon">🗺️</div>
+            <div class="qnav-content">
+                <h3>Explore Districts</h3>
+                <p>All 14 districts with top places</p>
+            </div>
+            <i class="fas fa-arrow-right qnav-arrow"></i>
+        </a>
+
+        <a href="{{ url_for('family_plans') }}" class="qnav-card" style="--card-color: #9b59b6;">
+            <div class="qnav-icon">✈️</div>
+            <div class="qnav-content">
+                <h3>Travel Plans</h3>
+                <p>Budget, Family & Luxury packages</p>
+            </div>
+            <i class="fas fa-arrow-right qnav-arrow"></i>
+        </a>
+
+        <a href="{{ url_for('hotels') }}" class="qnav-card" style="--card-color: #e74c3c;">
+            <div class="qnav-icon">🏨</div>
+            <div class="qnav-content">
+                <h3>Find Hotels</h3>
+                <p>From budget to 5-star luxury</p>
+            </div>
+            <i class="fas fa-arrow-right qnav-arrow"></i>
+        </a>
+
+        <a href="{{ url_for('chatbot') }}" class="qnav-card ai-card" style="--card-color: #1abc9c;">
+            <div class="qnav-icon">🤖</div>
+            <div class="qnav-content">
+                <h3>Ask AI Chatbot</h3>
+                <p>Get personalized travel advice</p>
+            </div>
+            <div class="ai-pulse"></div>
+            <i class="fas fa-arrow-right qnav-arrow"></i>
+        </a>
+
+        <a href="{{ url_for('categories') }}" class="qnav-card" style="--card-color: #f39c12;">
+            <div class="qnav-icon">🌡️</div>
+            <div class="qnav-content">
+                <h3>Weather Guide</h3>
+                <p>Best time to visit each place</p>
+            </div>
+            <i class="fas fa-arrow-right qnav-arrow"></i>
+        </a>
+    </div>
+
+    <!-- ================================================================
+         FEATURED PLACES
+    ================================================================ -->
+    <div class="section-header">
+        <h2>Featured Places</h2>
+        <p>Handpicked highlights from across Kerala</p>
+        <a href="{{ url_for('districts') }}" class="see-all-link">See All Places <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="places-grid">
+        {% for place in featured_places %}
+        <a href="{{ url_for('place_detail', district_id=place.district_id, place_id=place.id) }}" 
+           class="place-card">
+            <div class="place-card-img">
+                <div class="place-img-placeholder" style="background: linear-gradient(135deg, {{ loop.cycle('#0d3b52', '#0d3d20', '#4a0d2e', '#3d2800', '#0d2952', '#2e0d4a') }}, {{ loop.cycle('#1a7aaa', '#1aaa5a', '#aa1a50', '#aa6600', '#1a60aa', '#7a1aaa') }});">
+                    <span class="place-icon-large">
+                        {% if 'beach' in place.category %}🏖️
+                        {% elif 'hill' in place.category and 'wildlife' in place.category %}🐘
+                        {% elif 'hill' in place.category %}⛰️
+                        {% elif 'backwater' in place.category %}🚤
+                        {% elif 'wildlife' in place.category %}🦁
+                        {% elif 'heritage' in place.category %}🏛️
+                        {% elif 'cold' in place.category %}🌿
+                        {% else %}🌴{% endif %}
+                    </span>
+                    <span class="place-icon-label">{{ place.name }}</span>
+                </div>
+                
+                <!-- Rating badge -->
+                <div class="place-rating">
+                    ⭐ {{ place.rating }}
+                </div>
+                
+                <!-- Category tags -->
+                <div class="place-categories">
+                    {% for cat in place.category[:2] %}
+                    <span class="cat-tag">{{ cat }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div class="place-card-body">
+                <h4>{{ place.name }}</h4>
+                <p class="place-district">
+                    <i class="fas fa-map-pin"></i> {{ place.district_name }}
+                </p>
+                <p class="place-desc">{{ place.description[:100] }}...</p>
+                <div class="place-meta">
+                    <span><i class="fas fa-clock"></i> {{ place.best_time }}</span>
+                    <span class="place-entry">{{ place.entry_fee }}</span>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+    <!-- ================================================================
+         CHATBOT PROMO BANNER
+    ================================================================ -->
+    <div class="chatbot-promo">
+        <div class="promo-content">
+            <div class="promo-icon">🤖</div>
+            <div class="promo-text">
+                <h3>Ask Your AI Travel Guide!</h3>
+                <p>Get instant answers about Kerala — places, weather, budget, food, and more. Powered by TF-IDF NLP + Fuzzy Matching.</p>
+            </div>
+            <a href="{{ url_for('chatbot') }}" class="promo-btn">
+                Chat Now <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Set greeting based on time of day
+    const hour = new Date().getHours();
+    const greetingEl = document.getElementById('timeGreeting');
+    if (hour < 12) greetingEl.textContent = 'Good Morning';
+    else if (hour < 17) greetingEl.textContent = 'Good Afternoon';
+    else greetingEl.textContent = 'Good Evening';
+
+    // ============================================================
+    // WEATHER WIDGET — Open-Meteo API (free, no key required)
+    // ============================================================
+    const WMO_CODES = {
+        0:'Clear Sky', 1:'Mainly Clear', 2:'Partly Cloudy', 3:'Overcast',
+        45:'Foggy', 48:'Icy Fog', 51:'Light Drizzle', 53:'Drizzle', 55:'Heavy Drizzle',
+        61:'Light Rain', 63:'Moderate Rain', 65:'Heavy Rain',
+        71:'Light Snow', 73:'Snow', 75:'Heavy Snow',
+        80:'Light Showers', 81:'Showers', 82:'Heavy Showers',
+        95:'Thunderstorm', 96:'Thunderstorm', 99:'Thunderstorm'
+    };
+
+    const WMO_ICONS = {
+        0:'☀️', 1:'🌤️', 2:'⛅', 3:'☁️',
+        45:'🌫️', 48:'🌫️', 51:'🌦️', 53:'🌦️', 55:'🌧️',
+        61:'🌧️', 63:'🌧️', 65:'🌧️',
+        71:'❄️', 73:'❄️', 75:'❄️',
+        80:'🌦️', 81:'🌧️', 82:'⛈️',
+        95:'⛈️', 96:'⛈️', 99:'⛈️'
+    };
+
+    const DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+    async function fetchWeather(btn) {
+        // Update active tab
+        document.querySelectorAll('.wtab').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const lat = btn.dataset.lat;
+        const lon = btn.dataset.lon;
+        const city = btn.dataset.name;
+
+        document.getElementById('weatherMain').innerHTML = `
+            <div class="weather-loading">
+                <div class="weather-spinner"></div><p>Loading weather for ${city}...</p>
+            </div>`;
+        document.getElementById('weatherForecast').innerHTML = '';
+
+        try {
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}`
+                + `&current=temperature_2m,relative_humidity_2m,apparent_temperature,`
+                + `precipitation,weather_code,wind_speed_10m,uv_index`
+                + `&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum`
+                + `&timezone=Asia/Kolkata&forecast_days=7`;
+
+            const res = await fetch(url);
+            const data = await res.json();
+            const c = data.current;
+            const d = data.daily;
+
+            const code = c.weather_code;
+            const icon = WMO_ICONS[code] || '🌡️';
+            const desc = WMO_CODES[code] || 'Unknown';
+            const temp = Math.round(c.temperature_2m);
+            const feels = Math.round(c.apparent_temperature);
+            const humidity = c.relative_humidity_2m;
+            const wind = Math.round(c.wind_speed_10m);
+            const uv = c.uv_index;
+            const rain = c.precipitation;
+
+            // Determine travel advice
+            let advice = '', adviceClass = 'advice-good';
+            if (code >= 95) { advice = '⛈️ Storm alert — plan indoor activities'; adviceClass = 'advice-bad'; }
+            else if (code >= 61 && code <= 82) { advice = '🌧️ Carry an umbrella today'; adviceClass = 'advice-warn'; }
+            else if (code <= 2) { advice = '✅ Perfect day to explore Kerala!'; adviceClass = 'advice-good'; }
+            else { advice = '🌤️ Good conditions for sightseeing'; adviceClass = 'advice-good'; }
+
+            document.getElementById('weatherMain').innerHTML = `
+                <div class="weather-current">
+                    <div class="weather-left">
+                        <div class="weather-icon-big">${icon}</div>
+                        <div class="weather-temp">${temp}°C</div>
+                        <div class="weather-desc">${desc}</div>
+                        <div class="weather-city">${city}, Kerala</div>
+                    </div>
+                    <div class="weather-right">
+                        <div class="weather-detail"><span>🌡️ Feels like</span><strong>${feels}°C</strong></div>
+                        <div class="weather-detail"><span>💧 Humidity</span><strong>${humidity}%</strong></div>
+                        <div class="weather-detail"><span>💨 Wind</span><strong>${wind} km/h</strong></div>
+                        <div class="weather-detail"><span>☔ Rainfall</span><strong>${rain} mm</strong></div>
+                        <div class="weather-detail"><span>🔆 UV Index</span><strong>${uv}</strong></div>
+                    </div>
+                </div>
+                <div class="weather-advice ${adviceClass}">${advice}</div>`;
+
+            // Build 7-day forecast
+            let forecastHTML = '<div class="forecast-strip">';
+            for (let i = 0; i < 7; i++) {
+                const date = new Date(d.time[i]);
+                const dayLabel = i === 0 ? 'Today' : (i === 1 ? 'Tomorrow' : DAYS[date.getDay()]);
+                const fIcon = WMO_ICONS[d.weather_code[i]] || '🌡️';
+                const maxT = Math.round(d.temperature_2m_max[i]);
+                const minT = Math.round(d.temperature_2m_min[i]);
+                const precip = d.precipitation_sum[i];
+                forecastHTML += `
+                    <div class="forecast-day">
+                        <div class="fc-day">${dayLabel}</div>
+                        <div class="fc-icon">${fIcon}</div>
+                        <div class="fc-temps"><span class="fc-max">${maxT}°</span> <span class="fc-min">${minT}°</span></div>
+                        ${precip > 0 ? `<div class="fc-rain">☔${precip}mm</div>` : '<div class="fc-rain"></div>'}
+                    </div>`;
+            }
+            forecastHTML += '</div>';
+            document.getElementById('weatherForecast').innerHTML = forecastHTML;
+
+        } catch (err) {
+            document.getElementById('weatherMain').innerHTML = `
+                <div class="weather-error">
+                    <span>⚠️</span>
+                    <p>Could not load weather data. Please check your connection.</p>
+                </div>`;
+        }
+    }
+
+    // Auto-load Thiruvananthapuram on page load
+    window.addEventListener('DOMContentLoaded', () => {
+        const firstTab = document.querySelector('.wtab');
+        if (firstTab) fetchWeather(firstTab);
+    });
+</script>
+{% endblock %}

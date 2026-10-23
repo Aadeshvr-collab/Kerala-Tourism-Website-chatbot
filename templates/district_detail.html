@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}{{ district.name }} — Kerala Tourism{% endblock %}
+{% block content %}
+<div class="page-hero">
+    <div class="breadcrumb">
+        <a href="{{ url_for('districts') }}">Districts</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>{{ district.name }}</span>
+    </div>
+    <a href="{{ url_for('districts') }}" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Districts</a>
+    <h1>{{ district.name }}</h1>
+    <p>{{ district.description }}</p>
+</div>
+<div class="container">
+    <div class="places-grid">
+        {% for place in district.places %}
+        <a href="{{ url_for('place_detail', district_id=district.id, place_id=place.id) }}" class="place-card">
+            <div class="place-card-img">
+                {% if place.image %}
+                <img src="{{ place.image }}" alt="{{ place.name }}" class="place-real-img" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="place-img-placeholder" style="display:none; background: linear-gradient(135deg, hsl({{ loop.index * 37 }}, 60%, 25%), hsl({{ loop.index * 37 }}, 60%, 45%));">
+                    <span class="place-emoji">🌴</span>
+                </div>
+                {% else %}
+                <div class="place-img-placeholder" style="background: linear-gradient(135deg, hsl({{ loop.index * 37 }}, 60%, 25%), hsl({{ loop.index * 37 }}, 60%, 45%));">
+                    <span class="place-emoji">
+                        {% if 'beach' in place.category %}🏖️
+                        {% elif 'hill' in place.category %}⛰️
+                        {% elif 'backwater' in place.category %}🚤
+                        {% elif 'wildlife' in place.category %}🐘
+                        {% elif 'heritage' in place.category %}🏛️
+                        {% else %}🌴{% endif %}
+                    </span>
+                </div>
+                {% endif %}
+                <div class="place-rating">⭐ {{ place.rating }}</div>
+                <div class="place-categories">
+                    {% for cat in place.category[:2] %}
+                    <span class="cat-tag">{{ cat }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="place-card-body">
+                <h4>{{ place.name }}</h4>
+                <p class="place-desc">{{ place.description[:120] }}...</p>
+                <div class="place-meta">
+                    <span><i class="fas fa-clock"></i> {{ place.best_time }}</span>
+                    <span class="place-entry">{{ place.entry_fee }}</span>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

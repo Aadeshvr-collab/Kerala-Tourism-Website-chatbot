@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block title %}{{ plan.name }} — Kerala Tourism{% endblock %}
+{% block content %}
+<div class="page-hero" style="--hero-accent: {{ plan.color }};">
+    <div class="breadcrumb">
+        <a href="{{ url_for('family_plans') }}">Travel Plans</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>{{ plan.name }}</span>
+    </div>
+    <h1>{{ plan.icon }} {{ plan.name }}</h1>
+    <p>{{ plan.tagline }}</p>
+    <div class="plan-badges">
+        <span class="plan-badge">{{ plan.duration }}</span>
+        <span class="plan-badge">₹{{ "{:,}".format(plan.price) }}/person</span>
+        <span class="plan-badge">{{ plan.type | title }} Package</span>
+    </div>
+</div>
+
+<div class="container">
+    <div class="plan-detail-layout">
+
+        <!-- Day-wise Itinerary -->
+        <div class="plan-itinerary">
+            <h2>📅 Day-wise Itinerary</h2>
+
+            {% for day in plan.itinerary %}
+            <div class="itinerary-day">
+                <div class="day-number" style="background: linear-gradient(135deg, {{ plan.color }}, {{ plan.color }}cc);">
+                    Day<br>{{ day.day }}
+                </div>
+                <div class="day-content">
+                    <h3>{{ day.title }}</h3>
+
+                    <div class="day-info-grid">
+                        <div class="day-info-item">
+                            <i class="fas fa-map-pin" style="color:#e74c3c;"></i>
+                            <div>
+                                <strong>Places to Visit</strong>
+                                <span>{{ day.places | join(' → ') }}</span>
+                            </div>
+                        </div>
+                        <div class="day-info-item">
+                            <i class="fas fa-bed" style="color:#3498db;"></i>
+                            <div>
+                                <strong>Accommodation</strong>
+                                <span>{{ day.stay }}</span>
+                            </div>
+                        </div>
+                        <div class="day-info-item">
+                            <i class="fas fa-utensils" style="color:#2ecc71;"></i>
+                            <div>
+                                <strong>Meals</strong>
+                                <span>{{ day.meals }}</span>
+                            </div>
+                        </div>
+                        <div class="day-info-item">
+                            <i class="fas fa-car" style="color:#f39c12;"></i>
+                            <div>
+                                <strong>Transport</strong>
+                                <span>{{ day.transport }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% if day.tips %}
+                    <div class="day-tip">
+                        <strong>💡 Pro Tip:</strong> {{ day.tips }}
+                    </div>
+                    {% endif %}
+
+                    {% if day.estimated_cost %}
+                    <div style="margin-top: 12px; font-size: 0.82rem; color: var(--accent);">
+                        <i class="fas fa-rupee-sign"></i> Estimated cost: {{ day.estimated_cost }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Sidebar -->
+        <div>
+            <!-- Price card -->
+            <div class="plan-sidebar-card">
+                <h3>Package Summary</h3>
+                <div style="text-align: center; padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 20px;">
+                    <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 4px;">Starting from</div>
+                    <div class="price-amount">₹{{ "{:,}".format(plan.price) }}</div>
+                    <div class="price-label">{{ plan.price_label }}</div>
+                    <div class="plan-duration" style="display: inline-flex; margin-top: 10px;">
+                        <i class="fas fa-calendar-alt"></i> {{ plan.duration }}
+                    </div>
+                </div>
+                <div style="margin-bottom: 8px; font-size: 0.82rem; color: var(--text-muted);">
+                    <i class="fas fa-users"></i> Best for: {{ plan.best_for }}
+                </div>
+            </div>
+
+            <!-- What's Included -->
+            <div class="plan-sidebar-card">
+                <h3>✅ What's Included</h3>
+                <ul class="includes-list">
+                    {% for item in plan.includes %}
+                    <li><i class="fas fa-check"></i> {{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- What's Excluded -->
+            <div class="plan-sidebar-card">
+                <h3>❌ Not Included</h3>
+                <ul class="excludes-list">
+                    {% for item in plan.excludes %}
+                    <li><i class="fas fa-times"></i> {{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Ask AI -->
+            <div class="info-card ai-suggest-card" style="margin-top: 0;">
+                <div class="ai-suggest-icon">🤖</div>
+                <h3>Customize This Plan</h3>
+                <p>Ask our AI chatbot to customize this itinerary for your budget, family size, and interests!</p>
+                <a href="{{ url_for('chatbot') }}" class="ai-ask-btn">Chat with AI</a>
+            </div>
+
+            <!-- Other Plans -->
+            <div class="plan-sidebar-card" style="margin-top: 16px;">
+                <h3>Other Plans</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 12px;">
+                    <a href="{{ url_for('family_plans') }}" style="color: var(--primary-light); font-size: 0.88rem; display: flex; align-items: center; gap: 8px; transition: all 0.3s;">
+                        <i class="fas fa-arrow-left"></i> View All Travel Plans
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

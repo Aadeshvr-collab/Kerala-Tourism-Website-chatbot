@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!--
+  base.html — Master Layout Template
+  ====================================
+  All other pages EXTEND this template using Jinja2 inheritance.
+  Defines: header, navigation, footer, and common CSS/JS.
+  
+  Child pages use:
+    extends base.html
+    block content ... endblock
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Dynamic page title — child pages set this with block title tag -->
+    <title>{% block title %}Kerala Tourism AI{% endblock %}</title>
+    
+    <!-- ---- Google Fonts ---- -->
+    <!-- Playfair Display: elegant serif for headings -->
+    <!-- Poppins: clean sans-serif for body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- ---- Font Awesome Icons ---- -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- ---- Main CSS ---- -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Extra head content for child pages -->
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+
+    <!-- ================================================================
+         NAVIGATION BAR
+         Shown on all pages (except login/home which have their own)
+    ================================================================ -->
+    {% if session.get('logged_in') %}
+    <nav class="navbar" id="mainNav">
+        <div class="nav-container">
+            
+            <!-- Logo -->
+            <a href="{{ url_for('dashboard') }}" class="nav-logo">
+                <span class="logo-icon">🌴</span>
+                <span class="logo-text">Kerala<em>Tourism</em></span>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <ul class="nav-links" id="navLinks">
+                <li>
+                    <a href="{{ url_for('dashboard') }}" 
+                       class="{% if request.endpoint == 'dashboard' %}active{% endif %}">
+                        <i class="fas fa-home"></i> Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('categories') }}"
+                       class="{% if 'categor' in request.endpoint %}active{% endif %}">
+                        <i class="fas fa-th-large"></i> Categories
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('districts') }}"
+                       class="{% if 'district' in request.endpoint %}active{% endif %}">
+                        <i class="fas fa-map-marked-alt"></i> Districts
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('family_plans') }}"
+                       class="{% if 'plan' in request.endpoint %}active{% endif %}">
+                        <i class="fas fa-route"></i> Travel Plans
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('hotels') }}"
+                       class="{% if 'hotel' in request.endpoint %}active{% endif %}">
+                        <i class="fas fa-hotel"></i> Hotels
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('chatbot') }}"
+                       class="{% if request.endpoint == 'chatbot' %}active{% endif %} chatbot-nav-link">
+                        <i class="fas fa-robot"></i> AI Chat
+                        <span class="ai-badge">AI</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Right side: Search + User menu -->
+            <div class="nav-right">
+                <!-- Search bar -->
+                <div class="nav-search">
+                    <input type="text" id="globalSearch" placeholder="Search places..." autocomplete="off">
+                    <i class="fas fa-search"></i>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+
+                <!-- Connectivity indicator -->
+                <div class="connectivity-badge" id="connectivityBadge" title="Connection Status">
+                    <span class="conn-dot"></span>
+                    <span class="conn-text">Online</span>
+                </div>
+
+                <!-- User dropdown -->
+                <div class="user-menu">
+                    <button class="user-btn" onclick="toggleUserMenu()">
+                        <div class="user-avatar">
+                            {{ session.get('user_name', 'U')[0].upper() }}
+                        </div>
+                        <span>{{ session.get('user_name', 'User') }}</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="{{ url_for('dashboard') }}">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                        <a href="{{ url_for('chatbot') }}">
+                            <i class="fas fa-robot"></i> AI Chatbot
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{{ url_for('logout') }}" class="logout-link">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mobile hamburger -->
+                <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    {% endif %}
+
+    <!-- ================================================================
+         MAIN CONTENT AREA
+         Child pages inject their content here
+    ================================================================ -->
+    <main class="main-content {% if not session.get('logged_in') %}no-nav{% endif %}">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- ================================================================
+         FOOTER (shown on logged-in pages only)
+    ================================================================ -->
+    {% if session.get('logged_in') %}
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="logo-icon">🌴</span>
+                <span>Kerala Tourism AI</span>
+                <p>God's Own Country — Explore with Intelligence</p>
+            </div>
+            <div class="footer-links">
+                <a href="{{ url_for('categories') }}">Categories</a>
+                <a href="{{ url_for('districts') }}">Districts</a>
+                <a href="{{ url_for('family_plans') }}">Travel Plans</a>
+                <a href="{{ url_for('hotels') }}">Hotels</a>
+                <a href="{{ url_for('chatbot') }}">AI Chatbot</a>
+            </div>
+            <div class="footer-note">
+                <p>⚠️ Demo Application — For Educational Use</p>
+                <p>Built with Flask + TF-IDF NLP + Glassmorphism UI</p>
+            </div>
+        </div>
+    </footer>
+    {% endif %}
+
+    <!-- ================================================================
+         OFFLINE TOAST — shown when internet is lost
+    ================================================================ -->
+    <div class="toast-container" id="toastContainer"></div>
+    
+    <!-- ================================================================
+         LOADING OVERLAY (optional, triggered via JS)
+    ================================================================ -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <!-- ================================================================
+         JAVASCRIPT — Main JS file
+    ================================================================ -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    <!-- Child page JS -->
+    {% block extra_js %}{% endblock %}
+
+</body>
+</html>

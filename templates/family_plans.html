@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Travel Plans — Kerala Tourism{% endblock %}
+{% block content %}
+<div class="page-hero">
+    <h1>✈️ Kerala Travel Plans</h1>
+    <p>Expert-crafted itineraries for every budget and travel style</p>
+</div>
+<div class="container">
+    <div class="plans-grid">
+        {% for plan in plans %}
+        <div class="plan-card" style="--plan-color: {{ plan.color }};">
+            <div class="plan-header">
+                <div class="plan-icon">{{ plan.icon }}</div>
+                <div class="plan-type-badge {{ plan.type }}">{{ plan.type | title }}</div>
+            </div>
+            <div class="plan-body">
+                <h3>{{ plan.name }}</h3>
+                <p class="plan-tagline">{{ plan.tagline }}</p>
+                <div class="plan-price">
+                    <span class="price-amount">₹{{ "{:,}".format(plan.price) }}</span>
+                    <span class="price-label">{{ plan.price_label }}</span>
+                </div>
+                <div class="plan-duration">
+                    <i class="fas fa-calendar-alt"></i> {{ plan.duration }}
+                </div>
+                <div class="plan-includes">
+                    <h4>Includes:</h4>
+                    <ul>
+                        {% for item in plan.includes[:4] %}
+                        <li><i class="fas fa-check"></i> {{ item }}</li>
+                        {% endfor %}
+                        {% if plan.includes|length > 4 %}
+                        <li class="more-includes">+{{ plan.includes|length - 4 }} more included</li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="plan-best-for">
+                    <i class="fas fa-users"></i> Best for: {{ plan.best_for }}
+                </div>
+            </div>
+            <div class="plan-footer">
+                <a href="{{ url_for('plan_detail', plan_id=plan.id) }}" class="plan-btn">
+                    View Itinerary <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

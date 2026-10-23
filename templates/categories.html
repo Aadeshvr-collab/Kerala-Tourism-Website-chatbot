@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Categories — Kerala Tourism{% endblock %}
+{% block content %}
+<div class="page-hero categories-hero">
+    <h1>🏷️ Explore by Category</h1>
+    <p>Discover Kerala's diverse offerings — from misty hill stations to pristine beaches</p>
+</div>
+<div class="container">
+    <div class="categories-grid">
+        {% for cat_id, cat in categories.items() %}
+        <a href="{{ url_for('category_detail', category_id=cat_id) }}" class="category-card" style="--cat-color: {{ cat.color }}">
+            <div class="cat-card-inner">
+                <div class="cat-icon">{{ cat.icon }}</div>
+                <div class="cat-info">
+                    <h3>{{ cat.name }}</h3>
+                    <p>{{ cat.description }}</p>
+                </div>
+                <div class="cat-arrow">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

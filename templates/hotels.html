@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Hotels — Kerala Tourism{% endblock %}
+{% block content %}
+<div class="page-hero">
+    <h1>🏨 Kerala Hotels</h1>
+    <p>Curated stays from cozy budget guesthouses to magnificent 5-star resorts</p>
+</div>
+<div class="container">
+    <!-- Filters -->
+    <div class="filters-bar">
+        <form method="GET" action="{{ url_for('hotels') }}" style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
+            <select name="district" class="filter-select" onchange="this.form.submit()">
+                <option value="all">All Districts</option>
+                {% for did, dname in districts %}
+                <option value="{{ did }}" {% if selected_district == did %}selected{% endif %}>{{ dname }}</option>
+                {% endfor %}
+            </select>
+            <select name="category" class="filter-select" onchange="this.form.submit()">
+                <option value="all">All Categories</option>
+                <option value="budget" {% if selected_category == 'budget' %}selected{% endif %}>Budget</option>
+                <option value="mid-range" {% if selected_category == 'mid-range' %}selected{% endif %}>Mid-Range</option>
+                <option value="luxury" {% if selected_category == 'luxury' %}selected{% endif %}>Luxury</option>
+            </select>
+            <span style="color: var(--text-muted); font-size: 0.85rem;">{{ hotels|length }} hotels found</span>
+        </form>
+    </div>
+
+    {% if hotels %}
+    <div class="hotels-grid">
+        {% for hotel in hotels %}
+        <div class="hotel-card">
+            <div class="hotel-card-img">
+                <img src="{{ hotel.image }}" alt="{{ hotel.name }}" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #1a3a5c, #2d5a8e)';">
+                <div class="hotel-category-badge {{ hotel.category }}">
+                    {{ hotel.category | replace('-', ' ') | title }}
+                </div>
+                <div class="hotel-rating-badge">⭐ {{ hotel.rating }}</div>
+            </div>
+            <div class="hotel-card-body">
+                <h3>{{ hotel.name }}</h3>
+                <div class="hotel-location">
+                    <i class="fas fa-map-pin"></i> {{ hotel.location }}
+                </div>
+                <div class="hotel-amenities">
+                    {% for amenity in hotel.amenities[:5] %}
+                    <span class="amenity-tag">{{ amenity }}</span>
+                    {% endfor %}
+                    {% if hotel.amenities|length > 5 %}
+                    <span class="amenity-tag">+{{ hotel.amenities|length - 5 }} more</span>
+                    {% endif %}
+                </div>
+                <p class="hotel-desc">{{ hotel.description[:120] }}...</p>
+            </div>
+            <div class="hotel-card-footer">
+                <div class="hotel-price">
+                    <span class="amount">₹{{ "{:,}".format(hotel.price_per_night) }}</span>
+                    <span class="per-night">per night</span>
+                </div>
+                <a href="{{ url_for('book_hotel', hotel_id=hotel.id) }}" class="book-btn">
+                    <i class="fas fa-calendar-check"></i> Book Now
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+        <span>🏨</span>
+        <h3>No hotels found for this filter</h3>
+        <p><a href="{{ url_for('hotels') }}" style="color: var(--primary-light);">Clear filters</a></p>
+    </div>
+    {% endif %}
+
+    <div class="demo-warning" style="margin-top: 16px;">
+        <i class="fas fa-info-circle"></i>
+        <span>Demo Application — Booking is simulated. No real transactions or reservations are made.</span>
+    </div>
+</div>
+{% endblock %}

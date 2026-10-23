@@ -1,0 +1,299 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hello", "hi", "hey", "good morning", "good evening", "good afternoon", "howdy", "namaste", "whats up", "sup", "greetings", "start"],
+      "responses": [
+        "Namaskaram! 🙏 Welcome to Kerala Tourism AI! I'm your personal guide to God's Own Country. What would you like to explore today?",
+        "Hello! 🌴 I'm thrilled to guide you through the beautiful landscapes of Kerala. Are you planning a trip or just curious about this paradise?",
+        "Hey there! Welcome to the land of backwaters, beaches, and spices! 🌊 How can I help you discover Kerala today?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["bye", "goodbye", "see you", "see ya", "quit", "exit", "ok bye", "thanks bye", "farewell", "ttyl"],
+      "responses": [
+        "Goodbye! May your Kerala journey be filled with beautiful memories! 🌴",
+        "Farewell! Hope to see you in God's Own Country soon! 🌊 Safe travels!"
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["thank you", "thanks", "thank you so much", "thanks a lot", "many thanks", "appreciated", "helpful", "great help"],
+      "responses": [
+        "You're most welcome! 😊 Is there anything else about Kerala I can help you with?",
+        "Glad I could help! 🌴 Feel free to ask anything more about Kerala tourism!"
+      ]
+    },
+    {
+      "tag": "district_thiruvananthapuram",
+      "patterns": [
+        "thiruvananthapuram", "trivandrum", "capital city kerala", "kovalam beach", "varkala beach", "padmanabhaswamy temple",
+        "agasthyarkoodam", "places in thiruvananthapuram", "places in trivandrum", "visit trivandrum",
+        "visit thiruvananthapuram", "what to see in trivandrum", "trivandrum tourism", "thiruvananthapuram tourism", "napier museum"
+      ],
+      "responses": [
+        "🏛️ **Thiruvananthapuram (Trivandrum)** — Kerala's capital city!\n\n**Top Places to Visit:**\n🏖️ **Kovalam Beach** — Iconic lighthouse beach, famous worldwide\n🌊 **Varkala Beach** — Unique cliff beach with mineral springs\n🕌 **Padmanabhaswamy Temple** — Ancient temple with legendary treasure vault\n🏛️ **Napier Museum** — Stunning architecture with bronze collection\n⛰️ **Agasthyarkoodam** — 2nd highest peak in Kerala (1868m)\n\n📍 **Best Time:** October to March\n✈️ **Airport:** Trivandrum International (TRV)",
+        "Thiruvananthapuram has so much to offer! 🌴\n\n• **Kovalam Beach** — lighthouse, safe swimming, Ayurveda resorts\n• **Varkala Cliff** — mineral springs, cafes, sunset views\n• **Padmanabhaswamy Temple** — one of India's richest temples\n• **Napier Museum & Zoo** — perfect for families\n• **Kuthiramalika Palace** — royal Kerala architecture\n\n💰 Budget: ₹1500-3000/day including stay"
+      ]
+    },
+    {
+      "tag": "district_ernakulam",
+      "patterns": [
+        "ernakulam", "kochi", "cochin", "fort kochi", "fort cochin", "ernakulam tourism", "kochi tourism",
+        "places in kochi", "places in ernakulam", "visit kochi", "chinese fishing nets", "mattancherry",
+        "jewish synagogue", "wonderla kochi", "cherai beach", "hill palace museum", "what to do in kochi"
+      ],
+      "responses": [
+        "🌊 **Ernakulam (Kochi)** — Queen of the Arabian Sea!\n\n**Top Places:**\n🏛️ **Fort Kochi** — Colonial heritage, Chinese fishing nets, museums\n🚤 **Alleppey Backwaters** — Houseboat cruise (55 km from Kochi)\n🎢 **Wonderla** — Premier amusement park for families!\n🏖️ **Cherai Beach** — Dolphin sightings, backwater confluence\n🏰 **Hill Palace Museum** — Largest archaeological museum in Kerala\n\n📍 **Best Time:** October to March\n✈️ **Airport:** Cochin International (COK) — Kerala's main hub",
+        "Kochi is Kerala's most cosmopolitan city! 🌆\n\n• Walk through Fort Kochi's colonial streets\n• Watch the iconic Chinese fishing nets at sunset\n• Day trip to Alleppey for backwaters\n• Evening Kathakali performance\n• Fresh seafood at Kochi's waterfront restaurants"
+      ]
+    },
+    {
+      "tag": "district_thrissur",
+      "patterns": [
+        "thrissur", "trichur", "thrissur pooram", "athirappilly falls", "athirappilly waterfall",
+        "guruvayur", "guruvayur temple", "kerala kalamandalam", "vadakkunnathan temple",
+        "thrissur tourism", "places in thrissur", "visit thrissur", "thrissur district",
+        "cultural capital", "snehatheeram beach", "pooram festival", "thrissur festival"
+      ],
+      "responses": [
+        "🎭 **Thrissur** — The Cultural Capital of Kerala!\n\n**Top Places:**\n🐘 **Thrissur Pooram Ground** — Home to Kerala's grandest temple festival (April-May)\n💧 **Athirappilly Waterfalls** — Niagara of India, 80ft wide cascade (60 km)\n🏛️ **Kerala Kalamandalam** — Premier Kathakali & classical arts institution\n🕌 **Guruvayur Temple** — Famous Krishna temple with sacred elephants\n🏖️ **Snehatheeram Beach** — Clean beach near Chavakkad\n\n🎉 **Don't miss:** Thrissur Pooram (April-May) — 30+ caparisoned elephants + fireworks!\n📍 **Best Time:** November to April",
+        "Thrissur is Kerala's culture hub! 🎨\n\n• **Thrissur Pooram** — World's most spectacular temple festival\n• **Athirappilly Falls** — Massive waterfall, Bollywood & Malayalam movie filming spot\n• **Guruvayur Temple** — One of India's top pilgrimage sites, famous sacred elephants\n• **Kalamandalam** — Watch live Kathakali & Mohiniyattam training sessions\n\n💡 Tip: Book accommodation 3-4 months early during Pooram (April-May)!"
+      ]
+    },
+    {
+      "tag": "district_palakkad",
+      "patterns": [
+        "palakkad", "palakad", "palakkad fort", "silent valley national park", "malampuzha dam",
+        "nelliyampathy hills", "palakkad gap", "places in palakkad", "palakkad tourism",
+        "visit palakkad", "palakkad district", "pothundy reservoir"
+      ],
+      "responses": [
+        "🏰 **Palakkad** — Gateway to Kerala!\n\n**Top Places:**\n🏯 **Palakkad Fort** — 18th-century granite fort by Hyder Ali\n🌿 **Silent Valley National Park** — UNESCO rainforest, Lion-tailed Macaque\n🌊 **Malampuzha Dam** — Kerala's largest dam with ropeway & Fantasy Park\n⛰️ **Nelliyampathy Hills** — Offbeat coffee & orange plantation hill station\n🌳 **Pothundy Reservoir** — Peaceful reservoir surrounded by tea estates\n\n📍 **Best Time:** October to March",
+        "Palakkad has unique experiences! 🌄\n\n• Gateway through the famous Palakkad Gap (the mountain pass into Kerala)\n• Silent Valley — last untouched rainforest in India\n• Palakkad Fort — remarkably preserved 18th century granite fort\n• Nelliyampathy — quiet offbeat hill station\n• Malampuzha — family fun with gardens, rides and dam views"
+      ]
+    },
+    {
+      "tag": "district_munnar",
+      "patterns": [
+        "munnar", "idukki", "tea garden", "tea estate", "tea plantation", "eravikulam national park",
+        "mattupetty dam", "top station", "munnar tourism", "places in munnar", "visit munnar",
+        "munnar hills", "neelakurinji flowers", "nilgiri tahr", "attukal waterfall"
+      ],
+      "responses": [
+        "🌿 **Munnar (Idukki)** — Kerala's Premier Hill Station!\n\n**Top Places:**\n🍵 **Munnar Tea Gardens** — World's highest tea plantations at 1600m\n🦌 **Eravikulam National Park** — Home to endangered Nilgiri Tahr\n💧 **Mattupetty Dam** — Scenic dam at 1700m, boating\n🏔️ **Top Station** — 1868m, one of South India's highest viewpoints\n🌊 **Attukal Waterfalls** — Hidden gem through spice plantations\n\n🌡️ **Climate:** Cool 10-22°C year-round\n📍 **Best Time:** September to May\n🚗 **Distance:** 130 km from Kochi",
+        "Munnar is pure magic! ⛰️\n\n• Wake up to misty tea-covered valleys every morning\n• Spot the rare Nilgiri Tahr mountain goat at Eravikulam\n• Drive up to Top Station for 360° Western Ghats panorama\n• Neelakurinji flowers bloom every 12 years!\n\n💡 Stay tip: Book a tea estate bungalow for the authentic plantation experience"
+      ]
+    },
+    {
+      "tag": "district_wayanad",
+      "patterns": [
+        "wayanad", "chembra peak", "edakkal caves", "pookode lake", "wayanad wildlife sanctuary",
+        "soochipara waterfalls", "vythiri", "kalpetta", "places in wayanad", "wayanad tourism",
+        "visit wayanad", "wayanad forest", "wayanad trekking", "heart shaped lake wayanad"
+      ],
+      "responses": [
+        "🌲 **Wayanad** — Kerala's Green Paradise!\n\n**Top Places:**\n🏔️ **Chembra Peak** — 2100m, famous heart-shaped lake near summit\n🪨 **Edakkal Caves** — 3000-year-old prehistoric petroglyphs (1200m altitude)\n🌊 **Pookode Lake** — Freshwater lake in evergreen forest\n🐘 **Wayanad Wildlife Sanctuary** — Elephants, tigers, leopards\n💧 **Soochipara Waterfalls** — Three-tier 200ft cascade with natural pool\n\n🌡️ **Climate:** Cool 15-25°C\n📍 **Best Time:** September to May",
+        "Wayanad is an adventure lover's dream! 🌿\n\n• Trek to Chembra Peak — heart-shaped lake is stunning!\n• Explore 3000-year-old stone carvings at Edakkal Caves\n• Elephant safari in Wayanad Wildlife Sanctuary\n• Stay in a treehouse — magical forest experience\n• Soochipara Falls for swimming & photography"
+      ]
+    },
+    {
+      "tag": "district_kozhikode",
+      "patterns": [
+        "kozhikode", "calicut", "kozhikode beach", "beypore port", "kappad beach", "tusharagiri falls",
+        "mananchira square", "vasco da gama beach", "kozhikode tourism", "places in kozhikode",
+        "visit kozhikode", "calicut tourism", "kozhikodan halwa", "malabar kozhikode"
+      ],
+      "responses": [
+        "🌊 **Kozhikode (Calicut)** — City of Spices & History!\n\n**Top Places:**\n🏖️ **Kozhikode Beach** — Famous twin piers, street food, sunset views\n⛵ **Beypore Port** — Ancient Arab dhow boat building tradition\n🌊 **Tusharagiri Waterfalls** — Three falls with rock sliding\n🏛️ **Mananchira Square** — Historic royal pond, musical fountain\n🗿 **Kappad Beach** — Where Vasco da Gama landed in 1498!\n\n🍛 **Food Capital:** Kozhikodan Halwa, Pathiri, Malabar Biriyani!\n📍 **Best Time:** October to March",
+        "Kozhikode has history, food & beaches! 🏛️\n\n• Rich spice trade history with Arab & Portuguese connections\n• Beypore — craftsmen still build traditional Arab dhow ships by hand\n• Kozhikode beach street food: Halwa, Banana chips, fresh fish fry\n• Kappad — where Vasco da Gama first landed in India (1498)\n• Gateway to Wayanad for hill station trips"
+      ]
+    },
+    {
+      "tag": "district_kannur",
+      "patterns": [
+        "kannur", "cannanore", "theyyam ritual", "st angelo fort kannur", "muzhappilangad drive in beach",
+        "parassinikadavu", "ezhimala", "kannur tourism", "places in kannur", "visit kannur",
+        "kannur district", "theyyam dance", "drive in beach kannur"
+      ],
+      "responses": [
+        "🎭 **Kannur** — Land of Looms & Lores!\n\n**Top Places:**\n🏰 **St. Angelo Fort** — Portuguese fort (1505 CE) overlooking the Arabian Sea\n🔥 **Theyyam Rituals** — World's most spectacular ritual dance form (Oct-Apr)\n🚗 **Muzhappilangad Beach** — Asia's longest drive-in beach (4km!)\n🐍 **Parassinikadavu** — Snake park + daily Theyyam performance\n🌊 **Ezhimala Hills** — Naval Academy campus, pristine beach\n\n📍 **Best Time:** November to April (Theyyam season)\n✈️ **Airport:** Kannur Airport (CNN)",
+        "Kannur is a cultural treasure! 🌺\n\n• Theyyam is unmissable — 400+ forms of ritual dance\n• Muzhappilangad: Drive your car on the beach!\n• St. Angelo Fort: Beautiful Portuguese fort with sea views\n• Famous for handloom weaving industry\n• Gateway to Bekal Fort heading north"
+      ]
+    },
+    {
+      "tag": "district_kasaragod",
+      "patterns": [
+        "kasaragod", "bekal fort", "bekal beach", "ananthapura lake temple", "valiyaparamba backwaters",
+        "chandragiri fort", "malik deenar mosque", "kasaragod tourism", "places in kasaragod",
+        "visit kasaragod", "northernmost kerala", "bekal tourism"
+      ],
+      "responses": [
+        "🏰 **Kasaragod** — Land of Seven Languages!\n\n**Top Places:**\n🏯 **Bekal Fort** — Kerala's LARGEST fort, 40ft above sea level, 360° sea views\n🙏 **Ananthapura Lake Temple** — Kerala's only lake temple, sacred crocodile 'Babiya'\n🚤 **Valiyaparamba Backwaters** — Kerala's northernmost backwaters\n⛵ **Chandragiri Fort** — Riverside fort with panoramic views\n🕌 **Malik Deenar Mosque** — One of India's oldest mosques (7th century)\n\n📍 **Best Time:** October to March",
+        "Kasaragod's Bekal Fort is unmissable! 🌊\n\n• Bekal Fort — keyhole-shaped entrance, breathtaking ocean panorama\n• Ananthapura Temple — sacred vegetarian crocodile lives in the lake!\n• Pristine beaches, fewer tourists than South Kerala\n• Rich multi-cultural heritage — 7 languages spoken here"
+      ]
+    },
+    {
+      "tag": "district_alappuzha",
+      "patterns": [
+        "alappuzha", "alleppey", "alleppey houseboat", "kettuvallam backwater", "vembanad lake alleppey",
+        "marari beach", "nehru trophy boat race", "alappuzha tourism", "places in alappuzha",
+        "visit alleppey", "venice of east", "punnamada lake", "alleppey boat race"
+      ],
+      "responses": [
+        "🚤 **Alappuzha (Alleppey)** — Venice of the East!\n\n**Top Experiences:**\n🛥️ **Alleppey Houseboat** — Overnight Kettuvallam cruise ★ MUST DO\n🌊 **Vembanad Lake** — 96km long, Nehru Trophy Boat Race venue\n🏖️ **Marari Beach** — Pristine uncrowded beach (11 km)\n🏛️ **Krishnapuram Palace** — Famous Gajendra Moksham mural\n🐦 **Kumarakom Bird Sanctuary** — Siberian cranes, canoe rides\n\n⛵ **Houseboat:** ₹8,000-20,000/night (all meals included!)\n📍 **Best Time:** November to February",
+        "Alleppey is Kerala's crown jewel! 💎\n\nThe houseboat experience:\n• Sleep on a traditional rice boat converted to luxury houseboat\n• Private chef cooks authentic Kerala meals on board\n• Watch village life from the water\n• Fishing villages, paddy fields, coconut groves all around"
+      ]
+    },
+    {
+      "tag": "district_kollam",
+      "patterns": [
+        "kollam", "quilon", "ashtamudi lake", "thirumullavaram beach", "palaruvi falls",
+        "jatayu earth centre", "jatayu sculpture", "thangassery lighthouse", "kollam tourism",
+        "places in kollam", "visit kollam", "munroe island", "ashtamudi backwaters"
+      ],
+      "responses": [
+        "🌊 **Kollam** — Gateway to Backwaters!\n\n**Top Places:**\n🌊 **Ashtamudi Lake** — 2nd largest lake in Kerala, Munroe Island\n🏖️ **Thirumullavaram Beach** — Casuarina grove, safe swimming\n💧 **Palaruvi Waterfalls** — 300ft milky cascade (75 km)\n🦅 **Jatayu Earth's Centre** — World's largest bird sculpture! Cable car\n🗼 **Thangassery Lighthouse** — 143-year-old historic lighthouse\n\n📍 **Best Time:** October to March\n✈️ **Airport:** Thiruvananthapuram (TRV, 65 km)",
+        "Kollam's Jatayu Earth's Centre is incredible! 🦅\n\n• World's LARGEST bird sculpture (200 feet!) on a hilltop\n• Cable car ride up with stunning valley views\n• Ashtamudi Lake — less touristy backwaters than Alleppey\n• Ferry from Kollam to Alleppey — 8 hour scenic backwater cruise"
+      ]
+    },
+    {
+      "tag": "district_pathanamthitta",
+      "patterns": [
+        "pathanamthitta", "sabarimala temple", "ayyappa temple", "konni elephant centre",
+        "gavi eco tourism", "aranmula temple", "aranmula kannadi", "perunthenaruvi falls",
+        "pathanamthitta tourism", "places in pathanamthitta", "visit pathanamthitta", "pilgrim capital kerala"
+      ],
+      "responses": [
+        "🙏 **Pathanamthitta** — Pilgrim Capital of Kerala!\n\n**Top Places:**\n🏔️ **Sabarimala Temple** — 50 million pilgrims/year, 18 golden steps\n🐘 **Konni Elephant Training Centre** — Watch elephant training & bathing\n🌿 **Gavi Eco-Tourism** — Remote forest at 1000m, elephants, night camping\n🛶 **Aranmula Temple** — Famous handmade Aranmula Kannadi mirrors\n💧 **Perunthenaruvi Waterfalls** — Hidden gem, multiple cascades\n\n📍 **Best Time:** October to March",
+        "Pathanamthitta is for nature & spirituality! 🌿\n\n• Sabarimala — one of the world's largest annual pilgrimages\n• Gavi — isolated eco-tourism spot, pristine forests\n• Konni — interact with elephant mahouts and their training\n• Aranmula mirrors — unique handmade metal mirrors, found only here"
+      ]
+    },
+    {
+      "tag": "district_kottayam",
+      "patterns": [
+        "kottayam", "thekkady", "periyar tiger reserve", "kumarakom backwaters", "vagamon hills",
+        "illikkal kallu", "poonjar palace", "kottayam tourism", "places in kottayam",
+        "visit kottayam", "rubber plantation kottayam", "kottayam district"
+      ],
+      "responses": [
+        "🌿 **Kottayam** — Land of Letters, Latex & Lakes!\n\n**Top Places:**\n🐯 **Periyar Tiger Reserve (Thekkady)** — Lake boat safari, tigers, elephants\n🚤 **Kumarakom Backwaters** — Luxury backwater destination on Vembanad Lake\n⛰️ **Vagamon** — Pine forests, meadows, paragliding\n🪨 **Illikkal Kallu Rock** — 4000ft panoramic viewpoint\n🏰 **Poonjar Palace** — 18th-century royal palace\n\n📍 **Best Time:** October to June\n✈️ **Airport:** Cochin International (COK, 87 km)",
+        "Kottayam connects the best of Kerala! 🌴\n\n• Gateway to Thekkady — Kerala's premier wildlife destination\n• Kumarakom for luxury backwater resorts on Vembanad Lake\n• Vagamon for misty meadows and paragliding adventures\n• Rubber and spice plantation tours\n• Backwater cruise: Kottayam to Alleppey (3-hour scenic ride)"
+      ]
+    },
+    {
+      "tag": "district_malappuram",
+      "patterns": [
+        "malappuram", "nilambur teak forest", "nilambur teak museum", "kottakkunnu park",
+        "kadalundi bird sanctuary", "tanur beach", "tirur thunchan", "malappuram tourism",
+        "places in malappuram", "visit malappuram", "malabar malappuram", "nilambur"
+      ],
+      "responses": [
+        "🌿 **Malappuram** — Land of Teak & Malabar Culture!\n\n**Top Places:**\n🌲 **Nilambur Teak Museum** — World's oldest teak plantation (1842), Conolly's Plot\n🎡 **Kottakkunnu** — Hilltop amusement park with city views\n🏛️ **Thunchan Memorial (Tirur)** — Birthplace of the Malayalam language\n🐦 **Kadalundi Bird Sanctuary** — 57 species of migratory birds (Oct-Mar)\n🏖️ **Tanur Beach** — Historic uncrowded beach, Portuguese ruins\n\n📍 **Best Time:** October to March\n✈️ **Airport:** Calicut International (CCJ, 40 km)",
+        "Malappuram is an underrated gem! 🌿\n\n• Nilambur has the world's OLDEST teak plantation — 180-year-old trees!\n• Kadalundi estuary for bird watchers (57+ species)\n• Rich Malabar cultural heritage and cuisine\n• Gateway to Wayanad forests from the north"
+      ]
+    },
+    {
+      "tag": "best_places",
+      "patterns": ["best places", "top places", "must visit", "famous places", "popular places", "tourist spots", "what to visit", "where to go in kerala", "places to see kerala", "top destinations kerala", "most visited kerala"],
+      "responses": [
+        "Kerala's top must-visit destinations:\n\n🌊 **Alleppey Backwaters** — Houseboat cruise on serene canals\n⛰️ **Munnar** — Misty tea plantations and cool hills\n🏖️ **Kovalam Beach** — Iconic lighthouse beach resort\n🐘 **Periyar Tiger Reserve** — Wildlife on Periyar Lake\n🏛️ **Fort Kochi** — Colonial heritage and Chinese fishing nets\n🏯 **Bekal Fort** — Kerala's largest fort with sea views\n🌲 **Wayanad** — Chembra Peak and ancient Edakkal Caves\n🎭 **Thrissur Pooram** — World's most spectacular temple festival\n\nWould you like details about any specific place?",
+        "Here are Kerala's unmissable treasures:\n\n1. 🚤 **Alleppey Backwaters** — The Venice of the East\n2. 🌿 **Munnar Tea Gardens** — Green paradise at 5000ft\n3. 🏖️ **Kovalam** — World-famous cliff beach\n4. 🐯 **Thekkady** — Periyar Tiger Reserve\n5. 🏰 **Fort Kochi** — Walk through colonial history\n6. 🌊 **Varkala** — Cliff-top beach paradise\n7. 🦋 **Wayanad** — Tribal forests and waterfalls\n8. 🎭 **Thrissur** — Cultural capital, Pooram festival\n\nWhich one interests you the most?"
+      ]
+    },
+    {
+      "tag": "beaches",
+      "patterns": ["beaches", "best beach kerala", "beach in kerala", "coastal places kerala", "seaside kerala", "swimming beach kerala", "sandy beach kerala", "beach tourism kerala"],
+      "responses": [
+        "Kerala has stunning beaches along its 590km coastline! 🏖️\n\n**Top Beaches:**\n• **Kovalam** (Thiruvananthapuram) — Iconic lighthouse, safe swimming\n• **Varkala** — Mineral spring cliff beach, cafes and yoga\n• **Cherai** (Kochi) — Dolphin sightings!\n• **Muzhappilangad** (Kannur) — Drive-IN beach, Asia's longest!\n• **Kappad** (Kozhikode) — Where Vasco da Gama landed in 1498\n• **Bekal** (Kasaragod) — Fort overlooking the sea\n• **Marari** (Alleppey) — Pristine and uncrowded\n\n🌊 Best time: October to March for calm seas!"
+      ]
+    },
+    {
+      "tag": "hill_stations",
+      "patterns": ["hill station kerala", "hill stations in kerala", "mountains kerala", "cold places kerala", "misty places kerala", "trekking places kerala", "cool climate kerala", "highland kerala"],
+      "responses": [
+        "Kerala's hill stations are breathtaking! ⛰️\n\n**Best Hill Stations:**\n🌿 **Munnar** — World's finest tea estates at 1600m\n🌲 **Wayanad** — Tribal forests, Chembra Peak (2100m)\n☁️ **Vagamon** — Rolling meadows, pine forests, paragliding\n🏔️ **Nelliyampathy** — Offbeat coffee & orange plantations (Palakkad)\n❄️ **Top Station** — 1868m, one of South India's highest road points\n🌸 **Gavi** — Remote eco-tourism at 1000m (Pathanamthitta)\n\n✅ Best time: September to May"
+      ]
+    },
+    {
+      "tag": "backwaters",
+      "patterns": ["backwater", "backwaters", "houseboat kerala", "boat ride kerala", "canal tour kerala", "lagoon kerala", "kettuvallam ride", "vembanad cruise", "punnamada lake", "backwater cruise kerala"],
+      "responses": [
+        "Kerala's backwaters are legendary! 🚤\n\n**Best Backwater Destinations:**\n• **Alleppey** — The Venice of the East, best houseboats\n• **Kumarakom** — Luxury resorts, bird sanctuary on Vembanad Lake\n• **Kollam** — Ashtamudi Lake, less touristy, very authentic\n• **Kasaragod** — Valiyaparamba, Kerala's northernmost backwaters\n\n🛥️ **Houseboat Tips:**\n• 1 night cruise ≈ ₹8,000-20,000 (full package)\n• Book in advance during peak season (Nov-Feb)\n• Includes all Kerala meals on board!\n• Best season: November to March"
+      ]
+    },
+    {
+      "tag": "weather",
+      "patterns": ["weather kerala", "climate kerala", "temperature kerala", "rain kerala", "monsoon kerala", "best time to visit kerala", "when to visit kerala", "kerala season", "kerala rainfall"],
+      "responses": [
+        "Kerala's climate guide:\n\n☀️ **Peak Season (Oct-Mar):** Best weather! 22-32°C, clear skies. Most expensive.\n🌧️ **Monsoon (Jun-Sep):** Heavy rains, lush green, 70% off hotels! Best for Ayurveda.\n🌡️ **Summer (Apr-May):** Hot 32-38°C. Go to hill stations.\n\n📍 **Zone temperatures:**\n• Coastal: 24-32°C\n• Hill stations: 10-22°C\n• Forest regions: 18-28°C\n\n🏆 **Best overall time: November to February**"
+      ]
+    },
+    {
+      "tag": "budget",
+      "patterns": ["budget trip kerala", "cheap travel kerala", "affordable kerala trip", "low cost kerala", "how much kerala trip cost", "kerala trip budget", "economy travel kerala", "money saving kerala trip"],
+      "responses": [
+        "Kerala trip budget guide! 💰\n\n**Daily Budget Estimates:**\n🎒 **Budget:** ₹1,500-2,500/day (hostels, KSRTC bus, local food)\n🏨 **Mid-Range:** ₹3,000-6,000/day (3-star, private car, restaurants)\n👑 **Luxury:** ₹10,000-25,000+/day\n\n💡 **Money-saving tips:**\n• KSRTC bus between cities (₹100-300)\n• Sadhya meals ₹150-200\n• Shoulder season (Sep-Oct) = 30-40% cheaper\n• Shared day cruise instead of private houseboat"
+      ]
+    },
+    {
+      "tag": "food",
+      "patterns": ["food kerala", "kerala cuisine", "what to eat in kerala", "kerala dishes", "sadhya meal", "seafood kerala", "kerala breakfast", "malabar food", "kerala restaurant"],
+      "responses": [
+        "Kerala's cuisine is divine! 🍛\n\n**Must-Try Dishes:**\n🍚 **Kerala Sadhya** — Grand vegetarian feast on banana leaf (essential!)\n🐟 **Karimeen Pollichathu** — Pearl spot fish in banana leaf\n🦐 **Prawn Moilee** — Coconut milk prawn curry\n🥥 **Appam with Stew** — Lacy rice crepes with coconut stew\n🍌 **Banana Chips** — Crispy Nendran chips\n\n**Regional specialties:**\n• Kozhikode: Halwa, Pathiri, Malabar Biriyani\n• Alleppey: Fresh backwater fish\n• Thrissur: Puttu & Kadala"
+      ]
+    },
+    {
+      "tag": "family_trip",
+      "patterns": ["family trip kerala", "family vacation kerala", "kids friendly kerala", "travel with children kerala", "family package kerala", "kerala family tour plan"],
+      "responses": [
+        "Kerala is perfect for families! 👨‍👩‍👧‍👦\n\n**Top Family Activities:**\n🎢 **Wonderla Kochi** — Thrilling amusement park\n🐘 **Thekkady** — Elephant interaction, boat safari\n🚤 **Alleppey Houseboat** — Kids love sleeping on water!\n🦁 **Wayanad Wildlife** — Spot elephants in the wild\n🌊 **Kovalam Beach** — Safe swimming with lifeguards\n🎭 **Kathakali Show** — Colorful, fascinating for kids\n\nCheck our 7-Day Family Plan for complete itinerary!"
+      ]
+    },
+    {
+      "tag": "honeymoon",
+      "patterns": ["honeymoon kerala", "romantic kerala", "couple trip kerala", "anniversary trip kerala", "romantic places kerala", "couple package kerala", "honeymoon destination india"],
+      "responses": [
+        "Kerala is India's most romantic destination! 💕\n\n**Most Romantic Experiences:**\n🌊 **Luxury houseboat** — Starry nights on Alleppey backwaters\n🌅 **Varkala cliff** — Sunset with cocktails\n🌿 **Heritage cottage** in Munnar tea estate\n🏖️ **Kovalam/Bekal** — Private beach walks\n⛵ **Sunset cruise** in Kochi harbor\n💆 **Couple Ayurveda** — Treatments in Kovalam\n\n**Top Romantic Stays:**\n• Niraamaya Surya Samudra (cliff cottages)\n• CGH Coconut Lagoon (island resort)\n• Brunton Boatyard (heritage harbor)"
+      ]
+    },
+    {
+      "tag": "wildlife",
+      "patterns": ["wildlife kerala", "animals in kerala", "safari kerala", "jungle kerala", "tiger reserve kerala", "elephant sanctuary kerala", "national park kerala", "bird watching kerala", "forest kerala"],
+      "responses": [
+        "Kerala's wildlife is extraordinary! 🐘\n\n**Top Wildlife Destinations:**\n🐯 **Periyar Tiger Reserve** (Thekkady) — Lake boat safari, tigers, elephants\n🦁 **Silent Valley NP** (Palakkad) — Pristine rainforest, Lion-tailed Macaque\n🐘 **Wayanad Wildlife Sanctuary** — Asian elephants, tigers, leopards\n🦅 **Kumarakom Bird Sanctuary** — Siberian cranes, canoe through mangroves\n🦜 **Kadalundi** (Malappuram) — 57 species of migratory birds"
+      ]
+    },
+    {
+      "tag": "ayurveda",
+      "patterns": ["ayurveda kerala", "ayurvedic treatment kerala", "massage kerala", "spa kerala", "panchakarma kerala", "wellness kerala", "ayurveda resort kerala", "herbal treatment kerala"],
+      "responses": [
+        "Kerala is the birthplace of Ayurveda! 🌿\n\n**Why Kerala for Ayurveda:**\n✅ Authentic 3000-year-old treatments\n✅ Monsoon season is BEST (open pores absorb medicine better)\n✅ Licensed doctors & certified therapists\n\n**Top Treatments:**\n💆 **Abhyanga** — Full body oil massage\n🛁 **Shirodhara** — Continuous oil stream on forehead\n🌿 **Panchakarma** — 7-21 day detox program\n\n**Best Destinations:** Kovalam, Thrissur (Kottakkal), Kozhikode\n**Prices:** ₹1,500-5,000 per session"
+      ]
+    },
+    {
+      "tag": "how_to_reach",
+      "patterns": ["how to reach kerala", "travel to kerala", "flight to kerala", "train to kerala", "bus to kerala", "airport in kerala", "transport to kerala", "connectivity kerala"],
+      "responses": [
+        "Getting to Kerala is easy! ✈️\n\n**By Air:**\n✈️ **Cochin (COK)** — Main hub, 80+ international routes\n✈️ **Thiruvananthapuram (TRV)** — Capital airport\n✈️ **Kozhikode (CCJ)** — North Kerala hub\n✈️ **Kannur (CNN)** — Newest airport\n\n**By Train:**\n🚂 Key stations: Ernakulam, Thiruvananthapuram, Thrissur, Kozhikode\n\n**By Road:**\n🚌 KSRTC Volvo from Bangalore (8 hrs), Chennai (10 hrs)\n\n**Within Kerala:**\n🚌 KSRTC buses — cheap & frequent between all towns\n🚕 OLA/Uber in major cities\n🚢 Water ferries on backwaters"
+      ]
+    },
+    {
+      "tag": "festivals",
+      "patterns": ["festival kerala", "onam festival", "vishu festival", "pooram festival", "boat race festival", "elephant festival kerala", "kerala events", "kochi biennale"],
+      "responses": [
+        "Kerala's festivals are spectacular! 🎉\n\n**Major Festivals:**\n🌸 **Onam (Aug-Sep)** — Harvest festival, Pookalam, Sadya feast, snake boat races\n🐘 **Thrissur Pooram (Apr-May)** — 100+ elephants, fireworks, drumming\n⛵ **Nehru Trophy Boat Race (Aug)** — Snake boat race on Punnamada Lake\n🕯️ **Vishu (April)** — Kerala New Year\n🎭 **Theyyam Season (Oct-May)** — Ritual dance at Kannur temples\n✨ **Kochi Biennale (Dec-Apr)** — South Asia's largest art festival"
+      ]
+    },
+    {
+      "tag": "unknown",
+      "patterns": [],
+      "responses": [
+        "Hmm, I didn't quite catch that! 🤔 I'm your Kerala Tourism expert — try asking me about:\n\n🏖️ Best beaches in Kerala\n⛰️ Hill stations to visit\n🚤 Backwater houseboat trips\n💰 Budget travel tips\n🗺️ Any of the 14 districts (e.g., 'Tell me about Thrissur')\n🌡️ Best time to visit Kerala\n🐘 Wildlife safaris\n🍛 Kerala food guide",
+        "I'm not sure about that! 🌴 Try asking:\n• 'What to see in Thrissur?'\n• 'Tell me about Munnar!'\n• 'Best beaches in Kerala?'\n• 'Budget trip to Kerala'\n• 'Wayanad trekking places'",
+        "That's outside my knowledge! 🌊 I know everything about Kerala's 14 districts, places, weather, budget, food and travel plans. Ask me anything about Kerala!"
+      ]
+    }
+  ]
+}

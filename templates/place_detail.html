@@ -1,0 +1,331 @@
+{% extends "base.html" %}
+{% block title %}{{ place.name }} — Kerala Tourism{% endblock %}
+
+{% block content %}
+<!--
+  place_detail.html — Individual Place Page
+  ===========================================
+  Shows complete info about one tourist place.
+  Key feature: HYBRID MAP SYSTEM
+  - Online: Google Maps embedded iframe
+  - Offline: OpenStreetMap iframe fallback
+-->
+
+<div class="place-detail-page">
+    
+    <!-- Hero Section -->
+    <div class="place-detail-hero">
+        <div class="breadcrumb">
+            <a href="{{ url_for('districts') }}">Districts</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="{{ url_for('district_detail', district_id=district.id) }}">{{ district.name }}</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>{{ place.name }}</span>
+        </div>
+        <a href="{{ url_for('district_detail', district_id=district.id) }}" class="back-btn"><i class="fas fa-arrow-left"></i> Back to {{ district.name }}</a>
+        
+        <div class="place-hero-content">
+            <div class="place-categories">
+                {% for cat in place.category %}
+                <span class="cat-badge">{{ cat }}</span>
+                {% endfor %}
+            </div>
+            <h1>{{ place.name }}</h1>
+            <div class="place-hero-meta">
+                <span class="rating-big">⭐ {{ place.rating }} / 5</span>
+                <span><i class="fas fa-map-pin"></i> {{ district.name }}</span>
+                {% if place.distance_from_city %}
+                <span><i class="fas fa-road"></i> {{ place.distance_from_city }}</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="place-detail-layout">
+            
+            <!-- LEFT: Main content -->
+            <div class="place-main">
+                
+                <!-- Description -->
+                <div class="info-card">
+                    <h2>About This Place</h2>
+                    <p class="place-full-desc">{{ place.description }}</p>
+                </div>
+
+                <!-- Highlights -->
+                <div class="info-card">
+                    <h2>🌟 Highlights</h2>
+                    <div class="highlights-grid">
+                        {% for highlight in place.highlights %}
+                        <div class="highlight-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>{{ highlight }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- ================================================
+                     HYBRID MAP SECTION
+                     Online:  Google Maps embed
+                     Offline: OpenStreetMap (Leaflet.js)
+                ================================================ -->
+                <div class="info-card map-card">
+                    <div class="map-header">
+                        <h2>📍 Location on Map</h2>
+                        <div class="map-status" id="mapStatus">
+                            <span class="map-mode online-mode">
+                                <i class="fas fa-wifi"></i> Online Map
+                            </span>
+                            <span class="map-mode offline-mode" style="display:none;">
+                                <i class="fas fa-map"></i> Offline Map
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- ONLINE MAP: Google Maps iframe -->
+                    <!-- If Google Maps API key available, shows rich interactive map -->
+                    <div id="onlineMap" class="map-container">
+                        <iframe
+                            width="100%"
+                            height="400"
+                            style="border:0; border-radius: 12px;"
+                            loading="lazy"
+                            allowfullscreen
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://maps.google.com/maps?q={{ place.lat }},{{ place.lng }}&z=14&output=embed">
+                        </iframe>
+                    </div>
+
+                    <!-- OFFLINE MAP: OpenStreetMap via Leaflet.js -->
+                    <!-- Shown when internet is not available -->
+                    <div id="offlineMap" class="map-container" style="display:none;">
+                        <div id="leafletMap" style="height: 400px; border-radius: 12px;"></div>
+                    </div>
+
+                    <!-- Map coordinates info -->
+                    <div class="map-coords">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Coordinates: {{ place.lat }}, {{ place.lng }}
+                        <a href="https://www.google.com/maps?q={{ place.lat }},{{ place.lng }}" 
+                           target="_blank" class="open-maps-btn">
+                            <i class="fas fa-external-link-alt"></i> Open in Google Maps
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Weather Widget -->
+                <div class="info-card">
+                    <h2>🌡️ Current Weather</h2>
+                    <div class="weather-widget" id="weatherWidget">
+                        <div class="weather-loading">
+                            <i class="fas fa-spinner fa-spin"></i> Loading weather...
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT: Sidebar info -->
+            <div class="place-sidebar">
+                
+                <!-- Quick Info card -->
+                <div class="info-card quick-info-card">
+                    <h3>📋 Quick Info</h3>
+                    <div class="quick-info-list">
+                        <div class="qi-item">
+                            <i class="fas fa-ticket-alt"></i>
+                            <div>
+                                <span class="qi-label">Entry Fee</span>
+                                <span class="qi-value">{{ place.entry_fee }}</span>
+                            </div>
+                        </div>
+                        <div class="qi-item">
+                            <i class="fas fa-sun"></i>
+                            <div>
+                                <span class="qi-label">Best Time</span>
+                                <span class="qi-value">{{ place.best_time }}</span>
+                            </div>
+                        </div>
+                        <div class="qi-item">
+                            <i class="fas fa-star"></i>
+                            <div>
+                                <span class="qi-label">Rating</span>
+                                <span class="qi-value">{{ place.rating }} / 5.0 ⭐</span>
+                            </div>
+                        </div>
+                        {% if place.distance_from_city %}
+                        <div class="qi-item">
+                            <i class="fas fa-road"></i>
+                            <div>
+                                <span class="qi-label">Distance</span>
+                                <span class="qi-value">{{ place.distance_from_city }}</span>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- AI Assistant prompt -->
+                <div class="info-card ai-suggest-card">
+                    <div class="ai-suggest-icon">🤖</div>
+                    <h3>Ask AI About This Place</h3>
+                    <p>Get tips, nearby places, budget advice and more!</p>
+                    <a href="{{ url_for('chatbot') }}" class="ai-ask-btn">
+                        Chat with AI <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Nearby Hotels -->
+                {% if nearby_hotels %}
+                <div class="info-card">
+                    <h3>🏨 Nearby Hotels</h3>
+                    <div class="nearby-hotels">
+                        {% for hotel in nearby_hotels %}
+                        <a href="{{ url_for('hotels') }}" class="nearby-hotel-card">
+                            <div class="nh-info">
+                                <h4>{{ hotel.name }}</h4>
+                                <span class="nh-cat {{ hotel.category }}">{{ hotel.category }}</span>
+                            </div>
+                            <div class="nh-price">
+                                ₹{{ "{:,}".format(hotel.price_per_night) }}
+                                <span>/night</span>
+                            </div>
+                        </a>
+                        {% endfor %}
+                        <a href="{{ url_for('hotels', district=district.id) }}" class="see-all-hotels-btn">
+                            See all hotels in {{ district.name }} →
+                        </a>
+                    </div>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Leaflet.js for offline OpenStreetMap -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+// Place coordinates from Flask template
+const placeLat = {{ place.lat }};
+const placeLng = {{ place.lng }};
+const placeName = "{{ place.name }}";
+
+/**
+ * HYBRID MAP INITIALIZATION
+ * ==========================
+ * 1. Try to detect if user is online
+ * 2. If online: show Google Maps iframe (already in HTML)
+ * 3. If offline: initialize Leaflet OpenStreetMap
+ */
+function initMap() {
+    // Check connectivity using the API endpoint
+    fetch('/api/connectivity', { 
+        method: 'GET',
+        cache: 'no-cache'
+    })
+    .then(response => {
+        if (response.ok) {
+            // ONLINE: Google Maps is already shown (default)
+            showOnlineMap();
+        } else {
+            showOfflineMap();
+        }
+    })
+    .catch(() => {
+        // Network error = offline
+        showOfflineMap();
+    });
+}
+
+/**
+ * Show Google Maps (online mode)
+ */
+function showOnlineMap() {
+    document.getElementById('onlineMap').style.display = 'block';
+    document.getElementById('offlineMap').style.display = 'none';
+    document.querySelector('.online-mode').style.display = 'inline-flex';
+    document.querySelector('.offline-mode').style.display = 'none';
+}
+
+/**
+ * Show OpenStreetMap via Leaflet.js (offline mode)
+ * Leaflet loads tiles from OSM, which may also require internet,
+ * but is a lighter fallback than Google Maps.
+ */
+function showOfflineMap() {
+    document.getElementById('onlineMap').style.display = 'none';
+    document.getElementById('offlineMap').style.display = 'block';
+    document.querySelector('.online-mode').style.display = 'none';
+    document.querySelector('.offline-mode').style.display = 'inline-flex';
+
+    // Initialize Leaflet map
+    const map = L.map('leafletMap').setView([placeLat, placeLng], 14);
+
+    // OpenStreetMap tile layer (free, no API key needed)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add marker for the place
+    const marker = L.marker([placeLat, placeLng])
+        .addTo(map)
+        .bindPopup(`<b>${placeName}</b><br>Kerala Tourism AI`)
+        .openPopup();
+}
+
+/**
+ * WEATHER WIDGET
+ * ==============
+ * Fetch weather data from /api/weather (simulated)
+ * Display in a nice card widget
+ */
+async function loadWeather() {
+    try {
+        const response = await fetch(`/api/weather?location=${encodeURIComponent(placeName)}`);
+        const data = await response.json();
+
+        document.getElementById('weatherWidget').innerHTML = `
+            <div class="weather-info">
+                <div class="weather-icon-big">${data.icon}</div>
+                <div class="weather-details">
+                    <div class="weather-temp">${data.temperature}°C</div>
+                    <div class="weather-desc">${data.description}</div>
+                    <div class="weather-location">${data.location}</div>
+                </div>
+                <div class="weather-extra">
+                    <div class="we-item">
+                        <i class="fas fa-tint"></i>
+                        <span>Humidity: ${data.humidity}%</span>
+                    </div>
+                    <div class="we-item">
+                        <i class="fas fa-wind"></i>
+                        <span>Wind: ${data.wind_speed} km/h</span>
+                    </div>
+                    <div class="we-note">${data.source}</div>
+                </div>
+            </div>
+        `;
+    } catch (e) {
+        document.getElementById('weatherWidget').innerHTML = `
+            <div class="weather-offline">
+                <i class="fas fa-cloud-slash"></i>
+                <p>Weather data unavailable offline</p>
+                <p>Best time to visit: <strong>{{ place.best_time }}</strong></p>
+            </div>
+        `;
+    }
+}
+
+// Initialize on page load
+initMap();
+loadWeather();
+</script>
+{% endblock %}

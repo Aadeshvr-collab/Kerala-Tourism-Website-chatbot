@@ -1,0 +1,763 @@
+{% extends "base.html" %}
+{% block title %}AI Chatbot — Kerala Tourism{% endblock %}
+
+{% block extra_head %}
+<style>
+/* ---- Online/Offline Mode Toggle ---- */
+.mode-toggle-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 30px;
+    padding: 4px;
+}
+
+.mode-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 24px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border: none;
+    background: transparent;
+    color: rgba(255,255,255,0.45);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+.mode-btn.active-offline {
+    background: linear-gradient(135deg, #0d7a55, #13a872);
+    color: white;
+    box-shadow: 0 4px 16px rgba(13,122,85,0.4);
+}
+
+.mode-btn.active-online {
+    background: linear-gradient(135deg, #1565c0, #1e88e5);
+    color: white;
+    box-shadow: 0 4px 16px rgba(21,101,192,0.45);
+}
+
+.mode-btn:hover:not(.active-offline):not(.active-online) {
+    color: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.07);
+}
+
+.mode-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.offline-dot { background: #2ecc71; animation: pulse-dot 2s infinite; }
+.online-dot  { background: #42a5f5; animation: pulse-dot 2s infinite; }
+
+/* Mode indicator banner */
+.mode-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 20px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.3s ease;
+}
+
+.mode-banner.offline-banner {
+    background: rgba(13,122,85,0.1);
+    color: #4caf83;
+}
+
+.mode-banner.online-banner {
+    background: rgba(21,101,192,0.12);
+    color: #64b5f6;
+}
+
+/* API Key Setup Panel */
+.api-setup-panel {
+    background: rgba(21,101,192,0.08);
+    border: 1px solid rgba(21,101,192,0.25);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 12px 24px;
+    display: none;
+}
+
+.api-setup-panel h4 {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: #64b5f6;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.api-key-input-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.api-key-input {
+    flex: 1;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 10px 14px;
+    color: white;
+    font-size: 0.85rem;
+    font-family: 'Courier New', monospace;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.api-key-input:focus {
+    border-color: #42a5f5;
+    background: rgba(21,101,192,0.12);
+}
+
+.api-key-input::placeholder { color: rgba(255,255,255,0.3); }
+
+.save-key-btn {
+    background: linear-gradient(135deg, #1565c0, #1e88e5);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.save-key-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(21,101,192,0.4); }
+
+.api-links {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+}
+
+.api-links a { color: #64b5f6; }
+
+/* Online mode message styling */
+.gemini-message .msg-content {
+    line-height: 1.7;
+}
+
+.gemini-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.65rem;
+    background: rgba(21,101,192,0.2);
+    color: #64b5f6;
+    border: 1px solid rgba(21,101,192,0.3);
+    padding: 2px 7px;
+    border-radius: 6px;
+}
+
+/* Error message styling */
+.error-message .message {
+    background: rgba(231,76,60,0.1);
+    border-color: rgba(231,76,60,0.3);
+}
+
+.key-config-note {
+    background: rgba(232,160,32,0.08);
+    border: 1px solid rgba(232,160,32,0.25);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    color: #f0c040;
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Kerala photo background with blur -->
+<div class="chatbot-bg-wrap" aria-hidden="true"></div>
+<span class="chatbot-bg-label">Kerala — God's Own Country 🌴</span>
+
+<div class="chatbot-page">
+
+    <!-- ============================================================
+         CHAT HEADER with Online/Offline Toggle
+    ============================================================ -->
+    <div class="chat-header">
+        <div class="chat-header-left">
+            <div class="bot-avatar">
+                <span id="botEmoji">🤖</span>
+                <div class="bot-status-dot"></div>
+            </div>
+            <div class="bot-info">
+                <h2>Kerala Tourism AI</h2>
+                <span class="bot-status">
+                    <span class="status-dot"></span>
+                    <span id="botStatusText">Offline — TF-IDF NLP</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- Mode Toggle: Offline ↔ Online -->
+        <div class="mode-toggle-bar" id="modeToggleBar">
+            <button class="mode-btn active-offline" id="offlineBtn" onclick="switchMode('offline')">
+                <span class="mode-dot offline-dot"></span>
+                🧠 Offline AI
+            </button>
+            <button class="mode-btn" id="onlineBtn" onclick="switchMode('online')">
+                <span class="mode-dot online-dot"></span>
+                ✨ Online AI
+            </button>
+        </div>
+
+        <div class="chat-header-right">
+            <button class="chat-btn" onclick="clearChat()" title="Clear Chat">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+            <button class="chat-btn" onclick="showChatInfo()" title="About AI">
+                <i class="fas fa-info-circle"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mode indicator banner -->
+    <div class="mode-banner offline-banner" id="modeBanner">
+        <i class="fas fa-brain"></i>
+        <span id="modeBannerText">Offline Mode — Using local TF-IDF NLP (No internet needed)</span>
+    </div>
+
+    <!-- Claude AI powered badge — no API key needed -->
+    <div id="apiSetupPanel" style="display:none;"></div>
+    <div style="background:rgba(66,133,244,0.12); border:1px solid rgba(66,133,244,0.3); border-radius:10px; padding:10px 16px; margin-bottom:8px; font-size:0.82rem; color:#82b1ff; display:none; align-items:center; gap:8px;" id="claudeBadge">
+        <i class="fas fa-robot"></i>
+        <span>✨ <strong>Online Mode</strong> — Powered by Gemini AI (server-side)</span>
+    </div>
+
+    <!-- ============================================================
+         CHAT MESSAGES AREA
+    ============================================================ -->
+    <div class="chat-messages" id="chatMessages">
+
+        <!-- Welcome message -->
+        <div class="message-wrapper bot-wrapper message-visible" id="welcomeMsg">
+            <div class="msg-avatar bot-msg-avatar">🤖</div>
+            <div class="message bot-message">
+                <div class="msg-content">
+                    <p>🌴 <strong>Namaskaram!</strong> Welcome to Kerala Tourism AI!</p>
+                    <p>I have <strong>two modes</strong> to assist you:</p>
+                    <div class="bot-list">
+                        <span>🧠 <strong>Offline AI</strong> — Local TF-IDF NLP, works without internet, instant responses</span>
+                        <span>✨ <strong>Gemini AI</strong> — Google's AI, smarter responses, needs API key + internet</span>
+                    </div>
+                    <p>Currently in <strong>Offline Mode</strong>. You can switch anytime using the toggle above!</p>
+                    <p>Ask me about Kerala's 14 districts, beaches, hill stations, backwaters, food, budget tips and more! 🌊</p>
+                </div>
+                <span class="msg-time" id="welcomeTime"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Quick Reply Suggestions -->
+    <div class="quick-replies" id="quickReplies">
+        <div class="qr-label">Quick Questions:</div>
+        <div class="qr-buttons">
+            <button class="qr-btn" onclick="sendQuickReply('What to see in Thrissur?')">🎭 Thrissur</button>
+            <button class="qr-btn" onclick="sendQuickReply('Tell me about Munnar')">⛰️ Munnar</button>
+            <button class="qr-btn" onclick="sendQuickReply('Best beaches in Kerala')">🏖️ Beaches</button>
+            <button class="qr-btn" onclick="sendQuickReply('Kerala backwaters houseboat')">🚤 Backwaters</button>
+            <button class="qr-btn" onclick="sendQuickReply('Budget trip to Kerala 5 days')">💰 Budget</button>
+            <button class="qr-btn" onclick="sendQuickReply('Kerala food guide')">🍛 Food</button>
+            <button class="qr-btn" onclick="sendQuickReply('Best time to visit Kerala')">🌡️ Weather</button>
+            <button class="qr-btn" onclick="sendQuickReply('Family trip plan Kerala')">👨‍👩‍👧 Family</button>
+            <button class="qr-btn" onclick="sendQuickReply('What to see in Wayanad?')">🌲 Wayanad</button>
+            <button class="qr-btn" onclick="sendQuickReply('Tell me about Kochi')">🌊 Kochi</button>
+        </div>
+    </div>
+
+    <!-- Chat Input -->
+    <div class="chat-input-area">
+        <div class="chat-input-wrapper" id="chatInputWrapper">
+            <textarea
+                id="userInput"
+                placeholder="Ask about Kerala districts, places, food, weather..."
+                rows="1"
+                onkeydown="handleKeyPress(event)"
+                oninput="autoResize(this)"
+            ></textarea>
+            <button class="send-btn" id="sendBtn" onclick="sendMessage()" title="Send">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+        <div class="input-hint">
+            <span id="inputHintText">
+                🧠 <strong>Offline Mode</strong> — TF-IDF NLP · Press <kbd>Enter</kbd> to send
+            </span>
+        </div>
+    </div>
+
+    <!-- AI Info Modal -->
+    <div class="chat-info-modal" id="chatInfoModal" style="display:none;">
+        <div class="modal-overlay" onclick="hideChatInfo()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="hideChatInfo()"><i class="fas fa-times"></i></button>
+            <h3>🤖 About Kerala Tourism AI</h3>
+            <div class="ai-info-grid">
+                <div class="ai-info-item">
+                    <i class="fas fa-brain"></i>
+                    <h4>Offline Mode (TF-IDF NLP)</h4>
+                    <p>Uses Entity Detection (district/place name lookup) + TF-IDF cosine similarity. Works without internet. Instant responses. Handles spelling mistakes with fuzzy matching.</p>
+                </div>
+                <div class="ai-info-item" style="border-color: rgba(21,101,192,0.3);">
+                    <i class="fas fa-robot" style="color: #64b5f6;"></i>
+                    <h4>Online Mode (Grok / DeepSeek)</h4>
+                    <p>Uses Google's Grok 3 Mini / DeepSeek AI model. Much smarter, context-aware, can answer complex multi-turn questions. Requires API key + internet.</p>
+                </div>
+                <div class="ai-info-item">
+                    <i class="fas fa-spell-check"></i>
+                    <h4>Fuzzy Spell Correction</h4>
+                    <p>FuzzyWuzzy library corrects misspellings automatically. Type "Thrissur" or "Trissur" — both work!</p>
+                </div>
+                <div class="ai-info-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h4>14 District Coverage</h4>
+                    <p>Each district has dedicated intent patterns. Entity detection ensures "Thrissur" never gets confused with "backwaters".</p>
+                </div>
+            </div>
+            <div class="ai-capabilities">
+                <h4>Topics I know about:</h4>
+                <div class="cap-tags">
+                    <span>All 14 Districts</span><span>Beaches</span><span>Hill Stations</span>
+                    <span>Backwaters</span><span>Wildlife</span><span>Weather</span>
+                    <span>Budget</span><span>Food</span><span>Festivals</span>
+                    <span>Hotels</span><span>Ayurveda</span><span>Travel Plans</span>
+                    <span>How to Reach</span><span>Honeymoon</span><span>Family Trips</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+/* ============================================================
+   KERALA TOURISM CHATBOT — clean rewrite, zero bugs
+   ============================================================ */
+
+// ── State ──────────────────────────────────────────────────
+var currentMode       = 'offline';
+var selectedProvider  = 'gemini';
+var conversationHistory = [];
+var savedApiKey       = '';
+
+// ── Init ───────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', function() {
+    // restore saved key + provider
+    var storedKey      = localStorage.getItem('kerala_ai_key')      || '';
+    var storedProvider = localStorage.getItem('kerala_ai_provider') || 'gemini';
+    savedApiKey       = storedKey;
+    selectedProvider  = storedProvider;
+    _applyProviderUI(storedProvider);
+    if (storedKey) {
+        document.getElementById('geminiKeyInput').value = storedKey;
+    }
+    document.getElementById('welcomeTime').textContent = _time();
+    document.getElementById('userInput').focus();
+});
+
+// ── Time helper ────────────────────────────────────────────
+function _time() {
+    return new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+}
+
+// ── Mode switching ─────────────────────────────────────────
+function switchMode(mode) {
+    currentMode = mode;
+
+    var offBtn   = document.getElementById('offlineBtn');
+    var onBtn    = document.getElementById('onlineBtn');
+    var banner   = document.getElementById('modeBanner');
+    var bannerTx = document.getElementById('modeBannerText');
+    var hintTx   = document.getElementById('inputHintText');
+    var statusTx = document.getElementById('botStatusText');
+    var botEmoji = document.getElementById('botEmoji');
+    var panel    = document.getElementById('apiSetupPanel');
+    var wrapper  = document.getElementById('chatInputWrapper');
+
+    if (mode === 'online') {
+        offBtn.className  = 'mode-btn';
+        onBtn.className   = 'mode-btn active-online';
+        banner.className  = 'mode-banner online-banner';
+        bannerTx.textContent = '✨ Online Mode — AI powered responses';
+        statusTx.textContent = 'Online AI';
+        botEmoji.textContent  = '✨';
+        hintTx.innerHTML = '✨ <strong>Online AI Mode</strong> · Press Enter to send';
+        wrapper.style.borderColor = 'rgba(21,101,192,0.5)';
+        panel.style.display = 'none';
+        var badge = document.getElementById('claudeBadge');
+        if (badge) badge.style.display = 'flex';
+        _notice('✨ Online AI activated — powered by Claude!', 'online');
+    } else {
+        offBtn.className  = 'mode-btn active-offline';
+        onBtn.className   = 'mode-btn';
+        banner.className  = 'mode-banner offline-banner';
+        bannerTx.textContent = '🧠 Offline Mode — Local NLP (No internet needed)';
+        statusTx.textContent = 'Offline — NLP';
+        botEmoji.textContent  = '🤖';
+        hintTx.innerHTML = '🧠 <strong>Offline Mode</strong> · Press Enter to send';
+        wrapper.style.borderColor = '';
+        panel.style.display = 'none';
+        var badge = document.getElementById('claudeBadge');
+        if (badge) badge.style.display = 'none';
+        _notice('🧠 Offline Mode — works without internet!', 'offline');
+    }
+}
+
+// ── Provider selection ─────────────────────────────────────
+function selectProvider(p) {
+    selectedProvider = p;
+    _applyProviderUI(p);
+}
+
+function _applyProviderUI(p) {
+    var configs = {
+        gemini:   {bg:'rgba(66,133,244,0.2)',  border:'rgba(66,133,244,0.5)',  color:'#82b1ff',  ph:'Paste Gemini key: AIza...',       hint:'🤖 <strong>Gemini FREE key:</strong> <a href="https://aistudio.google.com/app/apikey" target="_blank">aistudio.google.com/app/apikey</a>'},
+        grok:     {bg:'rgba(30,136,229,0.2)',  border:'rgba(30,136,229,0.5)',  color:'#64b5f6',  ph:'Paste Grok key: xai-...',         hint:'⚡ <strong>Grok:</strong> <a href="https://console.x.ai" target="_blank">console.x.ai</a>'},
+        deepseek: {bg:'rgba(124,77,255,0.2)',  border:'rgba(124,77,255,0.5)',  color:'#b39ddb',  ph:'Paste DeepSeek key: sk-...',      hint:'🧠 <strong>DeepSeek:</strong> <a href="https://platform.deepseek.com" target="_blank">platform.deepseek.com</a>'}
+    };
+    var off = {bg:'rgba(255,255,255,0.04)', border:'rgba(255,255,255,0.1)', color:'rgba(255,255,255,0.4)'};
+    ['gemini','grok','deepseek'].forEach(function(id) {
+        var el = document.getElementById('prov' + id.charAt(0).toUpperCase() + id.slice(1));
+        if (!el) return;
+        var s = (id === p) ? configs[id] : off;
+        el.style.background  = s.bg;
+        el.style.borderColor = s.border;
+        el.style.color       = s.color;
+    });
+    var cfg = configs[p] || configs.gemini;
+    var hint = document.getElementById('providerHint');
+    if (hint) hint.innerHTML = cfg.hint;
+    var inp = document.getElementById('geminiKeyInput');
+    if (inp) inp.placeholder = cfg.ph;
+}
+
+function saveApiKey() {
+    var input = document.getElementById('geminiKeyInput');
+    var key   = input.value.trim();
+    if (!key || key.length < 8) {
+        input.style.borderColor = '#e74c3c';
+        _notice('⚠️ Please enter a valid API key.', 'info');
+        return;
+    }
+    var names = {gemini:'🤖 Gemini', grok:'⚡ Grok', deepseek:'🧠 DeepSeek'};
+    var pName = names[selectedProvider] || 'AI';
+    input.style.borderColor = '#f0c040';
+    _notice('🔄 Verifying ' + pName + ' key...', 'info');
+
+    // Test the key directly from browser (no server proxy)
+    _callAIDirectly('Say hi in 3 words', [], key, selectedProvider)
+    .then(function() {
+        savedApiKey = key;
+        localStorage.setItem('kerala_ai_key',      key);
+        localStorage.setItem('kerala_ai_provider', selectedProvider);
+        input.style.borderColor = '#2ecc71';
+        document.getElementById('apiSetupPanel').style.display = 'none';
+        _notice('✅ ' + pName + ' key verified! Start chatting.', 'online');
+    })
+    .catch(function(err) {
+        input.style.borderColor = '#e74c3c';
+        var msg = err.message || String(err);
+        _notice('❌ Key test failed: ' + msg, 'info');
+    });
+}
+
+// ── Enter key + auto-resize ────────────────────────────────
+function handleKeyPress(event) {
+    if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        sendMessage();
+    }
+}
+
+function autoResize(el) {
+    el.style.height = 'auto';
+    el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+}
+
+// ── Send message ───────────────────────────────────────────
+function sendMessage() {
+    var input   = document.getElementById('userInput');
+    var message = input.value.trim();
+    if (!message) return;
+
+    input.value = '';
+    input.style.height = 'auto';
+    var qr = document.getElementById('quickReplies');
+    if (qr) qr.style.display = 'none';
+
+    _appendMsg(message, 'user');
+    conversationHistory.push({role:'user', text:message});
+
+    var typingId = _showTyping();
+
+    if (currentMode === 'online') {
+        _sendOnline(message, typingId);
+    } else {
+        _sendOffline(message, typingId);
+    }
+}
+
+function sendQuickReply(message) {
+    document.getElementById('userInput').value = message;
+    sendMessage();
+}
+
+// ── Offline API call ───────────────────────────────────────
+function _sendOffline(message, typingId) {
+    fetch('/api/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message: message})
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+        _removeTyping(typingId);
+        var reply = data.response || 'Sorry, I could not understand that. Try asking about Kerala places!';
+        conversationHistory.push({role:'model', text:reply});
+        _appendMsg(reply, 'bot', data.intent, data.confidence, 'offline');
+    })
+    .catch(function(err) {
+        _removeTyping(typingId);
+        _appendMsg('⚠️ Offline mode error. Please refresh and try again.', 'bot', 'error', 0, 'offline');
+        console.error('Offline error:', err);
+    });
+}
+
+// ── Online API call — routed through Flask server (Claude AI, no key needed) ──
+function _sendOnline(message, typingId) {
+    var history = conversationHistory.slice(0, -1).slice(-10);
+
+    fetch('/api/chat/online', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message: message, history: history})
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+        _removeTyping(typingId);
+        if (data.error) {
+            _appendMsg('⚠️ Online AI error: ' + data.error, 'bot', 'error', 0, 'online');
+            return;
+        }
+        var reply = data.response || 'Sorry, I could not get a response. Please try again.';
+        conversationHistory.push({role:'model', text:reply});
+        _appendMsg(reply, 'bot', 'ai_response', 1.0, 'online');
+    })
+    .catch(function(err) {
+        _removeTyping(typingId);
+        _appendMsg('⚠️ Could not reach online AI. Please check your connection or try Offline Mode.', 'bot', 'error', 0, 'online');
+        console.error('Online AI error:', err);
+    });
+}
+
+// ── Direct browser-to-AI API calls ────────────────────────
+function _callAIDirectly(message, history, apiKey, provider) {
+    if (provider === 'gemini') {
+        return _callGemini(message, history, apiKey);
+    } else if (provider === 'grok') {
+        return _callOpenAICompat('https://api.x.ai/v1/chat/completions', 'grok-beta', message, history, apiKey);
+    } else {
+        return _callOpenAICompat('https://api.deepseek.com/v1/chat/completions', 'deepseek-chat', message, history, apiKey);
+    }
+}
+
+var SYSTEM_PROMPT = 'You are an expert Kerala Tourism AI Assistant. Only answer questions about Kerala tourism, travel, places, culture, food, weather, and hotels. Use emojis and bullet points. Keep responses under 300 words. Kerala has 14 districts: Thiruvananthapuram, Kollam, Pathanamthitta, Alappuzha, Kottayam, Idukki (Munnar), Ernakulam (Kochi), Thrissur, Palakkad, Malappuram, Kozhikode, Wayanad, Kannur, Kasaragod.';
+
+function _callGemini(message, history, apiKey) {
+    var url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + apiKey;
+    // Build contents — must start with user, alternate user/model
+    var contents = [];
+    history.forEach(function(t) {
+        if (t.text && t.text.trim()) {
+            contents.push({role: t.role === 'model' ? 'model' : 'user', parts:[{text: t.text}]});
+        }
+    });
+    // Remove leading model turns
+    while (contents.length && contents[0].role !== 'user') contents.shift();
+    contents.push({role:'user', parts:[{text: message}]});
+
+    var payload = {
+        system_instruction: {parts:[{text: SYSTEM_PROMPT}]},
+        contents: contents,
+        generationConfig: {maxOutputTokens: 500, temperature: 0.7}
+    };
+    return fetch(url, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+    })
+    .then(function(r) {
+        return r.json().then(function(data) {
+            if (!r.ok) {
+                var errMsg = (data.error && data.error.message) ? data.error.message : ('HTTP ' + r.status);
+                throw new Error(errMsg);
+            }
+            return data.candidates[0].content.parts[0].text.trim();
+        });
+    });
+}
+
+function _callOpenAICompat(url, model, message, history, apiKey) {
+    var messages = [{role:'system', content: SYSTEM_PROMPT}];
+    history.forEach(function(t) {
+        if (t.text && t.text.trim()) {
+            messages.push({role: t.role === 'model' ? 'assistant' : 'user', content: t.text});
+        }
+    });
+    messages.push({role:'user', content: message});
+
+    return fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + apiKey
+        },
+        body: JSON.stringify({model: model, messages: messages, max_tokens: 500, temperature: 0.7})
+    })
+    .then(function(r) {
+        return r.json().then(function(data) {
+            if (!r.ok) {
+                var errMsg = (data.error && data.error.message) ? data.error.message : ('HTTP ' + r.status);
+                throw new Error(errMsg);
+            }
+            return data.choices[0].message.content.trim();
+        });
+    });
+}
+
+// ── Message rendering ──────────────────────────────────────
+function _appendMsg(text, sender, intent, confidence, mode) {
+    var chatMessages = document.getElementById('chatMessages');
+    var wrapper = document.createElement('div');
+    wrapper.className = 'message-wrapper ' + sender + '-wrapper';
+
+    if (sender === 'bot') {
+        var isOnline = (mode === 'online');
+        var names    = {gemini:'🤖 Gemini AI', grok:'⚡ Grok AI', deepseek:'🧠 DeepSeek AI'};
+        var badge    = isOnline
+            ? '<span class="gemini-badge"><i class="fas fa-robot"></i> ' + (names[selectedProvider]||'Online AI') + '</span>'
+            : (intent && intent !== 'unknown' && intent !== 'error' ? '<span class="msg-intent">' + intent + '</span>' : '');
+        var conf = (!isOnline && confidence && confidence > 0)
+            ? '<span class="msg-confidence">' + Math.round(confidence * 100) + '% match</span>'
+            : '';
+        var borderStyle = isOnline ? 'border-color:rgba(21,101,192,0.3);' : '';
+        wrapper.className += isOnline ? ' gemini-message' : '';
+        wrapper.innerHTML =
+            '<div class="msg-avatar bot-msg-avatar">' + (isOnline ? '✨' : '🤖') + '</div>' +
+            '<div class="message bot-message" style="' + borderStyle + '">' +
+                '<div class="msg-content">' + _formatBot(text) + '</div>' +
+                '<div class="msg-footer">' +
+                    '<span class="msg-time">' + _time() + '</span>' +
+                    badge + conf +
+                '</div>' +
+            '</div>';
+    } else {
+        var initial = '{{ session.get("user_name", "U")[0] | upper }}';
+        wrapper.innerHTML =
+            '<div class="message user-message">' +
+                '<div class="msg-content"><p>' + _escape(text) + '</p></div>' +
+                '<span class="msg-time">' + _time() + '</span>' +
+            '</div>' +
+            '<div class="msg-avatar user-msg-avatar">' + initial + '</div>';
+    }
+
+    chatMessages.appendChild(wrapper);
+    requestAnimationFrame(function() { wrapper.classList.add('message-visible'); });
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function _formatBot(text) {
+    return '<p>' + text
+        .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\n\n/g, '</p><p>')
+        .replace(/\n/g, '<br>')
+        .replace(/•\s*(.+?)(<br>|<\/p>|$)/g, '<div class="bot-bullet"><span>•</span><span>$1</span></div>$2')
+        + '</p>';
+}
+
+function _escape(t) {
+    return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function _showTyping() {
+    var chatMessages = document.getElementById('chatMessages');
+    var id = 'typing-' + Date.now();
+    var emoji = currentMode === 'online' ? '✨' : '🤖';
+    var el = document.createElement('div');
+    el.className = 'message-wrapper bot-wrapper message-visible';
+    el.id = id;
+    el.innerHTML =
+        '<div class="msg-avatar bot-msg-avatar">' + emoji + '</div>' +
+        '<div class="message bot-message typing-message">' +
+            '<div class="typing-indicator"><span></span><span></span><span></span></div>' +
+        '</div>';
+    chatMessages.appendChild(el);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    return id;
+}
+
+function _removeTyping(id) {
+    var el = document.getElementById(id);
+    if (el) el.remove();
+}
+
+// ── System notice ──────────────────────────────────────────
+function _notice(text, type) {
+    var chatMessages = document.getElementById('chatMessages');
+    var el = document.createElement('div');
+    var colors = {online:'#64b5f6', offline:'#4caf83', info:'#f0c040'};
+    var bgs    = {online:'rgba(21,101,192,0.1)', offline:'rgba(13,122,85,0.1)', info:'rgba(232,160,32,0.08)'};
+    var borders= {online:'rgba(21,101,192,0.2)', offline:'rgba(13,122,85,0.2)', info:'rgba(232,160,32,0.2)'};
+    el.style.cssText = 'text-align:center;padding:8px 16px;font-size:0.78rem;' +
+        'color:' + (colors[type]||colors.info) + ';' +
+        'background:' + (bgs[type]||bgs.info) + ';' +
+        'border-radius:20px;margin:4px auto;max-width:420px;' +
+        'border:1px solid ' + (borders[type]||borders.info) + ';';
+    el.textContent = text;
+    chatMessages.appendChild(el);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    setTimeout(function() { el.remove(); }, 4000);
+}
+
+// ── Utilities ──────────────────────────────────────────────
+function clearChat() {
+    document.querySelectorAll('#chatMessages .message-wrapper:not(#welcomeMsg)').forEach(function(m) { m.remove(); });
+    conversationHistory = [];
+    var qr = document.getElementById('quickReplies');
+    if (qr) qr.style.display = 'block';
+}
+
+function showChatInfo() { document.getElementById('chatInfoModal').style.display = 'flex'; }
+function hideChatInfo() { document.getElementById('chatInfoModal').style.display = 'none'; }
+
+function getCurrentTime() { return _time(); }
+
+</script>
+{% endblock %}

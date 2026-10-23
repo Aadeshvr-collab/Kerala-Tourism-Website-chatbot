@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register — Kerala Tourism AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .register-body { background: linear-gradient(135deg, #050e1a 0%, #0d1a2e 100%); min-height: 100vh; display: flex; align-items: stretch; }
+        .register-left {
+            flex: 1;
+            background: linear-gradient(135deg, rgba(13,122,85,0.15), rgba(13,122,85,0.05));
+            border-right: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px);
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .register-right {
+            flex: 0 0 520px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 40px 48px;
+            background: rgba(10,22,40,0.6);
+            backdrop-filter: blur(20px);
+            overflow-y: auto;
+        }
+        .register-form-wrapper { width: 100%; max-width: 400px; padding: 20px 0; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .password-strength { height: 4px; border-radius: 2px; margin-top: 6px; background: rgba(255,255,255,0.1); overflow: hidden; }
+        .strength-bar { height: 100%; border-radius: 2px; transition: all 0.3s ease; width: 0%; }
+        .strength-text { font-size: 0.68rem; color: var(--text-muted); margin-top: 4px; }
+        .terms-check { display: flex; align-items: flex-start; gap: 10px; font-size: 0.82rem; color: var(--text-secondary); }
+        .terms-check input[type=checkbox] { margin-top: 2px; flex-shrink: 0; accent-color: var(--primary); }
+        .terms-check a { color: var(--primary-light); }
+        .login-link-row { text-align: center; margin-top: 20px; font-size: 0.85rem; color: var(--text-muted); }
+        .login-link-row a { color: var(--primary-light); font-weight: 500; }
+        .alert-success { background: rgba(46,204,113,0.12); border: 1px solid rgba(46,204,113,0.4); color: #2ecc71; display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 10px; font-size: 0.88rem; margin-bottom: 20px; }
+        @media (max-width: 900px) { .register-left { display: none; } .register-right { flex: none; width: 100%; } }
+        @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } .register-right { padding: 24px; } }
+    </style>
+</head>
+<body class="register-body">
+
+<!-- Background blobs -->
+<div class="login-bg">
+    <div class="bg-circle circle-1"></div>
+    <div class="bg-circle circle-2"></div>
+    <div class="bg-circle circle-3"></div>
+</div>
+
+<!-- LEFT PANEL -->
+<div class="register-left">
+    <a href="{{ url_for('index') }}" class="back-home-btn">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+    <div class="login-brand">
+        <div class="brand-icon">🌴</div>
+        <h1>Kerala<br><em>Tourism AI</em></h1>
+        <p>Create your account and unlock God's Own Country — personalised travel plans, AI chatbot, 70+ destinations and more.</p>
+    </div>
+    <div class="login-features">
+        <div class="lf-item"><i class="fas fa-robot"></i> AI-powered travel chatbot (Grok + DeepSeek)</div>
+        <div class="lf-item"><i class="fas fa-map-marked-alt"></i> Explore all 14 Kerala districts</div>
+        <div class="lf-item"><i class="fas fa-hotel"></i> Browse & book 28+ curated hotels</div>
+        <div class="lf-item"><i class="fas fa-route"></i> Ready-made family travel plans</div>
+        <div class="lf-item"><i class="fas fa-wifi-slash"></i> Works offline — local AI & maps</div>
+    </div>
+    <div class="kerala-deco">🌊🐘🍃🏖️⛰️</div>
+</div>
+
+<!-- RIGHT PANEL — Registration Form -->
+<div class="register-right">
+    <div class="register-form-wrapper">
+        <div class="login-header">
+            <h2>Create Account</h2>
+            <p>Join Kerala Tourism AI — it's free!</p>
+        </div>
+
+        {% if success %}
+        <div class="alert-success">
+            <i class="fas fa-check-circle fa-lg"></i>
+            <span>{{ success }} <a href="{{ url_for('login') }}" style="color:#2ecc71; font-weight:600;">Login now →</a></span>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="alert alert-error">
+            <i class="fas fa-exclamation-circle"></i> {{ error }}
+        </div>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('register') }}" autocomplete="off" onsubmit="return validateForm()">
+            <!-- Full Name + Username -->
+            <div class="form-row" style="margin-bottom: 16px;">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Full Name *</label>
+                    <input type="text" name="full_name" id="full_name" placeholder="Your full name" required
+                           value="{{ request.form.get('full_name', '') }}"
+                           oninput="checkFullName(this)"
+                           class="{% if request.form.get('full_name') %}field-filled{% endif %}">
+                    <small id="fullname_hint" style="font-size:0.68rem; color: var(--text-muted);"></small>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-at"></i> Username *</label>
+                    <input type="text" name="username" id="username" placeholder="Choose username" required
+                           value="{{ request.form.get('username', '') }}" minlength="4"
+                           oninput="checkUsername(this)"
+                           class="{% if request.form.get('username') %}field-filled{% endif %}">
+                    <small id="username_hint" style="font-size:0.68rem; color: var(--text-muted);"></small>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group" style="margin-bottom: 16px;">
+                <label><i class="fas fa-envelope"></i> Gmail Address *</label>
+                <input type="text" name="email" id="email" placeholder="yourname@gmail.com" required
+                       value="{{ request.form.get('email', '') }}"
+                       oninput="checkEmail(this)"
+                       class="{% if request.form.get('email') %}field-filled{% endif %}">
+                <small id="email_hint" style="font-size:0.68rem; color: var(--text-muted);"></small>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group" style="margin-bottom: 16px;">
+                <label><i class="fas fa-phone"></i> Phone Number *</label>
+                <input type="tel" name="phone" id="phone" placeholder="10-digit Indian mobile number" required
+                       value="{{ request.form.get('phone', '') }}"
+                       maxlength="10" oninput="checkPhone(this)"
+                       class="{% if request.form.get('phone') %}field-filled{% endif %}">
+                <small id="phone_hint" style="font-size:0.68rem; color: var(--text-muted);"></small>
+            </div>
+
+            <!-- Place + Date of Birth -->
+            <div class="form-row" style="margin-bottom: 16px;">
+                <div class="form-group">
+                    <label><i class="fas fa-map-pin"></i> Your City / Place *</label>
+                    <input type="text" name="place" id="place" placeholder="e.g. Kochi, Kerala" required
+                           value="{{ request.form.get('place', '') }}"
+                           class="{% if request.form.get('place') %}field-filled{% endif %}">
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-calendar-alt"></i> Date of Birth *</label>
+                    <input type="date" name="dob" id="dob" required
+                           value="{{ request.form.get('dob', '') }}"
+                           min="{{ min_dob }}"
+                           max="{{ now_date }}"
+                           oninput="checkDob(this)"
+                           class="{% if request.form.get('dob') %}field-filled{% endif %}">
+                    <small id="dob_hint" style="font-size:0.68rem; color: var(--text-muted);"></small>
+                </div>
+            </div>
+
+            <!-- Password -->
+            <div class="form-group" style="margin-bottom: 16px;">
+                <label><i class="fas fa-lock"></i> Password *</label>
+                <div class="password-input-wrapper">
+                    <input type="password" name="password" id="password" placeholder="Min 6 characters" required
+                           minlength="6" oninput="checkStrength(this.value)" autocomplete="new-password">
+                    <button type="button" class="toggle-password" onclick="togglePwd('password', this)">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="password-strength"><div class="strength-bar" id="strengthBar"></div></div>
+                <div class="strength-text" id="strengthText">Enter a password</div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label><i class="fas fa-lock"></i> Confirm Password *</label>
+                <div class="password-input-wrapper">
+                    <input type="password" name="confirm_password" id="confirm_password"
+                           placeholder="Repeat your password" required autocomplete="new-password"
+                           oninput="checkMatch()">
+                    <button type="button" class="toggle-password" onclick="togglePwd('confirm_password', this)">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <small id="match_hint" style="font-size:0.68rem;"></small>
+            </div>
+
+            <!-- Terms -->
+            <div class="terms-check" style="margin-bottom: 24px;">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">
+                    I agree to the <a href="#">Terms of Use</a> and acknowledge this is a
+                    <strong>demo application</strong> for educational purposes.
+                </label>
+            </div>
+
+            <button type="submit" class="btn-login" id="registerBtn">
+                <i class="fas fa-user-plus"></i> Create My Account
+            </button>
+        </form>
+
+        <div class="login-link-row">
+            Already have an account? <a href="{{ url_for('login') }}">Sign in here →</a>
+        </div>
+    </div>
+</div>
+
+<script>
+function togglePwd(fieldId, btn) {
+    const input = document.getElementById(fieldId);
+    const icon = btn.querySelector('i');
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.className = 'fas fa-eye-slash';
+    } else {
+        input.type = 'password';
+        icon.className = 'fas fa-eye';
+    }
+}
+
+function checkStrength(pwd) {
+    const bar = document.getElementById('strengthBar');
+    const txt = document.getElementById('strengthText');
+    let strength = 0;
+    if (pwd.length >= 6) strength++;
+    if (pwd.length >= 10) strength++;
+    if (/[A-Z]/.test(pwd)) strength++;
+    if (/[0-9]/.test(pwd)) strength++;
+    if (/[^A-Za-z0-9]/.test(pwd)) strength++;
+
+    const levels = [
+        { pct: '0%',   color: 'transparent',    label: 'Enter a password' },
+        { pct: '25%',  color: '#e74c3c',         label: '⚠️ Weak' },
+        { pct: '50%',  color: '#e67e22',         label: '🟠 Fair' },
+        { pct: '75%',  color: '#f1c40f',         label: '🟡 Good' },
+        { pct: '90%',  color: '#2ecc71',         label: '✅ Strong' },
+        { pct: '100%', color: 'var(--kerala-light, #13a872)', label: '💪 Very Strong' }
+    ];
+    const l = levels[Math.min(strength, 5)];
+    bar.style.width = l.pct;
+    bar.style.background = l.color;
+    txt.textContent = l.label;
+    txt.style.color = l.color;
+}
+
+function checkMatch() {
+    const p1 = document.getElementById('password').value;
+    const p2 = document.getElementById('confirm_password').value;
+    const hint = document.getElementById('match_hint');
+    if (!p2) { hint.textContent = ''; return; }
+    if (p1 === p2) {
+        hint.textContent = '✅ Passwords match';
+        hint.style.color = '#2ecc71';
+    } else {
+        hint.textContent = '❌ Passwords do not match';
+        hint.style.color = '#e74c3c';
+    }
+}
+
+function checkUsername(input) {
+    const hint = document.getElementById('username_hint');
+    const val = input.value;
+    if (val.length < 4) {
+        hint.textContent = 'At least 4 characters';
+        hint.style.color = '#e74c3c';
+    } else if (/\s/.test(val)) {
+        hint.textContent = 'No spaces allowed';
+        hint.style.color = '#e74c3c';
+    } else {
+        hint.textContent = '✅ Looks good!';
+        hint.style.color = '#2ecc71';
+    }
+}
+
+// ---- NEW: Full Name validator ----
+function checkFullName(input) {
+    const hint = document.getElementById('fullname_hint');
+    const val = input.value.trim();
+    const valid = /^[A-Za-z][A-Za-z\s.\-']{1,}$/.test(val) && (val.match(/[A-Za-z]/g) || []).length >= 2;
+    if (!val) { hint.textContent = ''; return; }
+    if (valid) {
+        hint.textContent = '✅ Valid name';
+        hint.style.color = '#2ecc71';
+    } else {
+        hint.textContent = '❌ Name must contain only letters, spaces, dots or hyphens (no numbers/symbols)';
+        hint.style.color = '#e74c3c';
+    }
+}
+
+// ---- NEW: Gmail validator ----
+function checkEmail(input) {
+    const hint = document.getElementById('email_hint');
+    const val = input.value.trim();
+    if (!val) { hint.textContent = ''; return; }
+    const valid = /^[a-zA-Z0-9._%+\-]+@gmail\.com$/.test(val);
+    if (valid) {
+        hint.textContent = '✅ Valid Gmail address';
+        hint.style.color = '#2ecc71';
+    } else {
+        hint.textContent = '❌ Must be a Gmail address (e.g. yourname@gmail.com)';
+        hint.style.color = '#e74c3c';
+    }
+}
+
+// ---- NEW: Indian phone number validator ----
+function checkPhone(input) {
+    const hint = document.getElementById('phone_hint');
+    // Strip non-digits for display
+    input.value = input.value.replace(/\D/g, '');
+    const val = input.value;
+    if (!val) { hint.textContent = ''; return; }
+    const valid = /^[6-9]\d{9}$/.test(val);
+    if (valid) {
+        hint.textContent = '✅ Valid Indian mobile number';
+        hint.style.color = '#2ecc71';
+    } else if (val.length < 10) {
+        hint.textContent = `${10 - val.length} more digit(s) needed`;
+        hint.style.color = '#e67e22';
+    } else {
+        hint.textContent = '❌ Must be 10 digits starting with 6, 7, 8 or 9';
+        hint.style.color = '#e74c3c';
+    }
+}
+
+// ---- NEW: DOB age validator ----
+function checkDob(input) {
+    const hint = document.getElementById('dob_hint');
+    const val = input.value;
+    if (!val) { hint.textContent = ''; return; }
+    const dob = new Date(val);
+    const today = new Date();
+    const ageMs = today - dob;
+    const ageYears = ageMs / (1000 * 60 * 60 * 24 * 365.25);
+    if (ageYears < 1) {
+        hint.textContent = '❌ Date of birth cannot be in the future';
+        hint.style.color = '#e74c3c';
+    } else if (ageYears > 80) {
+        hint.textContent = '❌ Registration is only allowed for people up to 80 years old';
+        hint.style.color = '#e74c3c';
+    } else {
+        hint.textContent = `✅ Age: ${Math.floor(ageYears)} years`;
+        hint.style.color = '#2ecc71';
+    }
+}
+
+function validateForm() {
+    // Full Name
+    const fullName = document.getElementById('full_name').value.trim();
+    if (!/^[A-Za-z][A-Za-z\s.\-']{1,}$/.test(fullName) || (fullName.match(/[A-Za-z]/g) || []).length < 2) {
+        alert('❌ Full name must contain only letters, spaces, dots or hyphens (no numbers or symbols).');
+        return false;
+    }
+
+    // Gmail
+    const email = document.getElementById('email').value.trim();
+    if (email && !/^[a-zA-Z0-9._%+\-]+@gmail\.com$/.test(email)) {
+        alert('❌ Email must be a valid Gmail address (e.g. yourname@gmail.com).');
+        return false;
+    }
+
+    // Phone
+    const phone = document.getElementById('phone').value.trim();
+    if (!/^[6-9]\d{9}$/.test(phone)) {
+        alert('❌ Phone number must be exactly 10 digits and start with 6, 7, 8 or 9.');
+        return false;
+    }
+
+    // DOB — max 80 years
+    const dobVal = document.getElementById('dob').value;
+    if (dobVal) {
+        const dob = new Date(dobVal);
+        const ageYears = (new Date() - dob) / (1000 * 60 * 60 * 24 * 365.25);
+        if (ageYears > 80) {
+            alert('❌ Registration is only allowed for people up to 80 years old.');
+            return false;
+        }
+        if (ageYears < 1) {
+            alert('❌ Date of birth cannot be in the future.');
+            return false;
+        }
+    }
+
+    // Passwords
+    const p1 = document.getElementById('password').value;
+    const p2 = document.getElementById('confirm_password').value;
+    if (p1 !== p2) {
+        alert('❌ Passwords do not match!');
+        return false;
+    }
+
+    // Username
+    const username = document.getElementById('username').value;
+    if (/\s/.test(username)) {
+        alert('❌ Username cannot contain spaces!');
+        return false;
+    }
+
+    return true;
+}
+
+// Auto-color filled inputs
+document.querySelectorAll('input').forEach(input => {
+    input.addEventListener('input', () => {
+        if (input.value) input.classList.add('field-filled');
+        else input.classList.remove('field-filled');
+    });
+});
+</script>
+</body>
+</html>

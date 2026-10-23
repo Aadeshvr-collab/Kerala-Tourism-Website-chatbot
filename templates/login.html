@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--
+  login.html — Login Page
+  ========================
+  Standalone page with glassmorphism design.
+  Shows login form with dummy credential hints.
+  On success: redirects to /dashboard
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — Kerala Tourism AI</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="login-body">
+
+    <!-- Animated background circles -->
+    <div class="login-bg">
+        <div class="bg-circle circle-1"></div>
+        <div class="bg-circle circle-2"></div>
+        <div class="bg-circle circle-3"></div>
+        <div class="bg-circle circle-4"></div>
+    </div>
+
+    <!-- Kerala-themed decorative elements -->
+    <div class="kerala-deco">
+        <span class="deco-item">🌴</span>
+        <span class="deco-item">🌊</span>
+        <span class="deco-item">⛰️</span>
+        <span class="deco-item">🐘</span>
+    </div>
+
+    <!-- ================================================================
+         LOGIN CARD
+    ================================================================ -->
+    <div class="login-container">
+        
+        <!-- Left panel: Welcome branding -->
+        <div class="login-left">
+            <a href="{{ url_for('index') }}" class="back-home-btn">
+                <i class="fas fa-arrow-left"></i> Back to Home
+            </a>
+            
+            <div class="login-brand">
+                <div class="brand-icon">🌴</div>
+                <h1>Kerala<br><em>Tourism AI</em></h1>
+                <p>Your intelligent travel companion to God's Own Country</p>
+            </div>
+
+            <!-- Feature highlights on login left panel -->
+            <div class="login-features">
+                <div class="lf-item">
+                    <i class="fas fa-robot"></i>
+                    <span>AI-powered travel guidance</span>
+                </div>
+                <div class="lf-item">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>Interactive maps & locations</span>
+                </div>
+                <div class="lf-item">
+                    <i class="fas fa-wifi"></i>
+                    <span>Works online & offline</span>
+                </div>
+                <div class="lf-item">
+                    <i class="fas fa-hotel"></i>
+                    <span>Hotel discovery & booking demo</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right panel: Login form -->
+        <div class="login-right">
+            <div class="login-form-wrapper">
+                
+                <div class="login-header">
+                    <h2>Welcome Back! 🙏</h2>
+                    <p>Sign in to start exploring Kerala</p>
+                </div>
+
+                <!-- Error message (shown if login fails) -->
+                {% if error %}
+                <div class="alert alert-error">
+                    <i class="fas fa-exclamation-circle"></i>
+                    {{ error }}
+                </div>
+                {% endif %}
+
+                <!-- Login Form -->
+                <!-- method="POST" sends form data to the same URL (/login) -->
+                <form method="POST" action="{{ url_for('login') }}" class="login-form" id="loginForm">
+                    
+                    <!-- Username field -->
+                    <div class="form-group">
+                        <label for="username">
+                            <i class="fas fa-user"></i> Username
+                        </label>
+                        <input 
+                            type="text" 
+                            id="username" 
+                            name="username" 
+                            placeholder="Enter username"
+                            required
+                            autocomplete="username"
+                        >
+                    </div>
+
+                    <!-- Password field with show/hide toggle -->
+                    <div class="form-group">
+                        <label for="password">
+                            <i class="fas fa-lock"></i> Password
+                        </label>
+                        <div class="password-input-wrapper">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                placeholder="Enter password"
+                                required
+                                autocomplete="current-password"
+                            >
+                            <button type="button" class="toggle-password" onclick="togglePasswordVisibility()">
+                                <i class="fas fa-eye" id="toggleIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Forgot password link -->
+                    <div style="text-align:right; margin-top:-8px; margin-bottom:18px;">
+                        <a href="/forgot-password" style="color:rgba(255,255,255,0.4); font-size:0.8rem; text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='#13a872'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">
+                            <i class="fas fa-key" style="margin-right:4px;"></i>Forgot password?
+                        </a>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn-login" id="loginBtn">
+                        <span class="btn-text">
+                            <i class="fas fa-compass"></i> Enter Kerala
+                        </span>
+                        <span class="btn-loading" style="display:none;">
+                            <i class="fas fa-spinner fa-spin"></i> Logging in...
+                        </span>
+                    </button>
+
+                </form>
+
+                <!-- Register link -->
+                <div style="text-align:center; margin-top:24px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.07);">
+                    <p style="color:rgba(255,255,255,0.45); font-size:0.88rem; margin-bottom:12px;">
+                        Don't have an account yet?
+                    </p>
+                    <a href="/register" style="display:inline-flex; align-items:center; gap:8px; background:linear-gradient(135deg,#0d7a55,#13a872); color:white; padding:11px 28px; border-radius:30px; font-size:0.88rem; font-weight:600; text-decoration:none; transition:all 0.2s;">
+                        <i class="fas fa-user-plus"></i> Create Free Account
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+    /**
+     * Toggle password field between text and password type
+     * So user can see what they're typing
+     */
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById('password');
+        const toggleIcon = document.getElementById('toggleIcon');
+        
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';              // Show password
+            toggleIcon.className = 'fas fa-eye-slash'; // Change icon
+        } else {
+            passwordInput.type = 'password';          // Hide password
+            toggleIcon.className = 'fas fa-eye';       // Restore icon
+        }
+    }
+
+    /**
+     * Auto-fill credentials when user clicks a demo credential row
+     * Makes it easy to test different logins
+     */
+    function fillCredentials(username, password) {
+        document.getElementById('username').value = username;
+        document.getElementById('password').value = password;
+        
+        // Visual feedback: briefly highlight the inputs
+        ['username', 'password'].forEach(id => {
+            const el = document.getElementById(id);
+            el.classList.add('field-filled');
+            setTimeout(() => el.classList.remove('field-filled'), 600);
+        });
+    }
+
+    /**
+     * Show loading state when form is submitted
+     * Gives visual feedback that something is happening
+     */
+    document.getElementById('loginForm').addEventListener('submit', function() {
+        const btn = document.getElementById('loginBtn');
+        btn.querySelector('.btn-text').style.display = 'none';
+        btn.querySelector('.btn-loading').style.display = 'inline';
+        btn.disabled = true;  // Prevent double-click
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!--
+  index.html — Home Page (Landing Page)
+  ========================================
+  Standalone page (does NOT extend base.html)
+  Features:
+  - Full-screen hero with Kerala background
+  - Animated welcome text
+  - Login button that navigates to /login
+  - Feature cards with glassmorphism effect
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala Tourism AI — God's Own Country</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="home-body">
+
+    <!-- ================================================================
+         HERO SECTION — Full screen Kerala background
+    ================================================================ -->
+    <section class="hero-section">
+        
+        <!-- Background image with overlay gradient -->
+        <div class="hero-bg">
+            <!-- Kerala landscape background via CSS gradient + pseudo-element -->
+            <div class="hero-overlay"></div>
+        </div>
+
+        <!-- Floating particles (decorative) -->
+        <div class="particles" id="particles"></div>
+
+        <!-- Navigation -->
+        <nav class="home-nav">
+            <div class="home-nav-logo">
+                <span>🌴</span>
+                <span>Kerala<em>Tourism AI</em></span>
+            </div>
+            <div class="home-nav-links">
+                <a href="{{ url_for('login') }}" class="btn-nav-login">
+                    <i class="fas fa-sign-in-alt"></i> Explore Now
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <!-- Animated badge -->
+            <div class="hero-badge animate-fade-up">
+                <span class="badge-dot"></span>
+                <span>AI-Powered Travel Assistant</span>
+            </div>
+
+            <!-- Main heading with animation -->
+            <h1 class="hero-title animate-fade-up delay-1">
+                Discover<br>
+                <em>God's Own Country</em>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="hero-subtitle animate-fade-up delay-2">
+                Explore Kerala's 590km coastline, misty hill stations, 
+                enchanting backwaters, and rich cultural heritage — 
+                guided by your intelligent AI travel companion.
+            </p>
+
+            <!-- Stats row -->
+            <div class="hero-stats animate-fade-up delay-3">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="14" data-no-plus="true">0</span>
+                    <span class="stat-label">Districts</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="{{ total_places }}">0</span>
+                    <span class="stat-label">Places</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="{{ total_hotels }}">0</span>
+                    <span class="stat-label">Hotels</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="3" data-no-plus="true">0</span>
+                    <span class="stat-label">Travel Plans</span>
+                </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="hero-cta animate-fade-up delay-4">
+                <a href="{{ url_for('login') }}" class="btn-primary-hero">
+                    <i class="fas fa-compass"></i>
+                    Start Exploring
+                </a>
+                <a href="#features" class="btn-secondary-hero">
+                    <i class="fas fa-play-circle"></i>
+                    How It Works
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-dot"></div>
+            <span>Scroll to discover</span>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         FEATURES SECTION
+    ================================================================ -->
+    <section class="features-section" id="features">
+        <div class="container">
+            
+            <div class="section-header">
+                <span class="section-tag">What We Offer</span>
+                <h2>Your Complete Kerala Guide</h2>
+                <p>Everything you need for the perfect Kerala experience</p>
+            </div>
+
+            <!-- Feature cards grid -->
+            <div class="features-grid">
+                
+                <div class="feature-card" data-delay="0">
+                    <div class="feature-icon" style="--icon-color: #3498db;">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Travel Assistant</h3>
+                    <p>Chat with our NLP-powered AI about places, weather, budget, and travel plans. Understands your queries intelligently.</p>
+                    <div class="feature-tag">TF-IDF + Fuzzy NLP</div>
+                </div>
+
+                <div class="feature-card" data-delay="100">
+                    <div class="feature-icon" style="--icon-color: #2ecc71;">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Interactive Maps</h3>
+                    <p>View exact locations with Google Maps online. Falls back to OpenStreetMap offline. Works everywhere!</p>
+                    <div class="feature-tag">Online + Offline</div>
+                </div>
+
+                <div class="feature-card" data-delay="200">
+                    <div class="feature-icon" style="--icon-color: #e74c3c;">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3>Smart Travel Plans</h3>
+                    <p>Choose from Budget, Family, or Luxury packages with detailed day-wise itineraries crafted by experts.</p>
+                    <div class="feature-tag">Budget to Luxury</div>
+                </div>
+
+                <div class="feature-card" data-delay="300">
+                    <div class="feature-icon" style="--icon-color: #f39c12;">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <h3>Hotel Discovery</h3>
+                    <p>Browse 108+ curated hotels — from secret hidden escapes and heritage bungalows to luxury resorts and budget stays across all 14 Kerala districts.</p>
+                    <div class="feature-tag">All Categories</div>
+                </div>
+
+                <div class="feature-card" data-delay="400">
+                    <div class="feature-icon" style="--icon-color: #9b59b6;">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Works Offline Too</h3>
+                    <p>No internet? No problem. The app seamlessly switches to offline mode with cached local data.</p>
+                    <div class="feature-tag">Hybrid System</div>
+                </div>
+
+                <div class="feature-card" data-delay="500">
+                    <div class="feature-icon" style="--icon-color: #1abc9c;">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <h3>14 Districts</h3>
+                    <p>Complete guide to all 14 Kerala districts with {{ total_places }}+ places — including secret hidden gems, famous landmarks, adventure spots and heritage sites.</p>
+                    <div class="feature-tag">Comprehensive Data</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         DISTRICTS SHOWCASE
+    ================================================================ -->
+    <section class="districts-showcase">
+        <div class="container">
+            <div class="section-header light">
+                <span class="section-tag">Explore</span>
+                <h2>Kerala's Magnificent Regions</h2>
+            </div>
+
+            <div class="district-cards-home">
+                <div class="dc-card">
+                    <div class="dc-img" style="background-image: url('/static/images/places/home_munnar.jpg'); background-size: cover; background-position: center;">
+                    </div>
+                    <div class="dc-info">
+                        <h4>Munnar & Idukki</h4>
+                        <p>Tea gardens, misty peaks</p>
+                    </div>
+                </div>
+                <div class="dc-card">
+                    <div class="dc-img" style="background-image: url('/static/images/places/home_alappuzha.jpg'); background-size: cover; background-position: center;">
+                    </div>
+                    <div class="dc-info">
+                        <h4>Alappuzha</h4>
+                        <p>Backwaters & houseboats</p>
+                    </div>
+                </div>
+                <div class="dc-card">
+                    <div class="dc-img" style="background-image: url('/static/images/places/home_fort_kochi.jpg'); background-size: cover; background-position: center;">
+                    </div>
+                    <div class="dc-info">
+                        <h4>Fort Kochi</h4>
+                        <p>Heritage & culture</p>
+                    </div>
+                </div>
+                <div class="dc-card">
+                    <div class="dc-img" style="background-image: url('/static/images/places/home_kovalam.jpg'); background-size: cover; background-position: center;">
+                    </div>
+                    <div class="dc-info">
+                        <h4>Kovalam</h4>
+                        <p>Beaches & Ayurveda</p>
+                    </div>
+                </div>
+                <div class="dc-card">
+                    <div class="dc-img" style="background-image: url('/static/images/places/home_wayanad.jpg'); background-size: cover; background-position: center;">
+                    </div>
+                    <div class="dc-info">
+                        <h4>Wayanad</h4>
+                        <p>Forests & wildlife</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         FINAL CTA SECTION
+    ================================================================ -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-glass-card">
+                <div class="cta-emoji">🌴</div>
+                <h2>Ready to Explore Kerala?</h2>
+                <p>Login to access the full travel guide, AI chatbot, interactive maps, and hotel bookings.</p>
+                <div class="cta-credentials">
+                    <div class="cred-item">
+                        <span class="cred-label">Demo Login:</span>
+                        <code>admin / kerala123</code>
+                    </div>
+                </div>
+                <a href="{{ url_for('login') }}" class="btn-primary-hero large">
+                    <i class="fas fa-compass"></i>
+                    Begin Your Journey
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+         FOOTER
+    ================================================================ -->
+    <footer class="home-footer">
+        <p>🌴 Kerala Tourism AI — Built with Flask, TF-IDF NLP & Glassmorphism Design</p>
+        <p style="font-size: 0.8rem; opacity: 0.6; margin-top: 8px;">For Educational / Final Year Project Use</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    <script>
+    // Counter animation for stats
+    // Runs when page loads — counts up from 0 to target value
+    document.querySelectorAll('.stat-number').forEach(el => {
+        const target = parseInt(el.dataset.target);
+        let current = 0;
+        const step = target / 50;  // 50 animation frames
+        
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            el.textContent = Math.floor(current) + (el.dataset.noPlus ? '' : '+');
+        }, 30);  // Update every 30ms
+    });
+
+    // Create floating particles (decorative background elements)
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        // Random position and animation delay for natural look
+        particle.style.cssText = `
+            left: ${Math.random() * 100}%;
+            top: ${Math.random() * 100}%;
+            animation-delay: ${Math.random() * 4}s;
+            animation-duration: ${4 + Math.random() * 4}s;
+            width: ${4 + Math.random() * 8}px;
+            height: ${4 + Math.random() * 8}px;
+        `;
+        particlesContainer.appendChild(particle);
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+    </script>
+</body>
+</html>

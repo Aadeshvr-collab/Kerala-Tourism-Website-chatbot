@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Districts — Kerala Tourism{% endblock %}
+{% block content %}
+<div class="page-hero">
+    <h1>🗺️ Kerala Districts</h1>
+    <p>14 districts, each with its own unique character, culture and natural beauty</p>
+</div>
+<div class="container">
+    <div class="districts-grid">
+        {% for district in districts %}
+        <a href="{{ url_for('district_detail', district_id=district.id) }}" class="district-card">
+            <div class="district-card-img">
+                {% if district.image %}
+                <img src="{{ district.image }}" alt="{{ district.name }}" class="district-real-img"
+                     onerror="this.onerror=null;this.style.display='none';this.nextElementSibling.style.display='flex';">
+                <div class="district-img-bg" style="display:none; background: linear-gradient(135deg, hsl({{ loop.index * 25 }}, 60%, 25%), hsl({{ loop.index * 25 }}, 60%, 50%));">
+                    <span class="district-emoji">🌴</span>
+                </div>
+                {% else %}
+                <div class="district-img-bg" style="background: linear-gradient(135deg, hsl({{ loop.index * 25 }}, 60%, 25%), hsl({{ loop.index * 25 }}, 60%, 50%));">
+                    <span class="district-emoji">
+                        {% set emojis = ['🌴','🏖️','⛰️','🚤','🐘','🏛️','🌊','🌿','🏔️','🎭','🦅','🌸','🍛','🎪'] %}
+                        {{ emojis[loop.index0 % 14] }}
+                    </span>
+                </div>
+                {% endif %}
+            </div>
+            <div class="district-card-body">
+                <h3>{{ district.name }}</h3>
+                <p>{{ district.description }}</p>
+                <div class="district-meta">
+                    <span><i class="fas fa-map-pin"></i> {{ district.places|length }} places</span>
+                    <span class="explore-btn">Explore <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
